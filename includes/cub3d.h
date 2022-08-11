@@ -14,8 +14,6 @@ typedef struct	s_game
 
 
 
-
-
 }				t_game;
 
 typedef struct	s_map
@@ -29,17 +27,17 @@ typedef struct	s_map
 }				t_map;
 
 
-
-//read_map
+//read_map.c
 char	**read_map(char *path_to_file);
 
-//valid_map
+//valid_map.c
 int		is_valid_map(char **map, char *file);
 
-//map_check
-int		has_valid_walls(char **map, t_map *valid_map);
+//map_check.c
+int		has_valid_walls(char **map, t_map *mp);
 int		has_valid_chars(char **map);
 int		has_minimum_chars(char **map, t_map *mp);
+int		has_valid_extension(char *file);
 
 
 
