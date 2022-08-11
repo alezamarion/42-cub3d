@@ -18,8 +18,29 @@ typedef struct	s_game
 
 }				t_game;
 
+typedef struct	s_map
+{
+	int		map_row_size;
+	int		map_col_size;
+	int		player;
+	int		exit
+	int		collectible;
+	int		space;
+}				t_map;
+
+
+
 //read_map
 char	**read_map(char *path_to_file);
+
+//valid_map
+int		is_valid_map(char **map, char *file);
+
+//map_check
+int		has_valid_walls(char **map, t_map *valid_map);
+int		has_valid_chars(char **map);
+int		has_minimum_chars(char **map, t_map *mp);
+
 
 
 
