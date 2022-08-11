@@ -8,4 +8,20 @@
 # include "../libraries/mlx_linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
+typedef struct	s_game
+{
+	char	**map;
+
+
+
+
+
+}				t_game;
+
+//read_map
+char	**read_map(char *path_to_file);
+
+
+
+
 #endif
