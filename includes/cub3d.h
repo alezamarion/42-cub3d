@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include "../libraries/mlx_linux/mlx.h"
+# include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
 typedef struct	s_game
@@ -21,7 +21,7 @@ typedef struct	s_map
 	int		map_row_size;
 	int		map_col_size;
 	int		player;
-	int		exit
+	int		exit;
 	int		collectible;
 	int		space;
 }				t_map;
@@ -39,6 +39,8 @@ int		has_valid_chars(char **map);
 int		has_minimum_chars(char **map, t_map *mp);
 int		has_valid_extension(char *file);
 
+//gnl
+char	*get_next_line(int fd);
 
 
 

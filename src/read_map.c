@@ -6,11 +6,11 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:54:20 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/11 22:21:42 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/12 03:55:02 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
 char	**read_map(char *path_to_file)
 {
@@ -18,10 +18,10 @@ char	**read_map(char *path_to_file)
 	char	*line;
 	char	*buffer;
 	char	*tmp;
-	char	**map
+	char	**map;
 
 	fd = open(path_to_file, O_RDONLY);
-	if (fd = -1)
+	if (fd == -1)
 		return (NULL);
 	buffer = ft_strdup("");
 	while (1)

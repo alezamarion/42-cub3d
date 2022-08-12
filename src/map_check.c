@@ -6,16 +6,16 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/11 23:41:52 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/12 03:55:35 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
 int	has_valid_walls(char **map, t_map *mp)
 {
 	int	i;
-	int	j:
+	int	j;
 
 	while (map[mp->map_col_size])
 		mp->map_col_size++;
@@ -41,7 +41,7 @@ int	has_valid_walls(char **map, t_map *mp)
 int	has_valid_chars(char **map)
 {
 	int	i;
-	int	j:
+	int	j;
 	
 	i = 0;
 	while (map[i])
@@ -64,7 +64,7 @@ int	has_minimum_chars(char **map, t_map *mp)
 	int	i;
 	int	j;
 	
-	i = 0
+	i = 0;
 	while (map[i])
 	{
 		j = 0;
