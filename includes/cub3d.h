@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include "../libraries/mlx-linux/mlx.h"
+//# include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
 typedef struct	s_game

@@ -6,62 +6,58 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/08/12 03:45:35 by azamario         ###   ########.fr        #
+#    Updated: 2022/08/13 03:55:29 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME	=	cub3d
+INCL	=	./include
+SRC		=	src/cube3d.c src/get_next_line.c \
+			src/map_check.c src/read_map.c src/validate_map
+OBJ		=	./obj
 
-LIBFT_DIR = libraries/libft
+# Compiler, Linker Defines
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address #-lpthread
+RM		=	rm -rf
+
+# libft
+LIBFT_DIR = ./libraries/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-#MLX_DIR = libraries/mlx_linux
-#MLX = $(MLX_DIR)/libmlx.a
+all:	libfilo bin
 
-RM = rm -rf
+libfilo:
+	$(CC) -c src/get_next_line.c -I $(INCL) -o $(OBJ)/get_next_line.o
+	$(CC) -c src/map_check.c -I $(INCL) -o $(OBJ)/map_check.o
+	$(CC) -c src/read_map.c -I $(INCL) -o $(OBJ)/read_map.o
+	$(CC) -c src/validate_map.c -I $(INCL) -o $(OBJ)/validate_map.o
 
-#IMG_DIR = assets/img
-SRC_DIR = src
-OBJ_DIR = obj
-
-INCLUDE_DIR = includes
-HEADERS = $(INCLUDE_DIR)/cub3d.h
-
-SRC_FILES = cub3d.c map_check.c read_map.c validate_map.c get_next_line.c
-
-SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-
-CC = clang
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
-LIBFLAGS = -lft -lXext -lX11 -lmlx -lm
-
-all: $(NAME)
-
-$(NAME): $(OBJ_DIR) $(LIBFT) $(OBJ)
-	$(CC) $(OBJ) -L$(LIBFT_DIR) -o $@
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
-	$(CC) $(CFLAGS) -c -I$(INCLUDE_DIR) -o $@ $<
-
-$(LIBFT):
-	make -C $(LIBFT_DIR)
-
-$(OBJ_DIR):
-	mkdir $(OBJ_DIR)
-
-run:
-	./so_long "assets/maps/map.ber"
-
-clean:
-	$(RM) $(OBJ)
-	
-fclean: clean
-	make -C $(LIBFT_DIR) fclean
-	$(RM) $(NAME)
-
-re: fclean all
-
-.PHONY: clean fclean all re
+bin:
+	$(CC) src/cub3d.c $(OBJ)/*.o -I$(INCL) -L$(LIBFT) -o cub3d
 
 
+# Compile and Assemble C Source Files into Object Files
+
+
+# Link all Object Files with external Libraries into Binaries
+
+
+# Clean Up Objects, Exectuables, Dumps out of source directory
+clean: 
+	$(RM) $(OBJ)/*.o philosophers
+
+re: clean all
+
+.PHONY: all clean fclean re bonus
+
+#make --debug=b
+
+#$@ relaciona-se com o alvo e $^ relaciona-se com todos pŕe-requisitos.
+
+#target	:	prerequisites
+#	recipe
+# target: nome da ação que deseja executar ou usualmente o nome do arquivo que se queira produzir
+# prerequisitos são os arquivos que são usados como input para criar o target
+# receita é a ação que o comando make realiza - o TAB antes da receita é interpretado pelo make como 
+#	indicação de começo de comando a ser executado
