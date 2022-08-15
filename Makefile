@@ -6,58 +6,47 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/08/13 03:55:29 by azamario         ###   ########.fr        #
+#    Updated: 2022/08/15 20:37:49 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	cub3d
-INCL	=	./include
-SRC		=	src/cube3d.c src/get_next_line.c \
-			src/map_check.c src/read_map.c src/validate_map
-OBJ		=	./obj
+SOURCES_FILES	=	cub3d.c
+SOURCES_FILES	+=	get_next_line.c map_check.c read_map.c validate_map.c
 
-# Compiler, Linker Defines
-CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address #-lpthread
-RM		=	rm -rf
+SOURCES_DIR		=	src
 
-# libft
-LIBFT_DIR = ./libraries/libft
-LIBFT = $(LIBFT_DIR)/libft.a
+OBJ_DIR			=	obj
 
-all:	libfilo bin
+HEADER			=	$(SOURCES_DIR)/cub3d.h
 
-libfilo:
-	$(CC) -c src/get_next_line.c -I $(INCL) -o $(OBJ)/get_next_line.o
-	$(CC) -c src/map_check.c -I $(INCL) -o $(OBJ)/map_check.o
-	$(CC) -c src/read_map.c -I $(INCL) -o $(OBJ)/read_map.o
-	$(CC) -c src/validate_map.c -I $(INCL) -o $(OBJ)/validate_map.o
+SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SOURCES_FILES))
 
-bin:
-	$(CC) src/cub3d.c $(OBJ)/*.o -I$(INCL) -L$(LIBFT) -o cub3d
+OBJECTS			=	$(SOURCES:$(SOURCES_DIR)/%.c=$(OBJ_DIR)/%.o)
 
+NAME			=	cub3d
 
-# Compile and Assemble C Source Files into Object Files
+CC				=	clang
+RM				=	rm -rf
 
+CFLAGS			=	-Wall -Wextra -Werror -g  -fsanitize=thread 
 
-# Link all Object Files with external Libraries into Binaries
+$(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.c $(HEADER)
+					$(CC) $(CFLAGS) -c $< -o $@
 
+all:				$(NAME)
 
-# Clean Up Objects, Exectuables, Dumps out of source directory
-clean: 
-	$(RM) $(OBJ)/*.o philosophers
+$(NAME):			$(OBJ_DIR) $(OBJECTS) $(HEADER)
+					$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $(NAME)
 
-re: clean all
+$(OBJ_DIR):
+					mkdir -p $(OBJ_DIR)
 
-.PHONY: all clean fclean re bonus
+clean:
+					$(RM) $(OBJ_DIR)
 
-#make --debug=b
+fclean:				clean
+					$(RM) $(NAME)
 
-#$@ relaciona-se com o alvo e $^ relaciona-se com todos pŕe-requisitos.
+re:					fclean all
 
-#target	:	prerequisites
-#	recipe
-# target: nome da ação que deseja executar ou usualmente o nome do arquivo que se queira produzir
-# prerequisitos são os arquivos que são usados como input para criar o target
-# receita é a ação que o comando make realiza - o TAB antes da receita é interpretado pelo make como 
-#	indicação de começo de comando a ser executado
+.PHONY:				all clean fclean re bonus
