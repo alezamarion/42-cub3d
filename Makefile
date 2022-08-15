@@ -6,47 +6,60 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/08/15 20:37:49 by azamario         ###   ########.fr        #
+#    Updated: 2022/08/15 21:10:00 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES_FILES	=	cub3d.c
-SOURCES_FILES	+=	get_next_line.c map_check.c read_map.c validate_map.c
+NAME		=	cub3d
 
-SOURCES_DIR		=	src
+CC			=	clang
 
-OBJ_DIR			=	obj
+LIB			=	./libraries/libft/libft.a
 
-HEADER			=	$(SOURCES_DIR)/cub3d.h
+FLAGS		=	-Wall -Werror -Wextra -g -fsanitize=address
+INC			=	-I ./inc -I ./libft
 
-SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SOURCES_FILES))
+SRC_DIR		=	./src
+OBJ_DIR		=	./obj
 
-OBJECTS			=	$(SOURCES:$(SOURCES_DIR)/%.c=$(OBJ_DIR)/%.o)
+FILES	=	cub3d.c
+FILES	+=	get_next_line.c map_check.c read_map.c validate_map.c
 
-NAME			=	cub3d
+SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))
+OBJ			=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
 
-CC				=	clang
-RM				=	rm -rf
+all:		$(NAME)
 
-CFLAGS			=	-Wall -Wextra -Werror -g  -fsanitize=thread 
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
-$(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.c $(HEADER)
-					$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):	$(LIB) $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) $(LIB) $(INC) -o $(NAME)
+	@echo "Game created!"
 
-all:				$(NAME)
+$(LIB):
+	make -C libraries/libft
 
-$(NAME):			$(OBJ_DIR) $(OBJECTS) $(HEADER)
-					$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $(NAME)
-
-$(OBJ_DIR):
-					mkdir -p $(OBJ_DIR)
+run:
+	./cub3d "assets/maps/map.ber"
 
 clean:
-					$(RM) $(OBJ_DIR)
+	@make -C ./libraries/libft clean
+	@rm -fr obj
+	@echo "Objects files deleted."
 
-fclean:				clean
-					$(RM) $(NAME)
+fclean:		clean
+	@rm -f $(NAME)
+	@make -C ./libft fclean
+	@echo "Executable deleted."
 
-re:					fclean all
+bonus:		$(NAME)
 
-.PHONY:				all clean fclean re bonus
+norm:
+	norminette src inc libft
+
+re:			fclean all
+
+.PHONY: all, clean, fclean, bonus, re
+

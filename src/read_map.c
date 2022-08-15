@@ -6,11 +6,11 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:54:20 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/15 20:38:28 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/15 21:08:44 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 char	**read_map(char *path_to_file)
 {

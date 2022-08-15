@@ -6,11 +6,11 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 18:22:32 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/15 20:38:33 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/15 21:08:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 static char	*extract_line(char **buffer_backup)
 {
