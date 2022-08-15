@@ -42,6 +42,8 @@ int		has_valid_extension(char *file);
 //gnl
 char	*get_next_line(int fd);
 
+//exit_game.c
+void	free_map(char **map);
 
 
 

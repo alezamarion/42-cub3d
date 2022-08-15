@@ -6,7 +6,7 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/08/15 21:10:00 by azamario         ###   ########.fr        #
+#    Updated: 2022/08/15 22:02:40 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_DIR		=	./src
 OBJ_DIR		=	./obj
 
 FILES	=	cub3d.c
-FILES	+=	get_next_line.c map_check.c read_map.c validate_map.c
+FILES	+=	get_next_line.c map_check.c read_map.c validate_map.c exit_game.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
@@ -50,8 +50,8 @@ clean:
 	@echo "Objects files deleted."
 
 fclean:		clean
-	@rm -f $(NAME)
-	@make -C ./libft fclean
+	@rm -f $(NAME) $(LIB)
+#	@make -C ./libft fclean
 	@echo "Executable deleted."
 
 bonus:		$(NAME)
