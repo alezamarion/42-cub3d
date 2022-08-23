@@ -6,7 +6,7 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/08/15 22:02:40 by azamario         ###   ########.fr        #
+#    Updated: 2022/08/23 17:43:54 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(LIB):
 	make -C libraries/libft
 
 run:
-	./cub3d "assets/maps/map.ber"
+	./cub3d "assets/maps/mandatory.cub"
 
 clean:
 	@make -C ./libraries/libft clean

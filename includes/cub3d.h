@@ -21,7 +21,6 @@ typedef struct	s_map
 	int		map_row_size;
 	int		map_col_size;
 	int		player;
-	int		exit;
 	int		collectible;
 	int		space;
 }				t_map;

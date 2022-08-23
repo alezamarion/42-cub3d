@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/15 21:08:37 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/23 17:54:24 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ int	has_valid_chars(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'P'
-			&& map[i][j] != 'C' && map[i][j] != 'E')
+			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'N')
 				return (0);
 			j++;
 		}
@@ -70,16 +69,11 @@ int	has_minimum_chars(char **map, t_map *mp)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'P')
+			if (map[i][j] == 'N')
 				mp->player++;
-			if (map[i][j] == 'C')
-				mp->collectible++;
-			if (map[i][j] == 'E')
-				mp->exit++;
 			if (map[i][j] == '0')
 				mp->space++;
-			if (mp->collectible > 0 && mp->exit > 0
-				&& mp->player > 0 && mp->space > 0)
+			if (mp->player > 0 && mp->space > 0)
 				return (1);
 			j++;
 		}
@@ -95,7 +89,7 @@ int	has_valid_extension(char *file)
 	if (!file)
 		return (0);
 	extension = ft_strrchr(file, '.');
-	if (ft_strncmp(extension,  ".ber", 5))
+	if (ft_strncmp(extension,  ".cub", 5))
 		return (0);
 	return (1);	
 }
