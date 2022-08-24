@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:40:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/24 21:41:17 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:00:27 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int	main(int argc, char **argv)
 		{
 			printf("Map is valid\n");
 			init_game(&game);
-			free_map(game.map);		
 		}
 		else
 		{
 			printf("Map is not valid\n");
-			free_map(game.map);					
+			free_map(game.map);
+			exit (0);					
 		}
 	}
 	else
