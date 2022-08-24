@@ -6,7 +6,7 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/08/23 18:18:52 by azamario         ###   ########.fr        #
+#    Updated: 2022/08/24 21:26:12 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,26 +19,27 @@ MLX			=	./libraries/mlx-linux/libmlx_Linux.a
 
 FLAGS		=	-Wall -Werror -Wextra -g -fsanitize=address
 LINKS		=	-lbsd -lX11 -lXext
-INC			=	-I ./inc -I ./libft -I./mlx-linux
+INC			=	-I ./includes -I ./libft -I ./mlx-linux
 
 SRC_DIR		=	./src
 OBJ_DIR		=	./obj
 
-FILES	=	cub3d.c
-FILES	+=	get_next_line.c map_check.c read_map.c validate_map.c exit_game.c
+FILES		=	cub3d.c
+FILES		+=	exit_game.c get_next_line.c init_game.c init_image.c init_window.c map_check.c    
+FILES		+=	read_map.c validate_map.c map_utils.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
 
 all:		$(NAME)
 
+$(NAME):	$(LIB) $(OBJ) $(MLX)
+	@$(CC) $(FLAGS) $(OBJ) $(LIB) $(MLX) $(LINKS) $(INC) -o $(NAME)
+	@echo "Game created!"
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
-
-$(NAME):	$(LIB) $(OBJ) $(MLX)
-	@$(CC) $(FLAGS) $(OBJ) $(LIB) $(LINKS) $(INC) -o $(NAME)
-	@echo "Game created!"
 
 $(LIB):
 	make -C libraries/libft
@@ -54,12 +55,11 @@ run:
 clean:
 	@make -C ./libraries/libft clean
 	@make -C ./libraries/mlx-linux clean
-	@rm -fr obj
+	@rm -rf obj
 	@echo "Objects files deleted."
 
 fclean:		clean
 	@rm -f $(NAME) $(LIB) $(MLX)
-#	@make -C ./libft fclean
 	@echo "Executable deleted."
 
 bonus:		$(NAME)

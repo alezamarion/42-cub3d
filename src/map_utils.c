@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 21:40:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/24 21:41:17 by azamario         ###   ########.fr       */
+/*   Created: 2022/08/24 20:20:20 by azamario          #+#    #+#             */
+/*   Updated: 2022/08/24 20:20:56 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	main(int argc, char **argv)
+void	map_counter(char **map, t_game *game)
 {
-	t_game	game;
+	int	i;
 
-	if (argc == 2)
+	i = 0;
+	game->window_height = 0;
+	while (map[i])
 	{
-		game.map = read_map(argv[1]);
-		if (is_valid_map(game.map, argv[1]))
-		{
-			printf("Map is valid\n");
-			init_game(&game);
-			free_map(game.map);		
-		}
-		else
-		{
-			printf("Map is not valid\n");
-			free_map(game.map);					
-		}
+		game->window_height++;
+		i++;
 	}
-	else
+	game->window_width = ft_strlen(*map);
+}
+
+void	print_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	printf("\n------------- Mapa: ------------\n");
+	while (map[i])
 	{
-		printf("No map specified\n");
-		exit (0);	
+		printf("%s\n", map[i]);
+		i++;
 	}
-	return (0);
+	printf("\n");
 }
