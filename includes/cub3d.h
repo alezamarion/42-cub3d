@@ -9,7 +9,8 @@
 # include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
-# define SPRITE_SIZE 32
+# define WINDOW_WIDTH 1024
+# define WINDOW_HEIGHT 512
 
 # define FILE_WALL "textures/bart_wall.xpm"
 # define FILE_EMPTY "textures/bart_space.xpm"
@@ -85,5 +86,9 @@ void	init_window(t_game *game);
 //map_utils.c
 void	map_counter(char **map, t_game *game);
 void	print_map(char **map);
+
+//map_render.c
+void	map_render(char **map, t_game *game);
+
 
 #endif
