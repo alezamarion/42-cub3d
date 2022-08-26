@@ -1,0 +1,655 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+ 
+# Built for x86_64-pc-linux-gnu
+ 
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+ 
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri Aug 26 13:23:06 2022
+
+# Variables
+
+# makefile (from 'Makefile', line 32)
+OBJ = $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 31)
+SRC = $(addprefix $(SRC_DIR)/, $(FILES))
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
+# environment
+SNAP_INSTANCE_KEY = 
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# makefile (from 'Makefile', line 24)
+SRC_DIR = ./src
+# environment
+LC_NAME = pt_BR.UTF-8
+# environment
+LC_NUMERIC = pt_BR.UTF-8
+# environment
+VSCODE_CWD = /home/ubuntu
+# environment
+LC_ADDRESS = pt_BR.UTF-8
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+SNAP_INSTANCE_NAME = code
+# makefile (from 'Makefile', line 25)
+OBJ_DIR = ./obj
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/105/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/ubuntu/Documents/42-cub3d
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/ubuntu/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
+# environment
+LANG = C
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.ZEFKR1
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/ubuntu/Documents/42-cub3d
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# environment
+SNAP_REEXEC = 
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 23407
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+# makefile (from 'Makefile', line 20)
+FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+# environment
+SESSION_MANAGER = local/ubuntu-VirtualBox:@/tmp/.ICE-unix/1585,unix/ubuntu-VirtualBox:/tmp/.ICE-unix/1585
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# makefile (from 'Makefile', line 17)
+LIB = ./libraries/libft/libft.a
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SHLVL = 0
+# environment
+MAKELEVEL := 0
+# environment
+IM_CONFIG_CHECK_ENV = 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+SNAP_COOKIE = yVbORVXU62g4MfIaBWEf-E3VaOz3H06taNDG9s0OGbceiEtuaEMI
+# environment
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+# default
+MAKEFILES := 
+# environment
+LC_MONETARY = pt_BR.UTF-8
+# automatic
+^F = $(notdir $^)
+# environment
+SNAP_USER_COMMON = /home/ubuntu/snap/code/common
+# environment
+LC_TIME = pt_BR.UTF-8
+# environment
+SNAP = /snap/code/105
+# environment
+INVOCATION_ID = 2777893773db4355be14a470da054c7a
+# environment
+SNAP_REVISION = 105
+# environment
+SNAP_REAL_HOME = /home/ubuntu
+# environment
+USERNAME = ubuntu
+# makefile (from 'Makefile', line 29)
+FILES = cub3d.c exit_game.c get_next_line.c init_game.c init_image.c init_window.c map_check.c     read_map.c validate_map.c map_utils.c
+# environment
+GNOME_SETUP_DISPLAY = :1
+# makefile (from 'Makefile', line 18)
+MLX = ./libraries/mlx-linux/libmlx_Linux.a
+# environment
+LC_TELEPHONE = pt_BR.UTF-8
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 22)
+INC = -I ./includes -I ./libft -I ./mlx-linux
+# makefile (from 'Makefile', line 13)
+NAME = cub3d
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# environment
+LS_COLORS = 
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = ubuntu
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+SNAP_ARCH = amd64
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 1618
+# environment
+DISPLAY = :0
+# environment
+USER = ubuntu
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+DISABLE_WAYLAND = 1
+# environment
+SNAP_DATA = /var/snap/code/105
+# environment
+SNAP_CONTEXT = yVbORVXU62g4MfIaBWEf-E3VaOz3H06taNDG9s0OGbceiEtuaEMI
+# environment
+MANAGERPID = 1378
+# environment
+LC_MEASUREMENT = pt_BR.UTF-8
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 23371
+# environment
+_ = /snap/code/105/usr/share/code/code
+# environment
+LC_PAPER = pt_BR.UTF-8
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/ubuntu/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+LC_CTYPE = pt_BR.UTF-8
+# environment
+JOURNAL_STREAM = 8:22874
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/ubuntu
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-9415da10-1.70.2-main.sock
+# environment
+SNAP_NAME = code
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/105/usr/share/glib-2.0/schemas
+# environment
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# environment
+SNAP_VERSION = e4503b30
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+SNAP_COMMON = /var/snap/code/common
+# makefile (from 'Makefile', line 21)
+LINKS = -lbsd -lX11 -lXext
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 15)
+CC = clang
+# environment
+SNAP_USER_DATA = /home/ubuntu/snap/code/105
+# environment
+ 
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = ubuntu
+# environment
+LC_IDENTIFICATION = pt_BR.UTF-8
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# variable set hash-table stats:
+# Load=139/1024=14%, Rehash=0, Collisions=8/188=4%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src (device 2051, inode 794006): 12 files, no impossibilities so far.
+# . (device 2051, inode 793809): 12 files, no impossibilities.
+
+# 24 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+obj/%.o: src/%.c
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+ 
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+obj/cub3d.o: src/cub3d.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'cub3d'
+#  Last modified 2022-08-26 13:05:44.141034312
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+obj/read_map.o: src/read_map.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'read_map'
+#  Last modified 2022-08-26 13:09:31.215670928
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+# Not a target:
+src/read_map.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:42:00.746403651
+#  File has been updated.
+#  Successfully updated.
+
+obj/map_check.o: src/map_check.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'map_check'
+#  Last modified 2022-08-26 13:09:31.051656031
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+# Not a target:
+src/get_next_line.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:42:00.746403651
+#  File has been updated.
+#  Successfully updated.
+
+bonus,:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+obj/exit_game.o: src/exit_game.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'exit_game'
+#  Last modified 2022-08-26 13:05:44.265073131
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+all,:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+src/init_game.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 13:10:41.25756973
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 13:10:53.526525246
+#  File has been updated.
+#  Successfully updated.
+
+obj/init_game.o: src/init_game.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'init_game'
+#  Last modified 2022-08-26 13:10:56.582760415
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+bonus: cub3d
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/map_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:42:00.746403651
+#  File has been updated.
+#  Successfully updated.
+ 
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 56):
+	@make -C ./libraries/libft clean
+	@make -C ./libraries/mlx-linux clean
+	@rm -rf obj
+	@echo "Objects files deleted."
+
+cub3d: libraries/libft/libft.a obj/cub3d.o obj/exit_game.o obj/get_next_line.o obj/init_game.o obj/init_image.o obj/init_window.o obj/map_check.o obj/read_map.o obj/validate_map.o obj/map_utils.o libraries/mlx-linux/libmlx_Linux.a
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  recipe to execute (from 'Makefile', line 37):
+	@$(CC) $(FLAGS) $(OBJ) $(LIB) $(MLX) $(LINKS) $(INC) -o $(NAME)
+	@echo "Game created!"
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+src/init_window.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:42:00.746403651
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/init_image.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:42:00.746403651
+#  File has been updated.
+#  Successfully updated.
+
+clean,:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+obj/map_utils.o: src/map_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'map_utils'
+#  Last modified 2022-08-26 13:09:31.527699268
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+libraries/mlx-linux/libmlx_Linux.a:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := libraries/mlx-linux/libmlx_Linux.a
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 48):
+	@echo "Compiling Mlx [ .. ]"
+	@make -C libraries/mlx-linux
+	@echo "Mlx is ready! [ OK ]"
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: cub3d
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+
+fclean: clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 62):
+	@rm -f $(NAME) $(LIB) $(MLX)
+	@echo "Executable deleted."
+
+obj/get_next_line.o: src/get_next_line.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'get_next_line'
+#  Last modified 2022-08-26 13:05:44.417120717
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 53):
+	./cub3d "assets/maps/mandatory.cub"
+
+libraries/libft/libft.a:
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-26 12:57:49.851291165
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 45):
+	make -C libraries/libft
+
+# Not a target:
+src/exit_game.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:42:00.746403651
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/cub3d.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 13:05:39.723604487
+#  File has been updated.
+#  Successfully updated.
+
+obj/init_image.o: src/init_image.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'init_image'
+#  Last modified 2022-08-26 13:09:30.707624716
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+# Not a target:
+src/validate_map.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:42:00.746403651
+#  File has been updated.
+#  Successfully updated.
+
+obj/validate_map.o: src/validate_map.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'validate_map'
+#  Last modified 2022-08-26 13:09:31.387686551
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+norm:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	norminette src inc libft
+
+# Not a target:
+src/map_check.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:42:00.746403651
+#  File has been updated.
+#  Successfully updated.
+
+fclean,:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all, clean, fclean, bonus, re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/init_window.o: src/init_window.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'init_window'
+#  Last modified 2022-08-26 13:09:30.867639286
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 41):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+# files hash-table stats:
+# Load=38/1024=4%, Rehash=0, Collisions=0/105=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 72 / storage = 835 B / avg = 11 B
+# current buf: size = 8162 B / used = 835 B / count = 72 / avg = 11 B
+
+# strcache performance: lookups = 111 / hit rate = 35%
+# hash-table stats:
+# Load=72/8192=1%, Rehash=0, Collisions=0/111=0%
+# Finished Make data base on Fri Aug 26 13:23:06 2022
+
+ 

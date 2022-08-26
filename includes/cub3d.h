@@ -8,6 +8,10 @@
 # include <string.h>
 # include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
+# include <X11/keysymdef.h>
+# include <X11/X.h>
+
+# define XK_MISCELLANY
 
 # define WINDOW_WIDTH 1024
 # define WINDOW_HEIGHT 512
@@ -86,9 +90,6 @@ void	init_window(t_game *game);
 //map_utils.c
 void	map_counter(char **map, t_game *game);
 void	print_map(char **map);
-
-//map_render.c
-void	map_render(char **map, t_game *game);
 
 
 #endif
