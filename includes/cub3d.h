@@ -13,6 +13,17 @@
 
 # define XK_MISCELLANY
 
+# define X_EVENT_KEY_PRESS 2
+# define X_EVENT_DESTROY_NOTIFY 17
+# define KEY_W 199
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEU_UP 65362
+# define KEY_LEFT 65631
+# define KEY_DOWN 65364
+# define KEY_RIGHT 65363
+
 # define WINDOW_WIDTH 1024
 # define WINDOW_HEIGHT 512
 
