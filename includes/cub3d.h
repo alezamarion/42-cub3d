@@ -8,10 +8,10 @@
 # include <string.h>
 # include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
+
+# define XK_MISCELLANY //porque esse define vem antes das libs abaixo?
 # include <X11/keysymdef.h>
 # include <X11/X.h>
-
-# define XK_MISCELLANY
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17
@@ -19,7 +19,7 @@
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
-# define KEU_UP 65362
+# define KEY_UP 65362
 # define KEY_LEFT 65631
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
@@ -101,6 +101,23 @@ void	init_window(t_game *game);
 //map_utils.c
 void	map_counter(char **map, t_game *game);
 void	print_map(char **map);
+
+//event_handler
+void    event_handler(t_game *game);
+
+//game_utils.c
+int 	key_press(int keycode, t_game *game);
+
+//exit_game.c
+int 	exit_game(t_game *game);
+void    free_map(char **map);
+
+//player_update.c
+void    player_update(int keycode, t_game *game);
+
+//move_player.c
+void    handle_situation(t_game *game, int x, int y);
+
 
 
 #endif

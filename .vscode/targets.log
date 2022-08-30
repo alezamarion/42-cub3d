@@ -6,20 +6,21 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
  
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 26 13:23:06 2022
+# Make data base, printed on Mon Aug 29 22:23:02 2022
 
 # Variables
 
-# makefile (from 'Makefile', line 32)
+# makefile (from 'Makefile', line 33)
 OBJ = $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
 # environment
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
-# makefile (from 'Makefile', line 31)
+# makefile (from 'Makefile', line 32)
 SRC = $(addprefix $(SRC_DIR)/, $(FILES))
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
@@ -106,7 +107,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 23407
+VSCODE_PID = 38959
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -173,8 +174,8 @@ SNAP_REVISION = 105
 SNAP_REAL_HOME = /home/ubuntu
 # environment
 USERNAME = ubuntu
-# makefile (from 'Makefile', line 29)
-FILES = cub3d.c exit_game.c get_next_line.c init_game.c init_image.c init_window.c map_check.c     read_map.c validate_map.c map_utils.c
+# makefile (from 'Makefile', line 30)
+FILES = cub3d.c exit_game.c get_next_line.c init_game.c init_image.c init_window.c map_check.c     read_map.c validate_map.c map_utils.c event_handler.c game_utils.c player_update.c move_player.c
 # environment
 GNOME_SETUP_DISPLAY = :1
 # makefile (from 'Makefile', line 18)
@@ -230,7 +231,7 @@ MANAGERPID = 1378
 # environment
 LC_MEASUREMENT = pt_BR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 23371
+GIO_LAUNCHED_DESKTOP_FILE_PID = 38924
 # environment
 _ = /snap/code/105/usr/share/code/code
 # environment
@@ -293,7 +294,7 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=139/1024=14%, Rehash=0, Collisions=8/188=4%
+# Load=139/1024=14%, Rehash=0, Collisions=8/187=4%
 
 # Pattern-specific Variable Values
 
@@ -301,39 +302,38 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# src (device 2051, inode 794006): 12 files, no impossibilities so far.
-# . (device 2051, inode 793809): 12 files, no impossibilities.
+# src (device 2051, inode 794006): 17 files, no impossibilities so far.
+# . (device 2051, inode 793809): 13 files, no impossibilities.
 
-# 24 files, no impossibilities in 2 directories.
+# 30 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 obj/%.o: src/%.c
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
- 
 # 1 implicit rules, 0 (0.0%) terminal.
 # Files
 
 obj/cub3d.o: src/cub3d.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'cub3d'
-#  Last modified 2022-08-26 13:05:44.141034312
+#  Last modified 2022-08-29 21:56:44.019810092
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
 obj/read_map.o: src/read_map.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'read_map'
-#  Last modified 2022-08-26 13:09:31.215670928
+#  Last modified 2022-08-26 14:47:25.758567402
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
@@ -347,10 +347,20 @@ src/read_map.c:
 obj/map_check.o: src/map_check.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'map_check'
-#  Last modified 2022-08-26 13:09:31.051656031
+#  Last modified 2022-08-26 14:47:25.578560349
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+obj/game_utils.o: src/game_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game_utils'
+#  Last modified 2022-08-29 22:21:33.117759949
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
@@ -367,13 +377,20 @@ bonus,:
 #  File does not exist.
 #  File has not been updated.
 
+# Not a target:
+src/player_update.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 21:54:19.374791541
+#  File has been updated.
+#  Successfully updated.
+
 obj/exit_game.o: src/exit_game.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'exit_game'
-#  Last modified 2022-08-26 13:05:44.265073131
+#  Last modified 2022-08-29 21:56:44.195820557
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
@@ -386,24 +403,24 @@ all,:
 # Not a target:
 src/init_game.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-26 13:10:41.25756973
+#  Last modified 2022-08-26 14:36:30.12177079
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-26 13:10:53.526525246
+#  Last modified 2022-08-29 22:22:47.588909654
 #  File has been updated.
 #  Successfully updated.
 
 obj/init_game.o: src/init_game.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'init_game'
-#  Last modified 2022-08-26 13:10:56.582760415
+#  Last modified 2022-08-26 14:47:25.010538094
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
@@ -418,26 +435,24 @@ src/map_utils.c:
 #  Last modified 2022-08-25 22:42:00.746403651
 #  File has been updated.
 #  Successfully updated.
- 
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 56):
+#  recipe to execute (from 'Makefile', line 57):
 	@make -C ./libraries/libft clean
 	@make -C ./libraries/mlx-linux clean
 	@rm -rf obj
 	@echo "Objects files deleted."
 
-cub3d: libraries/libft/libft.a obj/cub3d.o obj/exit_game.o obj/get_next_line.o obj/init_game.o obj/init_image.o obj/init_window.o obj/map_check.o obj/read_map.o obj/validate_map.o obj/map_utils.o libraries/mlx-linux/libmlx_Linux.a
+cub3d: libraries/libft/libft.a obj/cub3d.o obj/exit_game.o obj/get_next_line.o obj/init_game.o obj/init_image.o obj/init_window.o obj/map_check.o obj/read_map.o obj/validate_map.o obj/map_utils.o obj/event_handler.o obj/game_utils.o obj/player_update.o obj/move_player.o libraries/mlx-linux/libmlx_Linux.a
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-08-29 22:22:51.733086492
+ 
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
-#  recipe to execute (from 'Makefile', line 37):
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 38):
 	@$(CC) $(FLAGS) $(OBJ) $(LIB) $(MLX) $(LINKS) $(INC) -o $(NAME)
 	@echo "Game created!"
 
@@ -446,6 +461,13 @@ re: fclean all
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
+
+# Not a target:
+src/game_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 22:10:17.90539806
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/init_window.c:
@@ -470,38 +492,19 @@ clean,:
 obj/map_utils.o: src/map_utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'map_utils'
-#  Last modified 2022-08-26 13:09:31.527699268
+#  Last modified 2022-08-26 14:47:26.146582607
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
 libraries/mlx-linux/libmlx_Linux.a:
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Last modified 2022-08-26 14:47:33.386867021
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := libraries/mlx-linux/libmlx_Linux.a
-# automatic
-# * := 
-# automatic
-# < := 
-# automatic
-# + := 
-# automatic
-# % := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
-#  recipe to execute (from 'Makefile', line 48):
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 49):
 	@echo "Compiling Mlx [ .. ]"
 	@make -C libraries/mlx-linux
 	@echo "Mlx is ready! [ OK ]"
@@ -517,25 +520,24 @@ all: cub3d
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  Successfully updated.
 
 fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 62):
+#  recipe to execute (from 'Makefile', line 63):
 	@rm -f $(NAME) $(LIB) $(MLX)
 	@echo "Executable deleted."
+ 
 
 obj/get_next_line.o: src/get_next_line.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'get_next_line'
-#  Last modified 2022-08-26 13:05:44.417120717
+#  Last modified 2022-08-26 14:47:24.862532298
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
@@ -543,40 +545,47 @@ run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 53):
+#  recipe to execute (from 'Makefile', line 54):
 	./cub3d "assets/maps/mandatory.cub"
 
 libraries/libft/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-26 12:57:49.851291165
+#  Last modified 2022-08-26 14:47:24.27850943
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 45):
+#  recipe to execute (from 'Makefile', line 46):
 	make -C libraries/libft
 
 # Not a target:
 src/exit_game.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 22:42:00.746403651
+#  Last modified 2022-08-29 21:41:10.909703501
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/cub3d.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-26 13:05:39.723604487
+#  Last modified 2022-08-26 15:15:15.438492366
 #  File has been updated.
 #  Successfully updated.
 
 obj/init_image.o: src/init_image.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'init_image'
-#  Last modified 2022-08-26 13:09:30.707624716
+#  Last modified 2022-08-26 14:47:25.19854546
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+# Not a target:
+src/event_handler.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 12:59:07.777311071
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/validate_map.c:
@@ -588,19 +597,36 @@ src/validate_map.c:
 obj/validate_map.o: src/validate_map.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'validate_map'
-#  Last modified 2022-08-26 13:09:31.387686551
+#  Last modified 2022-08-26 14:47:25.954575081
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+# Not a target:
+src/move_player.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 22:21:29.473607262
+#  File has been updated.
+#  Successfully updated.
 
 norm:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 68):
+#  recipe to execute (from 'Makefile', line 69):
 	norminette src inc libft
+
+obj/move_player.o: src/move_player.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'move_player'
+#  Last modified 2022-08-29 22:22:03.459036594
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 42):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
 # Not a target:
 src/map_check.c:
@@ -615,12 +641,6 @@ fclean,:
 #  File does not exist.
 #  File has not been updated.
 
-# Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 .PHONY: all, clean, fclean, bonus, re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -629,27 +649,47 @@ fclean,:
 obj/init_window.o: src/init_window.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'init_window'
-#  Last modified 2022-08-26 13:09:30.867639286
+#  Last modified 2022-08-26 14:47:25.394553139
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+obj/event_handler.o: src/event_handler.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'event_handler'
+#  Last modified 2022-08-29 21:56:44.451835778
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 42):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+obj/player_update.o: src/player_update.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'player_update'
+#  Last modified 2022-08-29 22:22:50.909051317
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
 # files hash-table stats:
-# Load=38/1024=4%, Rehash=0, Collisions=0/105=0%
+# Load=46/1024=4%, Rehash=0, Collisions=0/128=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 72 / storage = 835 B / avg = 11 B
-# current buf: size = 8162 B / used = 835 B / count = 72 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 89 / storage = 1108 B / avg = 12 B
+# current buf: size = 8162 B / used = 1108 B / count = 89 / avg = 12 B
 
-# strcache performance: lookups = 111 / hit rate = 35%
+# strcache performance: lookups = 132 / hit rate = 32%
 # hash-table stats:
-# Load=72/8192=1%, Rehash=0, Collisions=0/111=0%
-# Finished Make data base on Fri Aug 26 13:23:06 2022
+# Load=89/8192=1%, Rehash=0, Collisions=0/132=0%
+# Finished Make data base on Mon Aug 29 22:23:02 2022
 
  

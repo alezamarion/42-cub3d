@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/26 14:36:30 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/29 22:42:06 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	initialize_rendering(t_game *game)
 	init_window(game);
 	initialize_image(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->player_right, 300, 300);
+	//map_render
 }
 
 void	init_game(t_game *game)
