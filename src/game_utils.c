@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handler.c                                    :+:      :+:    :+:   */
+/*   game_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/29 12:59:07 by azamario         ###   ########.fr       */
+/*   Created: 2022/08/29 12:59:35 by azamario          #+#    #+#             */
+/*   Updated: 2022/08/29 21:43:29 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void    event_handler(t_game *game)
+int key_press(int keycode, t_game *game)
 {
-    mlx_hook(game->window, X_EVENT_KEY_PRESS, 1l << 0, &key_press, game);
+    if (keycode == XK_Escape)
+        exit_game(game);
+    if (game->end_game)
+        return (0);
+    player_update(keycode, game);
+    
 }
