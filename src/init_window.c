@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:09:54 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/25 22:22:37 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:43:37 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	init_window(t_game *game)
 {
-	game->window = mlx_new_window(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "CUB3D");
+	game->window = mlx_new_window(game->mlx, game->window_width * SPRITE_SIZE,
+									game->window_height* SPRITE_SIZE, "CUB3D");
 }

@@ -1,7 +1,12 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/ubuntu/Documents/42-cub3d'
  
-make: Nothing to be done for 'all'.
+mkdir -p obj
  
+clang -Wall -Werror -Wextra -g -fsanitize=address -I ./includes -I ./libft -I ./mlx-linux -c src/map_render.c -o obj/map_render.o
+mkdir -p obj
+clang -Wall -Werror -Wextra -g -fsanitize=address -I ./includes -I ./libft -I ./mlx-linux -c src/hook_player.c -o obj/hook_player.o
+clang -Wall -Werror -Wextra -g -fsanitize=address ./obj/cub3d.o ./obj/exit_game.o ./obj/get_next_line.o ./obj/init_game.o ./obj/init_image.o ./obj/init_window.o ./obj/map_check.o ./obj/read_map.o ./obj/validate_map.o ./obj/map_utils.o ./obj/event_handler.o ./obj/game_utils.o ./obj/player_update.o ./obj/move_player.o ./obj/map_render.o ./obj/hook_player.o ./libraries/libft/libft.a ./libraries/mlx-linux/libmlx_Linux.a -lbsd -lX11 -lXext -I ./includes -I ./libft -I ./mlx-linux -o cub3d
+echo "Game created!"
 make: Leaving directory '/home/ubuntu/Documents/42-cub3d'
  

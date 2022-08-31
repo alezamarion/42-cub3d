@@ -20,7 +20,7 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_UP 65362
-# define KEY_LEFT 65631
+# define KEY_LEFT 65361
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
@@ -36,6 +36,7 @@
 # define FILE_PLAYER_L "textures/bart_left.xpm"
 # define FILE_PLAYER_R "textures/bart_right.xpm"
 
+# define SPRITE_SIZE 32
 
 typedef struct	s_game
 {
@@ -118,6 +119,12 @@ void    player_update(int keycode, t_game *game);
 //move_player.c
 void    handle_situation(t_game *game, int x, int y);
 
+//map_render.c
+void	map_render(char **map, t_game *game);
+void    draw_image(t_game *game, void *image, int x, int y);
+
+//hook_player.c
+void	hook_player(t_game *game, int i, int j);
 
 
 #endif

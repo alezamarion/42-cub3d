@@ -1,16 +1,12 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.3
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug 29 22:23:02 2022
+# Make data base, printed on Wed Aug 31 16:19:28 2022
 
 # Variables
 
@@ -175,7 +171,7 @@ SNAP_REAL_HOME = /home/ubuntu
 # environment
 USERNAME = ubuntu
 # makefile (from 'Makefile', line 30)
-FILES = cub3d.c exit_game.c get_next_line.c init_game.c init_image.c init_window.c map_check.c     read_map.c validate_map.c map_utils.c event_handler.c game_utils.c player_update.c move_player.c
+FILES = cub3d.c exit_game.c get_next_line.c init_game.c init_image.c init_window.c map_check.c     read_map.c validate_map.c map_utils.c event_handler.c game_utils.c player_update.c move_player.c map_render.c hook_player.c
 # environment
 GNOME_SETUP_DISPLAY = :1
 # makefile (from 'Makefile', line 18)
@@ -281,11 +277,11 @@ LINKS = -lbsd -lX11 -lXext
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # makefile (from 'Makefile', line 15)
+ 
 CC = clang
 # environment
 SNAP_USER_DATA = /home/ubuntu/snap/code/105
 # environment
- 
 XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
@@ -294,7 +290,7 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=139/1024=14%, Rehash=0, Collisions=8/187=4%
+# Load=139/1024=14%, Rehash=0, Collisions=8/193=4%
 
 # Pattern-specific Variable Values
 
@@ -302,10 +298,10 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# src (device 2051, inode 794006): 17 files, no impossibilities so far.
+# src (device 2051, inode 794006): 18 files, no impossibilities so far.
 # . (device 2051, inode 793809): 13 files, no impossibilities.
 
-# 30 files, no impossibilities in 2 directories.
+# 31 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -333,6 +329,34 @@ obj/read_map.o: src/read_map.c
 #  Last modified 2022-08-26 14:47:25.758567402
 #  File has been updated.
 #  Successfully updated.
+#  recipe to execute (from 'Makefile', line 42):
+	@mkdir -p obj
+	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+obj/map_render.o: src/map_render.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'map_render'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/map_render.o
+# automatic
+# * := map_render
+# automatic
+# < := src/map_render.c
+# automatic
+# + := src/map_render.c
+# automatic
+# % := 
+# automatic
+# ^ := src/map_render.c
+# automatic
+# ? := src/map_render.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=3/16=19%
 #  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
@@ -403,21 +427,21 @@ all,:
 # Not a target:
 src/init_game.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-26 14:36:30.12177079
+#  Last modified 2022-08-31 16:11:29.931893272
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-29 22:22:47.588909654
+#  Last modified 2022-08-31 16:19:24.412488081
 #  File has been updated.
 #  Successfully updated.
 
 obj/init_game.o: src/init_game.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'init_game'
-#  Last modified 2022-08-26 14:47:25.010538094
+#  Last modified 2022-08-31 16:15:01.033766029
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 42):
@@ -446,12 +470,13 @@ clean:
 	@rm -rf obj
 	@echo "Objects files deleted."
 
-cub3d: libraries/libft/libft.a obj/cub3d.o obj/exit_game.o obj/get_next_line.o obj/init_game.o obj/init_image.o obj/init_window.o obj/map_check.o obj/read_map.o obj/validate_map.o obj/map_utils.o obj/event_handler.o obj/game_utils.o obj/player_update.o obj/move_player.o libraries/mlx-linux/libmlx_Linux.a
+cub3d: libraries/libft/libft.a obj/cub3d.o obj/exit_game.o obj/get_next_line.o obj/init_game.o obj/init_image.o obj/init_window.o obj/map_check.o obj/read_map.o obj/validate_map.o obj/map_utils.o obj/event_handler.o obj/game_utils.o obj/player_update.o obj/move_player.o obj/map_render.o obj/hook_player.o libraries/mlx-linux/libmlx_Linux.a
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-29 22:22:51.733086492
- 
+#  Last modified 2022-08-29 23:12:10.230426769
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 #  recipe to execute (from 'Makefile', line 38):
 	@$(CC) $(FLAGS) $(OBJ) $(LIB) $(MLX) $(LINKS) $(INC) -o $(NAME)
 	@echo "Game created!"
@@ -501,9 +526,8 @@ obj/map_utils.o: src/map_utils.c
 
 libraries/mlx-linux/libmlx_Linux.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-26 14:47:33.386867021
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 49):
 	@echo "Compiling Mlx [ .. ]"
 	@make -C libraries/mlx-linux
@@ -520,7 +544,9 @@ all: cub3d
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 
 fclean: clean
 #  Implicit rule search has not been done.
@@ -529,8 +555,8 @@ fclean: clean
 #  recipe to execute (from 'Makefile', line 63):
 	@rm -f $(NAME) $(LIB) $(MLX)
 	@echo "Executable deleted."
- 
 
+ 
 obj/get_next_line.o: src/get_next_line.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'get_next_line'
@@ -547,6 +573,13 @@ run:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 54):
 	./cub3d "assets/maps/mandatory.cub"
+
+# Not a target:
+src/map_render.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-31 16:16:49.019321975
+#  File has been updated.
+#  Successfully updated.
 
 libraries/libft/libft.a:
 #  Implicit rule search has not been done.
@@ -607,7 +640,7 @@ obj/validate_map.o: src/validate_map.c
 # Not a target:
 src/move_player.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-29 22:21:29.473607262
+#  Last modified 2022-08-29 22:35:10.038218357
 #  File has been updated.
 #  Successfully updated.
 
@@ -621,12 +654,18 @@ norm:
 obj/move_player.o: src/move_player.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'move_player'
-#  Last modified 2022-08-29 22:22:03.459036594
+#  Last modified 2022-08-29 22:35:34.155334057
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 42):
 	@mkdir -p obj
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
+
+# Not a target:
+obj/hook_player.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/map_check.c:
@@ -677,19 +716,19 @@ obj/player_update.o: src/player_update.c
 	$(CC) $(FLAGS) $(INC) -c $< -o $@
 
 # files hash-table stats:
-# Load=46/1024=4%, Rehash=0, Collisions=0/128=0%
+# Load=49/1024=5%, Rehash=0, Collisions=0/136=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 89 / storage = 1108 B / avg = 12 B
-# current buf: size = 8162 B / used = 1108 B / count = 89 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 94 / storage = 1185 B / avg = 12 B
+# current buf: size = 8162 B / used = 1185 B / count = 94 / avg = 12 B
 
-# strcache performance: lookups = 132 / hit rate = 32%
+# strcache performance: lookups = 138 / hit rate = 31%
 # hash-table stats:
-# Load=89/8192=1%, Rehash=0, Collisions=0/132=0%
-# Finished Make data base on Mon Aug 29 22:23:02 2022
+# Load=94/8192=1%, Rehash=0, Collisions=0/138=0%
+# Finished Make data base on Wed Aug 31 16:19:28 2022
 
  

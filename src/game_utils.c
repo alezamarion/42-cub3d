@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:59:35 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/29 22:10:17 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:27:31 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int key_press(int keycode, t_game *game)
     if (game->end_game)
         return (0);
     player_update(keycode, game);
+    map_render(game->map, game);
     return (0);
 }

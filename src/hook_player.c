@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handler.c                                    :+:      :+:    :+:   */
+/*   hook_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/31 16:21:27 by azamario         ###   ########.fr       */
+/*   Created: 2022/08/31 16:18:09 by azamario          #+#    #+#             */
+/*   Updated: 2022/08/31 16:20:04 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void    event_handler(t_game *game)
+void	hook_player(t_game *game, int i, int j)
 {
-    mlx_hook(game->window, X_EVENT_KEY_PRESS, 1L << 0, &key_press, game);
+	draw_image(game, game->player_right, i, j);
+	if (game->player_direction == 'u')
+		draw_image(game, game->player_up, i, j);
+	if (game->player_direction == 'd')
+		draw_image(game, game->player_down, i, j);
+	if (game->player_direction == 'l')
+		draw_image(game, game->player_left, i, j);
+	if (game->player_direction == 'r')
+		draw_image(game, game->player_right, i, j);
+	game->x = i;
+	game->y = j;
 }

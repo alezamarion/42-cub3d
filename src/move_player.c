@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 22:10:03 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/29 22:35:10 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:23:27 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void    handle_space(t_game *game, int x, int y)
 
 	i = game->x;
 	j = game->y;
-	swap_positions(&game->map[i][j], &game->map[x][y], 'P', '0');
+	swap_positions(&game->map[i][j], &game->map[x][y], 'N', '0');
 	game->moves++;
 	game->x = x;
 	game->y = y;
