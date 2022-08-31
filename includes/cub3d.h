@@ -59,6 +59,9 @@ typedef struct	s_game
 	int		moves;
 	int		player_direction;
 	int		end_game;
+	float	player_delta_x;
+	float	player_delta_y;
+	float	player_angle;
 
 }				t_game;
 

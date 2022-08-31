@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 22:10:03 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/31 16:23:27 by azamario         ###   ########.fr       */
+/*   Updated: 2022/08/31 17:34:41 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ void    handle_situation(t_game *game, int x, int y)
         if (game->map[x][y] == '0')
             handle_space(game, x, y);
     }
+}
+
+void    handle_angle(t_game *game, int x, int y)
+{
+    
 }
