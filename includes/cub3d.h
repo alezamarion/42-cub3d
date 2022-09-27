@@ -13,6 +13,15 @@
 # include <X11/keysymdef.h>
 # include <X11/X.h>
 
+//do novo repo:
+# define KEY_ESC 53
+# define TILE_SIZE 32
+# define WIDTH 
+# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
+
+
+
+
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17
 # define KEY_W 199
@@ -41,7 +50,7 @@
 typedef struct	s_game
 {
 	void	*mlx;
-	void	*image;
+//	void	*image;
 	void	*window;
 	void	*wall;
 	void	*empty_space;
@@ -63,6 +72,9 @@ typedef struct	s_game
 	float	player_delta_y;
 	float	player_angle;
 
+	t_image	image;		//do novo repo
+	t_map	map;
+
 }				t_game;
 
 typedef struct	s_map
@@ -74,6 +86,17 @@ typedef struct	s_map
 	int		space;
 }				t_map;
 
+
+//do novo repo:
+typedef struct s_image
+{
+	void 	*image;
+	int		*data;
+	int		size_l;
+	int		bits_per_pixel;
+	int		endian;
+
+}				t_image;
 
 //read_map.c
 char	**read_map(char *path_to_file);
@@ -129,5 +152,7 @@ void    draw_image(t_game *game, void *image, int x, int y);
 //hook_player.c
 void	hook_player(t_game *game, int i, int j);
 
+//main_loop.c
+int		main_loop(t_game *game)
 
 #endif

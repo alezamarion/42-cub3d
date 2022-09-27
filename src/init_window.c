@@ -14,6 +14,6 @@
 
 void	init_window(t_game *game)
 {
-	game->window = mlx_new_window(game->mlx, game->window_width * SPRITE_SIZE,
-									game->window_height* SPRITE_SIZE, "CUB3D");
+	game->window = mlx_new_window(game->mlx, game->window_width * TILE_SIZE,
+									game->window_height* TILE_SIZE, "CUB3D");
 }

@@ -23,7 +23,8 @@ int	main(int argc, char **argv)
 		{
 			init_game(&game);
 			event_handler(&game);
-			mlx_loop(game.mlx);
+			mlx_loop_hook(game.mlx, &main_loop, &game); //do novo repo
+			mlx_loop_(game.mlx);
 		}
 		else
 		{
