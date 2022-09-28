@@ -12,15 +12,15 @@
 
 #include "../includes/cub3d.h"
 
-int	has_valid_walls(char **map, t_map *mp)
+int	has_valid_walls(char **map, t_game *game)
 {
 	int	i;
 	int	j;
 
-	while (map[mp->map_col_size])
-		mp->map_col_size++;
-	mp->map_col_size--;
-	mp->map_row_size = ft_strlen(*map) - 1;
+	while (map[game->map_attributes.map_col_size])
+		game->map_attributes.map_col_size++;
+	game->map_attributes.map_col_size--;
+	game->map_attributes.map_row_size = ft_strlen(*map) - 1;
 	i = 0;
 	while (map[i])
 	{
@@ -28,8 +28,8 @@ int	has_valid_walls(char **map, t_map *mp)
 		while (map[i][j])
 		{
 			if (map[0][j] != '1' ||
-				map[i][0] != '1' || map[i][mp->map_row_size] != '1'
-				|| map[mp->map_col_size][j] != '1')
+				map[i][0] != '1' || map[i][game->map_attributes.map_row_size] != '1'
+				|| map[game->map_attributes.map_col_size][j] != '1')
 				return (0);
 			j++;
 		}
@@ -58,7 +58,7 @@ int	has_valid_chars(char **map)
 	return (1);
 }
 
-int	has_minimum_chars(char **map, t_map *mp)
+int	has_minimum_chars(char **map, t_game *game)
 {
 	int	i;
 	int	j;
@@ -70,10 +70,10 @@ int	has_minimum_chars(char **map, t_map *mp)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'N')
-				mp->player++;
+				game->map_attributes.player++;
 			if (map[i][j] == '0')
-				mp->space++;
-			if (mp->player > 0 && mp->space > 0)
+				game->map_attributes.space++;
+			if (game->map_attributes.player > 0 && game->map_attributes.space > 0)
 				return (1);
 			j++;
 		}

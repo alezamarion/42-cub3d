@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:40:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/26 15:15:15 by azamario         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:25:25 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		game.map = read_map(argv[1]);
-		if (is_valid_map(game.map, argv[1]))
+		if (is_valid_map(game.map, argv[1], &game))
 		{
 			init_game(&game);
 			event_handler(&game);
 			mlx_loop_hook(game.mlx, &main_loop, &game); //do novo repo
-			mlx_loop_(game.mlx);
+			mlx_loop(game.mlx);
 		}
 		else
 		{

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_loop.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
+/*   Updated: 2022/09/28 17:39:41 by azamario         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 //Draw the line by DDA algorithm
@@ -26,19 +38,19 @@ void 	draw_lines(t_game *game)
 	int		j;
 
 	i = 0;
-	while (i < COLS)
+	while (i < game->window_width)
 	{
-		draw_line(game, i * TILE_SIZE, 0, i * TILE_SIZE, HEIGHT);
+		draw_line(game, i * TILE_SIZE, 0, i * TILE_SIZE, game->window_height);
 		i++;
 	}
-	draw_line(game, COLS * TILE_SIZE - 1, 0, COLS * TILE_SIZE - 1, HEIGHT);
+	draw_line(game, game->window_width * TILE_SIZE - 1, 0, game->window_width * TILE_SIZE - 1, game->window_height);
 	j = 0;
-	while (j < ROWS)
+	while (j < game->window_height)
 	{
-		draw_line(game, 0, j * TILE_SIZE, WIDTH, j * TILE_SIZE);
+		draw_line(game, 0, j * TILE_SIZE, game->window_width * TILE_SIZE, j * TILE_SIZE);
 		j++;
 	}
-	draw_line(game, 0, ROWS * TILE_SIZE - 1, WIDTH, ROWS * TILE_SIZE - 1);
+	draw_line(game, 0, game->window_height * TILE_SIZE - 1, game->window_width * TILE_SIZE, game->window_height * TILE_SIZE - 1);
 }
 
 void	draw_rectangle(t_game *game, int x, int y)
@@ -67,10 +79,10 @@ void	draw_rectangles(t_game *game)
 	int		j;
 
 	i = 0;
-	while (i < ROWS)
+	while (i < game->window_height)
 	{
 		j = 0;
-		while (j < COLS)
+		while (j < game->window_width)
 		{
 			if (game->map[i][j] == 1)
 				draw_rectangle(game, j, i);
