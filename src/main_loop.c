@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/09/28 22:01:19 by azamario         ###   ########.fr       */
+/*   Updated: 2022/09/29 12:56:37 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void	draw_line(t_game *game, double x1, double y1, double x2, double y2)
 	deltaY /= step;
 	while (fabs(x2 - x1) > 0.01 || fabs(y2 - y1) > 0.01)
 	{
-		//the mystery is here
-		game->image.data[((int)floor(y1) * (game->map_attributes.map_col_size * TILE_SIZE) * (int)floor(x1))] = 0xb3b3b3;
+		game->image.data[((int)floor(y1) * (game->map_attributes.map_row_size * TILE_SIZE) + (int)floor(x1))] = 0xb3b3b3;
 		x1 += deltaX;
 		y1 += deltaY;
 	}
@@ -48,10 +47,10 @@ void 	draw_lines(t_game *game)
 	j = 0;
 	while (j < game->map_attributes.map_row_size)
 	{
-		draw_line(game, 0, j * TILE_SIZE, game->map_attributes.map_row_size * TILE_SIZE, j * TILE_SIZE);
+		draw_line(game, 0, j * TILE_SIZE, game->map_attributes.map_col_size * TILE_SIZE, j * TILE_SIZE);
 		j++;
 	}
-	draw_line(game, 0, game->map_attributes.map_row_size * TILE_SIZE - 1, game->map_attributes.map_row_size * TILE_SIZE, game->map_attributes.map_row_size * TILE_SIZE - 1);
+	draw_line(game, 0, game->map_attributes.map_row_size * TILE_SIZE - 1, game->map_attributes.map_col_size * TILE_SIZE, game->map_attributes.map_row_size * TILE_SIZE - 1);
 }
 
 void	draw_rectangle(t_game *game, int x, int y)
@@ -67,7 +66,7 @@ void	draw_rectangle(t_game *game, int x, int y)
 		j = 0;
 		while (j < TILE_SIZE)
 		{
-			game->image.data[(y  + i) * game->map_attributes.map_col_size * TILE_SIZE + x + j] = 0xFFFFFF;
+			game->image.data[(y  + i) * (game->map_attributes.map_col_size * TILE_SIZE) + x + j] = 0xFFFFFF;
 			j++;
 		}
 		i++;

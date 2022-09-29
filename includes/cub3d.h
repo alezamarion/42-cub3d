@@ -14,38 +14,20 @@
 # include <X11/keysymdef.h>
 # include <X11/X.h>
 
-//do novo repo:
+//----------------------------- do novo repo:
+
 # define KEY_ESC 53
-# define TILE_SIZE 32
-
-
-
-
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_KEY_EXIT 17
+
+# define TILE_SIZE 32
+
+//-----------------------------
+
 # define X_EVENT_DESTROY_NOTIFY 17
-# define KEY_W 199
-# define KEY_A 97
-# define KEY_S 115
-# define KEY_D 100
-# define KEY_UP 65362
-# define KEY_LEFT 65361
-# define KEY_DOWN 65364
-# define KEY_RIGHT 65363
 
 # define WINDOW_WIDTH 1024
 # define WINDOW_HEIGHT 512
-
-# define FILE_WALL "textures/bart_wall.xpm"
-# define FILE_EMPTY "textures/bart_space.xpm"
-# define FILE_COLLECTIBLE "textures/bart_collectible.xpm"
-# define FILE_EXIT "textures/bart_exit.xpm"
-# define FILE_PLAYER_U "textures/bart_up.xpm"
-# define FILE_PLAYER_D "textures/bart_down.xpm"
-# define FILE_PLAYER_L "textures/bart_left.xpm"
-# define FILE_PLAYER_R "textures/bart_right.xpm"
-
-# define SPRITE_SIZE 32
 
 typedef struct	s_map
 {
@@ -64,7 +46,7 @@ typedef struct s_image
 	//You don't need to understand the 3 values below.
 	//After declaration, it will be automatically initialized when passed to mlx_new_data_add function
 	int		size_l;
-	int		bits_per_pixel;
+	int		bpp;
 	int		endian;
 
 }				t_image;
