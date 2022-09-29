@@ -17,7 +17,6 @@
 //do novo repo:
 # define KEY_ESC 53
 # define TILE_SIZE 32
-# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
 
 
 

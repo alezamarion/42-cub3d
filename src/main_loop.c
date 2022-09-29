@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/09/28 17:39:41 by azamario         ###   ########.fr       */
+/*   Updated: 2022/09/28 21:30:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	draw_line(t_game *game, double x1, double y1, double x2, double y2)
 	deltaY /= step;
 	while (fabs(x2 - x1) > 0.01 || fabs(y2 - y1) > 0.01)
 	{
-		game->image.data[TO_COORD(x1, y1)] = 0xb3b3b3;
+		game->image.data[((int)floor(y1) * (game->map_attributes.map_col_size * TILE_SIZE) * (int)floor(x1))] = 0xb3b3b3;
 		x1 += deltaX;
 		y1 += deltaY;
 	}
@@ -38,19 +38,19 @@ void 	draw_lines(t_game *game)
 	int		j;
 
 	i = 0;
-	while (i < game->window_width)
+	while (i < game->map_attributes.map_col_size)
 	{
-		draw_line(game, i * TILE_SIZE, 0, i * TILE_SIZE, game->window_height);
+		draw_line(game, i * TILE_SIZE, 0, i * TILE_SIZE, game->map_attributes.map_row_size * TILE_SIZE);
 		i++;
 	}
-	draw_line(game, game->window_width * TILE_SIZE - 1, 0, game->window_width * TILE_SIZE - 1, game->window_height);
+	draw_line(game, game->map_attributes.map_col_size * TILE_SIZE - 1, 0, game->map_attributes.map_col_size * TILE_SIZE - 1, game->map_attributes.map_row_size * TILE_SIZE);
 	j = 0;
-	while (j < game->window_height)
+	while (j < game->map_attributes.map_row_size)
 	{
-		draw_line(game, 0, j * TILE_SIZE, game->window_width * TILE_SIZE, j * TILE_SIZE);
+		draw_line(game, 0, j * TILE_SIZE, game->map_attributes.map_row_size * TILE_SIZE, j * TILE_SIZE);
 		j++;
 	}
-	draw_line(game, 0, game->window_height * TILE_SIZE - 1, game->window_width * TILE_SIZE, game->window_height * TILE_SIZE - 1);
+	draw_line(game, 0, game->map_attributes.map_row_size * TILE_SIZE - 1, game->map_attributes.map_row_size * TILE_SIZE, game->map_attributes.map_row_size * TILE_SIZE - 1);
 }
 
 void	draw_rectangle(t_game *game, int x, int y)
@@ -66,7 +66,7 @@ void	draw_rectangle(t_game *game, int x, int y)
 		j = 0;
 		while (j < TILE_SIZE)
 		{
-			game->image.data[(y  + i) * WIDTH + x + j] = 0xFFFFFF;
+			game->image.data[(y  + i) * game->map_attributes.map_col_size * TILE_SIZE + x + j] = 0xFFFFFF;
 			j++;
 		}
 		i++;
@@ -79,10 +79,10 @@ void	draw_rectangles(t_game *game)
 	int		j;
 
 	i = 0;
-	while (i < game->window_height)
+	while (i < game->map_attributes.map_row_size)
 	{
 		j = 0;
-		while (j < game->window_width)
+		while (j < game->map_attributes.map_col_size)
 		{
 			if (game->map[i][j] == 1)
 				draw_rectangle(game, j, i);
@@ -92,10 +92,8 @@ void	draw_rectangles(t_game *game)
 	}
 }
 
-
 int		main_loop(t_game *game)
 {
-
 	draw_rectangles(game);
 	draw_lines(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->image.image, 0, 0);

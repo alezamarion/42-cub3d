@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/31 16:11:29 by azamario         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:01:26 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	initialize_rendering(t_game *game)
 {
 	init_window(game);
 	initialize_image(game);
-	map_render(game->map, game);
 }
 
 void	init_game(t_game *game)
