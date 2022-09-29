@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/09/28 21:30:47 by azamario         ###   ########.fr       */
+/*   Updated: 2022/09/28 21:51:42 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	draw_line(t_game *game, double x1, double y1, double x2, double y2)
 	deltaY /= step;
 	while (fabs(x2 - x1) > 0.01 || fabs(y2 - y1) > 0.01)
 	{
+		//the mystery is here :D
 		game->image.data[((int)floor(y1) * (game->map_attributes.map_col_size * TILE_SIZE) * (int)floor(x1))] = 0xb3b3b3;
 		x1 += deltaX;
 		y1 += deltaY;
