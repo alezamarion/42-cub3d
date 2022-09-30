@@ -21,6 +21,12 @@
 # define X_EVENT_KEY_EXIT 17
 
 # define TILE_SIZE 32
+# define ROWS 16
+# define COLS 39
+# define WIDTH COLS * TILE_SIZE
+# define HEIGHT ROWS * TILE_SIZE
+
+# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
 
 //-----------------------------
 
@@ -39,9 +45,9 @@ typedef struct	s_map
 
 
 //do novo repo:
-typedef struct s_image
+typedef struct s_img
 {
-	void 	*image;
+	void 	*img;
 	int		*data;
 	//You don't need to understand the 3 values below.
 	//After declaration, it will be automatically initialized when passed to mlx_new_data_add function
@@ -49,7 +55,7 @@ typedef struct s_image
 	int		bpp;
 	int		endian;
 
-}				t_image;
+}				t_img;
 
 typedef struct	s_game
 {
@@ -67,7 +73,7 @@ typedef struct	s_game
 	int		window_width;
 	int		window_height;
 
-	t_image	image;		//do novo repo
+	t_img	img;		//do novo repo
 	t_map	map_attributes;
 
 }				t_game;
