@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/09/28 21:22:43 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/03 08:22:55 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	has_valid_walls(char **map, t_game *game)
 	int	i;
 	int	j;
 
-	while (map[game->map_attributes.map_row_size])
-		game->map_attributes.map_row_size++;
-	game->map_attributes.map_row_size--;
-	game->map_attributes.map_col_size = ft_strlen(*map) - 1;
+	while (map[game->map_attributes.row])
+		game->map_attributes.row++;
+	game->map_attributes.row--;
+	game->map_attributes.col = ft_strlen(*map) - 1;
 	i = 0;
 	while (map[i])
 	{
@@ -28,14 +28,14 @@ int	has_valid_walls(char **map, t_game *game)
 		while (map[i][j])
 		{
 			if (map[0][j] != '1' ||
-				map[i][0] != '1' || map[i][game->map_attributes.map_col_size] != '1'
-				|| map[game->map_attributes.map_row_size][j] != '1')
+				map[i][0] != '1' || map[i][game->map_attributes.col] != '1'
+				|| map[game->map_attributes.row][j] != '1')
 				return (0);
 			j++;
 		}
 		i++;
 	}
-	printf("col_size: %d\nrow_size: %d\n\n", game->map_attributes.map_col_size, game->map_attributes.map_row_size);
+	printf("col_size: %d\nrow_size: %d\n\n", game->map_attributes.col, game->map_attributes.row);
 	return (1);	
 }
 

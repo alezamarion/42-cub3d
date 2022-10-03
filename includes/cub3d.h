@@ -37,8 +37,8 @@
 
 typedef struct	s_map
 {
-	int		map_row_size;
-	int		map_col_size;
+	int		row;
+	int		col;
 	int		player;
 	int		space;
 }				t_map;
