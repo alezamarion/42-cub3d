@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/04 22:08:08 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:36:10 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	draw_rectangles(t_game *game)
 				draw_rectangle(game, j, i);
 			j++;
 		}
+		printf("valor do j: %d", j);
 		i++;
 	}
 }

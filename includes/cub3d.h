@@ -21,8 +21,8 @@
 # define X_EVENT_KEY_EXIT 17
 
 # define TILE_SIZE 32
-# define ROWS 16
-# define COLS 39
+# define ROWS 11
+# define COLS 15
 # define WIDTH COLS * TILE_SIZE
 # define HEIGHT ROWS * TILE_SIZE
 
