@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_map.c                                     :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/05 12:08:32 by azamario         ###   ########.fr       */
+/*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
+/*   Updated: 2022/10/05 13:01:19 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	map_check_init(t_game *game)
+void	map_counter(char **map, t_game *game)
 {
-	game->map_attributes.player = 0;
-	game->map_attributes.space = 0;
+	int	i;
+
+	i = 0;
 	game->map_attributes.row = 0;
 	game->map_attributes.col = 0;
-}
-
-int	is_valid_map(char **map, char *file, t_game *game)
-{
-	if (!map)
-		return (0);
-	map_check_init(game);
-	if (has_valid_walls(map, game) && has_valid_chars(map)
-		&& has_minimum_chars(map, game) && has_valid_extension(file))
+	while (map[i])
 	{
-		printf("Map is valid\n");
-		return (1);		
+		game->map_attributes.row++;
+		i++;
 	}
-	return (0);
+	game->map_attributes.col = ft_strlen(*map);
 }

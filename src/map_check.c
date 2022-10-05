@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/05 10:25:59 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:01:52 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	has_valid_walls(char **map, t_game *game)
 	while (map[game->map_attributes.row])
 		game->map_attributes.row++;
 	game->map_attributes.row--;
-	game->map_attributes.col = ft_strlen(*map) - 1;
+	game->map_attributes.col = ft_strlen(*map) -1;
 	i = 0;
 	while (map[i])
 	{
@@ -35,7 +35,6 @@ int	has_valid_walls(char **map, t_game *game)
 		}
 		i++;
 	}
-	printf("col_size: %d\nrow_size: %d\n\n", game->map_attributes.col, game->map_attributes.row);
 	return (1);	
 }
 

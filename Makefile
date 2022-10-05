@@ -6,7 +6,7 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/09/28 19:05:32 by azamario         ###   ########.fr        #
+#    Updated: 2022/10/05 12:21:32 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJ_DIR		=	./obj
 
 FILES		=	cub3d.c
 FILES		+=	exit_game.c get_next_line.c init_game.c init_image.c init_window.c map_check.c    
-FILES		+=	read_map.c validate_map.c event_handler.c main_loop.c
+FILES		+=	read_map.c validate_map.c event_handler.c main_loop.c map_utils.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))

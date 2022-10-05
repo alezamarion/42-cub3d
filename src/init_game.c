@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/09/28 19:01:26 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:21:02 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ static void	initialize_mlx(t_game *game)
 	}	
 }
 
+static void	initialize_data(t_game *game)
+{
+	map_counter(game->map, game);
+}
+
+
 static void	initialize_rendering(t_game *game)
 {
 	init_window(game);
@@ -31,5 +37,6 @@ static void	initialize_rendering(t_game *game)
 void	init_game(t_game *game)
 {
 	initialize_mlx(game);
+	initialize_data(game);
 	initialize_rendering(game);
 }
