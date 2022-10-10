@@ -63,10 +63,7 @@ typedef struct	s_game
 	void	*window;
 	void	*wall;
 	void	*empty_space;
-	void	*player_right;
-	void	*player_left;
-	void	*player_up;
-	void	*player_down;
+	void	*player;
 	char	**map;
 	int		image_width;
 	int		image_height;
@@ -132,5 +129,8 @@ void	hook_player(t_game *game, int i, int j);
 
 //main_loop.c
 int		main_loop(t_game *game);
+
+//hook_player
+void	*draw_player(t_game *game, int x, int y, int color);
 
 #endif
