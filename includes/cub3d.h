@@ -14,6 +14,8 @@
 # include <X11/keysymdef.h>
 # include <X11/X.h>
 
+# define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
+
 //----------------------------- do novo repo:
 
 # define KEY_ESC 53
