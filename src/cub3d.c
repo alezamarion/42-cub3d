@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:40:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/09/28 18:25:25 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:32:46 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		{
 			init_game(&game);
 			event_handler(&game);
-			mlx_loop_hook(game.mlx, &main_loop, &game); //do novo repo
+			mlx_loop_hook(game.mlx, &render_map, &game); //
 			mlx_loop(game.mlx);
 		}
 		else

@@ -130,7 +130,7 @@ void    draw_image(t_game *game, void *image, int x, int y);
 void	hook_player(t_game *game, int i, int j);
 
 //main_loop.c
-int		main_loop(t_game *game);
+int		render_map(t_game *game);
 
 //hook_player
 void	*draw_player(t_game *game, int x, int y, int color);

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/12 12:42:27 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:33:04 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	draw_rectangles(t_game *game)
 	}
 }
 
-int		main_loop(t_game *game)
+int		render_map(t_game *game)
 {
 	draw_rectangles(game);
 	draw_lines(game);
