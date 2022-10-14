@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_loop.c                                        :+:      :+:    :+:   */
+/*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/12 13:33:04 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:16:08 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,8 @@ void	draw_rectangles(t_game *game)
 		{
 			if (game->map[i][j] == '1')
 				draw_rectangle(game, j, i, 0x4B0082);
-			else // (game->map[i][j] == '0')
+			else
 				draw_rectangle(game, j, i, 0xF5FFA);
-			// if (game->map[i][j] == 'N')
-			// 	game->player = draw_player(game, i, j, 0x32CD32);
 			j++;
 		}
 		i++;

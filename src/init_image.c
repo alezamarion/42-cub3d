@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:12:13 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/03 08:22:55 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:59:18 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,6 @@ void	initialize_image(t_game *game)
 										game->map_attributes.row * TILE_SIZE);
 	game->img.data = (int *)mlx_get_data_addr(game->img.img, &game->img.bpp,
 							&game->img.size_l, &game->img.endian);
-}
+					//this function returns actual address of image (pointer on CHAR) as a simple array of pixels
+					//with CHAR we navigate the array one byte at time, but an pixel has 4 bytes (int)
+} 
