@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/05 13:01:19 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/15 19:10:34 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	map_counter(char **map, t_game *game)
 		i++;
 	}
 	game->map_attributes.col = ft_strlen(*map);
+	printf("row: %d\ncol: %d\n", game->map_attributes.row, game->map_attributes.col);
 }

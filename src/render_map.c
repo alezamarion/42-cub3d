@@ -6,33 +6,33 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/14 13:16:08 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/15 22:32:51 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-/*
-void	*draw_player(t_game *game, int x, int y, int color)
+
+void	draw_player(t_game *game, int x, int y, int color)
 {
 	int i;
 	int j;
 
-	x *= 10;
-	y *= 10;
+	x *= TILE_SIZE;
+	y *= TILE_SIZE;
 	i = 0;
-	while (i < 10)
+	while (i < TILE_SIZE)
 	{
 		j = 0;
-		while (j < 10)
+		while (j < TILE_SIZE)
 		{
-			game->img.data[(y + i) * game->map_attributes.col * 10 + x + j] = color;
+			game->img.data[(y + i) * game->map_attributes.col * TILE_SIZE + x + j] = color;
 			j++;
 		}
 		i++;
 	}
 }
-*/
+
 
 //Draw the line by DDA algorithm
 void	draw_line(t_game *game, double x1, double y1, double x2, double y2)
@@ -108,8 +108,10 @@ void	draw_rectangles(t_game *game)
 		{
 			if (game->map[i][j] == '1')
 				draw_rectangle(game, j, i, 0x4B0082);
-			else
+			if (game->map[i][j] == '0')
 				draw_rectangle(game, j, i, 0xF5FFA);
+			if (game->map[i][j] == 'N')
+				draw_rectangle(game, j, i, 0x8FCE00);
 			j++;
 		}
 		i++;
@@ -121,6 +123,6 @@ int		render_map(t_game *game)
 	draw_rectangles(game);
 	draw_lines(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
-//	mlx_put_image_to_window(game->mlx, game->window, game->player, 0, 0);
+//	mlx_put_image_to_window(game->mlx, game->window, game->player, 176, 320);
 	return (0);
 }

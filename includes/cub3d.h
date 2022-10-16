@@ -56,7 +56,7 @@ typedef struct s_img
 	int		size_l;
 	int		bpp;
 	int		endian;
-
+	
 }				t_img;
 
 typedef struct	s_game
@@ -65,7 +65,7 @@ typedef struct	s_game
 	void	*window;
 	void	*wall;
 	void	*empty_space;
-	void	*player;
+	int		*player;
 	char	**map;
 	int		image_width;
 	int		image_height;
@@ -133,6 +133,6 @@ void	hook_player(t_game *game, int i, int j);
 int		render_map(t_game *game);
 
 //hook_player
-void	*draw_player(t_game *game, int x, int y, int color);
+//void    hook_player(t_game *game, int x, int y);
 
 #endif
