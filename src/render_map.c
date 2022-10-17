@@ -6,14 +6,13 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/15 22:32:51 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:29:34 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-
-void	draw_player(t_game *game, int x, int y, int color)
+void	just_draw_player(t_game *game, int x, int y, int color)
 {
 	int i;
 	int j;
@@ -27,6 +26,25 @@ void	draw_player(t_game *game, int x, int y, int color)
 		while (j < TILE_SIZE)
 		{
 			game->img.data[(y + i) * game->map_attributes.col * TILE_SIZE + x + j] = color;
+			j++;
+		}
+		i++;
+	}
+}
+
+void	draw_player(t_game *game)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < game->map_attributes.row)
+	{
+		j = 0;
+		while (j < game->map_attributes.col)
+		{
+			if (game->map[i][j] == 'N')
+				just_draw_player(game, j, i, 0x8FCE00);
 			j++;
 		}
 		i++;
@@ -108,10 +126,8 @@ void	draw_rectangles(t_game *game)
 		{
 			if (game->map[i][j] == '1')
 				draw_rectangle(game, j, i, 0x4B0082);
-			if (game->map[i][j] == '0')
+			else
 				draw_rectangle(game, j, i, 0xF5FFA);
-			if (game->map[i][j] == 'N')
-				draw_rectangle(game, j, i, 0x8FCE00);
 			j++;
 		}
 		i++;
@@ -122,7 +138,7 @@ int		render_map(t_game *game)
 {
 	draw_rectangles(game);
 	draw_lines(game);
+	draw_player(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
-//	mlx_put_image_to_window(game->mlx, game->window, game->player, 176, 320);
 	return (0);
 }
