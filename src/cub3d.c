@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:40:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/12 13:32:46 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/18 12:45:01 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main(int argc, char **argv)
 		if (is_valid_map(game.map, argv[1], &game))
 		{
 			init_game(&game);
+			mlx_loop_hook(game.mlx, &render_map, &game);
 			event_handler(&game);
-			mlx_loop_hook(game.mlx, &render_map, &game); //
 			mlx_loop(game.mlx);
 		}
 		else
