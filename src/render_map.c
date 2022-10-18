@@ -6,12 +6,13 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/17 12:29:34 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/17 22:08:04 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+/*
 void	just_draw_player(t_game *game, int x, int y, int color)
 {
 	int i;
@@ -50,7 +51,7 @@ void	draw_player(t_game *game)
 		i++;
 	}
 }
-
+*/
 
 //Draw the line by DDA algorithm
 void	draw_line(t_game *game, double x1, double y1, double x2, double y2)
@@ -126,8 +127,10 @@ void	draw_rectangles(t_game *game)
 		{
 			if (game->map[i][j] == '1')
 				draw_rectangle(game, j, i, 0x4B0082);
-			else
+			if (game->map[i][j] == '0')
 				draw_rectangle(game, j, i, 0xF5FFA);
+			if (game->map[i][j] == 'N')
+				draw_rectangle(game, j, i, 0x8FCE00);
 			j++;
 		}
 		i++;
@@ -138,7 +141,6 @@ int		render_map(t_game *game)
 {
 	draw_rectangles(game);
 	draw_lines(game);
-	draw_player(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
 	return (0);
 }
