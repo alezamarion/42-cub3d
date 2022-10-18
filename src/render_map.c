@@ -6,52 +6,11 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/17 22:08:04 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/17 22:14:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-/*
-void	just_draw_player(t_game *game, int x, int y, int color)
-{
-	int i;
-	int j;
-
-	x *= TILE_SIZE;
-	y *= TILE_SIZE;
-	i = 0;
-	while (i < TILE_SIZE)
-	{
-		j = 0;
-		while (j < TILE_SIZE)
-		{
-			game->img.data[(y + i) * game->map_attributes.col * TILE_SIZE + x + j] = color;
-			j++;
-		}
-		i++;
-	}
-}
-
-void	draw_player(t_game *game)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < game->map_attributes.row)
-	{
-		j = 0;
-		while (j < game->map_attributes.col)
-		{
-			if (game->map[i][j] == 'N')
-				just_draw_player(game, j, i, 0x8FCE00);
-			j++;
-		}
-		i++;
-	}
-}
-*/
 
 //Draw the line by DDA algorithm
 void	draw_line(t_game *game, double x1, double y1, double x2, double y2)
