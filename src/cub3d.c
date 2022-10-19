@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:40:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/18 12:45:01 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:22:23 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 		{
 			init_game(&game);
 			mlx_loop_hook(game.mlx, &render_map, &game);
+				printf("\ncub3d 2: game->x(i): %d, game->y(j): %d\n",game.x, game.y);
 			event_handler(&game);
 			mlx_loop(game.mlx);
 		}
