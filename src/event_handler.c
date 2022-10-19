@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/18 13:25:34 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/18 22:30:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ void	player_update(int keycode, t_game *game)
 
 int	key_press(int keycode, t_game *game)
 {
-
+    printf("%i\n", keycode);
 	if (keycode == XK_Escape)
         exit_game(game);
 	if (game->end_game)
 		return (0);
-    if (keycode == KEY_UP)
+    if (keycode == 65362)
     {
-        printf("key_up");
+        printf("key_up\n\n\n\n");
 	    player_update(keycode, game);
     }
 	mlx_loop_hook(game->mlx, &render_map, &game);

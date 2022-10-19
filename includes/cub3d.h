@@ -12,6 +12,7 @@
 
 # define XK_MISCELLANY //porque esse define vem antes das libs abaixo?
 # include <X11/keysymdef.h>
+# include <X11/keysym.h>
 # include <X11/X.h>
 
 # define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
