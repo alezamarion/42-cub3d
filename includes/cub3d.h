@@ -75,6 +75,9 @@ typedef struct s_img
 
 typedef struct	s_game
 {
+	t_img	img;
+	t_map	map;
+
 	void	*mlx;
 	void	*window;
 	void	*wall;
@@ -88,8 +91,6 @@ typedef struct	s_game
 	int		x;
 	int		y;
 
-	t_img	img;
-	t_map	map;
 
 }				t_game;
 
