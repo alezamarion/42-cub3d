@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/19 21:11:18 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:58:25 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,7 @@ void    handle_situation(t_game *game, int x, int y)
 void	player_update(int keycode, t_game *game)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
-    {
-        printf("\nplayer_update: game->x: %d, game->y: %d\n", game->x, game->y);
         handle_situation(game, game->x - 1, game->y);
-    }
 	if (keycode == KEY_S || keycode == KEY_DOWN)
     	handle_situation(game, game->x + 1, game->y);
 	if (keycode == KEY_A || keycode == KEY_LEFT)

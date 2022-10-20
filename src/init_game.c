@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/19 16:12:10 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:41:10 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ static void	initialize_rendering(t_game *game)
 
 void	init_game(t_game *game)
 {
-	    printf("\ninit_game: game->x: %d, game->y: %d\n", game->x, game->y);
-
 	initialize_mlx(game);
 	initialize_data(game);
 	initialize_rendering(game);

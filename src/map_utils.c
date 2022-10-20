@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/19 16:20:36 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:43:42 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	map_counter(char **map, t_game *game)
 		}
 		i++;
 	}
-	printf("game->x: %d, game->y: %d", game->x, game->y);
-
 }
 
 
