@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:40:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/19 21:06:30 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:34:53 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		game.map = read_map(argv[1]);
-		if (is_valid_map(game.map, argv[1], &game))
+		game.map.file = read_map(argv[1]);
+		if (is_valid_map(game.map.file, argv[1], &game))
 		{
 			init_game(&game);
 			mlx_loop_hook(game.mlx, &render_map, &game);
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		else
 		{
 			printf("Map is not valid\n");
-			free_map(game.map);
+			free_map(game.map.file);
 			exit (0);					
 		}
 	}

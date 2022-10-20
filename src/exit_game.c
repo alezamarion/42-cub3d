@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:01:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/12 12:26:17 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:10:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void free_game(t_game *game)
 
 int exit_game(t_game *game)
 {
-    free_map(game->map);
+    free_map(game->map.file);
     free_game(game);
     exit (0);
     return (0);

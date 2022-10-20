@@ -52,6 +52,7 @@
 
 typedef struct	s_map
 {
+	char	**file;
 	int		row;
 	int		col;
 	int		player;
@@ -79,7 +80,6 @@ typedef struct	s_game
 	void	*wall;
 	void	*empty_space;
 	int		*player;
-	char	**map;
 	int		image_width;
 	int		image_height;
 	int		window_width;
@@ -88,8 +88,8 @@ typedef struct	s_game
 	int		x;
 	int		y;
 
-	t_img	img;		//do novo repo
-	t_map	map_attributes;
+	t_img	img;
+	t_map	map;
 
 }				t_game;
 

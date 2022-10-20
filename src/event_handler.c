@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/19 21:58:25 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:16:00 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void    handle_0(t_game *game, int x, int y)
 
     i = game->x;
     j = game->y;
-    swap_positions(&game->map[i][j], &game->map[x][y], 'N', '0');
+    swap_positions(&game->map.file[i][j], &game->map.file[x][y], 'N', '0');
     game->x = x;
     game->y = y;
 }
@@ -40,9 +40,9 @@ void    handle_0(t_game *game, int x, int y)
 void    handle_situation(t_game *game, int x, int y)
 {
     printf("\nhandle situation x: %d, y: %d", x, y);
-    if (game->map[x][y] != '1')
+    if (game->map.file[x][y] != '1')
     {
-        if (game->map[x][y] == '0')
+        if (game->map.file[x][y] == '0')
             handle_0(game, x, y);
     }
 }

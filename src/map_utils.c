@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/19 21:43:42 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:09:21 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ void	map_counter(char **map, t_game *game)
 	int	i;
 
 	i = 0;
-	game->map_attributes.row = 0;
-	game->map_attributes.col = 0;
+	game->map.row = 0;
+	game->map.col = 0;
 	while (map[i])
 	{
-		game->map_attributes.row++;
+		game->map.row++;
 		i++;
 	}
-	game->map_attributes.col = ft_strlen(*map);
-	printf("row: %d\ncol: %d\n", game->map_attributes.row, game->map_attributes.col);
+	game->map.col = ft_strlen(*map);
+	printf("row: %d\ncol: %d\n", game->map.row, game->map.col);
 
 	i = 0;
 	int j;
-	while (i < game->map_attributes.row)
+	while (i < game->map.row)
 	{
 		j = 0;
-		while (j < game->map_attributes.col)
+		while (j < game->map.col)
 		{
-			if (game->map[i][j] == 'N')
+			if (game->map.file[i][j] == 'N')
 			{
 				game->x = i;
 				game->y = j;

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/05 12:08:32 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:46:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	map_check_init(t_game *game)
 {
-	game->map_attributes.player = 0;
-	game->map_attributes.space = 0;
-	game->map_attributes.row = 0;
-	game->map_attributes.col = 0;
+	game->map.player = 0;
+	game->map.space = 0;
+	game->map.row = 0;
+	game->map.col = 0;
 }
 
 int	is_valid_map(char **map, char *file, t_game *game)

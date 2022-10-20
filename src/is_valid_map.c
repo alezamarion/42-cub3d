@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check.c                                        :+:      :+:    :+:   */
+/*   is_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/05 13:01:52 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:46:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	has_valid_walls(char **map, t_game *game)
 	int	i;
 	int	j;
 
-	while (map[game->map_attributes.row])
-		game->map_attributes.row++;
-	game->map_attributes.row--;
-	game->map_attributes.col = ft_strlen(*map) -1;
+	while (map[game->map.row])
+		game->map.row++;
+	game->map.row--;
+	game->map.col = ft_strlen(*map) -1;
 	i = 0;
 	while (map[i])
 	{
@@ -28,8 +28,8 @@ int	has_valid_walls(char **map, t_game *game)
 		while (map[i][j])
 		{
 			if (map[0][j] != '1' ||
-				map[i][0] != '1' || map[i][game->map_attributes.col] != '1'
-				|| map[game->map_attributes.row][j] != '1')
+				map[i][0] != '1' || map[i][game->map.col] != '1'
+				|| map[game->map.row][j] != '1')
 				return (0);
 			j++;
 		}
@@ -70,10 +70,10 @@ int	has_minimum_chars(char **map, t_game *game)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'N')
-				game->map_attributes.player++;
+				game->map.player++;
 			if (map[i][j] == '0')
-				game->map_attributes.space++;
-			if (game->map_attributes.player > 0 && game->map_attributes.space > 0)
+				game->map.space++;
+			if (game->map.player > 0 && game->map.space > 0)
 				return (1);
 			j++;
 		}
