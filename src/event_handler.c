@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/19 16:34:47 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:11:18 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void    handle_0(t_game *game, int x, int y)
 
 void    handle_situation(t_game *game, int x, int y)
 {
+    printf("\nhandle situation x: %d, y: %d", x, y);
     if (game->map[x][y] != '1')
     {
         if (game->map[x][y] == '0')
@@ -54,29 +55,17 @@ void	player_update(int keycode, t_game *game)
         handle_situation(game, game->x - 1, game->y);
     }
 	if (keycode == KEY_S || keycode == KEY_DOWN)
-    {
-        printf("key down\n");
-  		mlx_clear_window(game->mlx, game->window);
     	handle_situation(game, game->x + 1, game->y);
-    }
 	if (keycode == KEY_A || keycode == KEY_LEFT)
-    {
-    	mlx_clear_window(game->mlx, game->window);
 		handle_situation(game, game->x, game->y - 1);
-    }
 	if (keycode == KEY_D || keycode == KEY_RIGHT)
-	{
-    	mlx_clear_window(game->mlx, game->window);
     	handle_situation(game, game->x, game->y + 1);
-    }
 }
 
 
 int	key_press(int keycode, t_game *game)
 {
-    printf("\nkey_press: game->x: %d, game->y: %d\n", game->x, game->y);
-
-    if (keycode == 65362)
+    if (keycode == KEY_UP || keycode == KEY_DOWN || keycode == KEY_LEFT || keycode == KEY_RIGHT)
 	    player_update(keycode, game);
 	if (keycode == XK_Escape)
         exit_game(game);
@@ -88,11 +77,6 @@ int	key_press(int keycode, t_game *game)
 
 void    event_handler(t_game *game)
 {
-    				printf("\nevent_handler: game->x(i): %d, game->y(j): %d\n",game->x, game->y);
-
-    mlx_hook(game->window, X_EVENT_KEY_EXIT, 0, &click_close, &game);
-    				printf("\nevent_handler II: game->x(i): %d, game->y(j): %d\n",game->x, game->y);
-    mlx_hook(game->window, X_EVENT_KEY_PRESS, 1L << 0, &key_press, &game);
-//   mlx_hook(game->window, KeyPress, KeyPressMask, &key_press, &game);
-
+    mlx_hook(game->window, X_EVENT_KEY_PRESS, 1l << 0, &key_press, game);
+    mlx_hook(game->window, X_EVENT_KEY_EXIT, 0, &click_close, game);
 }
