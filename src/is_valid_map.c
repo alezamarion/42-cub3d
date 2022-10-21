@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/20 11:46:30 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:31:18 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ int	has_minimum_chars(char **map, t_game *game)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'N')
+			{
+
+			
 				game->map.player++;
+			}
 			if (map[i][j] == '0')
 				game->map.space++;
 			if (game->map.player > 0 && game->map.space > 0)

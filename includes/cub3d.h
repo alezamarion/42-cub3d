@@ -48,6 +48,16 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
+typedef struct s_player
+{
+	double	posX;
+	double	posY;
+	double	dirX;
+	double	dirY;
+	double	planeX;
+	double	planeY;
+
+}				t_player;
 
 
 typedef struct	s_map
@@ -59,8 +69,6 @@ typedef struct	s_map
 	int		space;
 }				t_map;
 
-
-//do novo repo:
 typedef struct s_img
 {
 	void 	*img;
@@ -75,22 +83,19 @@ typedef struct s_img
 
 typedef struct	s_game
 {
-	t_img	img;
-	t_map	map;
+	t_img		img;
+	t_map		map;
+	t_player 	player;
 
 	void	*mlx;
 	void	*window;
 	void	*wall;
 	void	*empty_space;
-	int		*player;
 	int		image_width;
 	int		image_height;
 	int		window_width;
 	int		window_height;
 	int		end_game;
-	int		x;
-	int		y;
-
 
 }				t_game;
 

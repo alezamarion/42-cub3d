@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/20 12:16:00 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:09:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ void    handle_0(t_game *game, int x, int y)
     int i;
     int j;
 
-    i = game->x;
-    j = game->y;
+    i = game->player.posX;
+    j = game->player.posY;
     swap_positions(&game->map.file[i][j], &game->map.file[x][y], 'N', '0');
-    game->x = x;
-    game->y = y;
+    game->player.posX = x;
+    game->player.posY = y;
 }
 
 void    handle_situation(t_game *game, int x, int y)
 {
-    printf("\nhandle situation x: %d, y: %d", x, y);
+    printf("handle situation x: %d, y: %d\n", x, y);
     if (game->map.file[x][y] != '1')
     {
         if (game->map.file[x][y] == '0')
@@ -50,13 +50,13 @@ void    handle_situation(t_game *game, int x, int y)
 void	player_update(int keycode, t_game *game)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
-        handle_situation(game, game->x - 1, game->y);
+        handle_situation(game, game->player.posX - 1, game->player.posY);
 	if (keycode == KEY_S || keycode == KEY_DOWN)
-    	handle_situation(game, game->x + 1, game->y);
+    	handle_situation(game, game->player.posX + 1, game->player.posY);
 	if (keycode == KEY_A || keycode == KEY_LEFT)
-		handle_situation(game, game->x, game->y - 1);
+		handle_situation(game, game->player.posX, game->player.posY - 1);
 	if (keycode == KEY_D || keycode == KEY_RIGHT)
-    	handle_situation(game, game->x, game->y + 1);
+    	handle_situation(game, game->player.posX, game->player.posY + 1);
 }
 
 

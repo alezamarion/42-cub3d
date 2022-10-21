@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/20 12:09:21 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:11:55 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	map_counter(char **map, t_game *game)
 		{
 			if (game->map.file[i][j] == 'N')
 			{
-				game->x = i;
-				game->y = j;
+				game->player.posX = i;
+				game->player.posY = j;
 			}
 			j++;
 		}
