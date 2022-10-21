@@ -52,10 +52,10 @@ typedef struct s_player
 {
 	double	posX;
 	double	posY;
-	double	dirX;
-	double	dirY;
-	double	planeX;
-	double	planeY;
+	// double	dirX;
+	// double	dirY;
+	// double	planeX;
+	// double	planeY;
 
 }				t_player;
 
@@ -96,6 +96,8 @@ typedef struct	s_game
 	int		window_width;
 	int		window_height;
 	int		end_game;
+	// double	time;
+	// double	oldtime;
 
 }				t_game;
 

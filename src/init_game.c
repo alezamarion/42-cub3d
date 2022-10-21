@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/21 13:11:19 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:25:02 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ static void	initialize_data(t_game *game)
 {
 	game->player.posX  = 0;
 	game->player.posY = 0;
+	// game->player.dirX = -1;
+	// game->player.dirY = 0;
+	// game->player.planeX = 0;
+	// game->player.planeY = 0.66;
+	// game->time = 0;
+
 	map_counter(game->map.file, game);
 }
 

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/21 13:09:20 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:30:56 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	key_press(int keycode, t_game *game)
         exit_game(game);
 	if (game->end_game)
 		return (0);
-	mlx_loop_hook(game->mlx, &render_map, &game);
+//	mlx_loop_hook(game->mlx, &render_map, &game);
 	return (0);
 }
 
