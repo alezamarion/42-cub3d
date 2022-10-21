@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/10/20 21:11:13 by azamario         ###   ########.fr        #
+#    Updated: 2022/10/21 17:23:48 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,10 @@ bonus:		$(NAME)
 
 norm:
 	norminette src inc libft
+
+add: fclean
+		git add .
+		git status
 
 re:			fclean all
 
