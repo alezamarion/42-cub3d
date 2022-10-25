@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/21 17:09:54 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:58:56 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,9 @@ void	draw_rectangles(t_game *game)
 
 int		render_map(t_game *game)
 {
+	//draw_floor_and_ceiling;
+	//draw_walls;
+	//draw_minimap;
 	draw_rectangles(game);
 	draw_lines(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
