@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/21 12:31:18 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/25 20:18:39 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ int	has_valid_extension(char *file)
 	if (!file)
 		return (0);
 	extension = ft_strrchr(file, '.');
+	if (extension == NULL)
+		return (0);
 	if (ft_strncmp(extension,  ".cub", 5))
 		return (0);
 	return (1);	
