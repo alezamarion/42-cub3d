@@ -154,7 +154,7 @@ void    draw_image(t_game *game, void *image, int x, int y);
 void	hook_player(t_game *game, int i, int j);
 
 //main_loop.c
-int		render_map(t_game *game);
+int		render_game(t_game *game);
 
 //draw_minimap
 void	draw_line(t_game *game, double x1, double y1, double x2, double y2);
