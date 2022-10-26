@@ -48,14 +48,17 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
+# define PI 3.14159265
+
 typedef struct s_player
 {
 	double	posX;
 	double	posY;
-	// double	dirX;
-	// double	dirY;
-	// double	planeX;
-	// double	planeY;
+	int		turn_direction;
+	int		walk_direction;
+	double	rotation_angle;
+	int		mov_speed;
+	double	rotation_speed;
 
 }				t_player;
 
@@ -96,8 +99,6 @@ typedef struct	s_game
 	int		window_width;
 	int		window_height;
 	int		end_game;
-	// double	time;
-	// double	oldtime;
 
 }				t_game;
 

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/21 16:25:02 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/26 17:29:34 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ static void	initialize_data(t_game *game)
 {
 	game->player.posX  = 0;
 	game->player.posY = 0;
+
+	game->player.turn_direction = 0;
+	game->player.walk_direction = 0;
+	game->player.rotation_angle = PI / 2;
+	game->player.mov_speed = 2;
+	game->player.rotation_speed = 2 * (PI / 2);
+
 	// game->player.dirX = -1;
 	// game->player.dirY = 0;
 	// game->player.planeX = 0;
