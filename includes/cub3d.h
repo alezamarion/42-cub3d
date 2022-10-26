@@ -156,7 +156,16 @@ void	hook_player(t_game *game, int i, int j);
 //main_loop.c
 int		render_map(t_game *game);
 
-//hook_player
-//void    hook_player(t_game *game, int x, int y);
+//draw_minimap
+void	draw_line(t_game *game, double x1, double y1, double x2, double y2);
+void 	draw_lines(t_game *game);
+void	draw_rectangle(t_game *game, int x, int y, int color);
+void	draw_rectangles(t_game *game);
+
+
+
+
+
+
 
 #endif
