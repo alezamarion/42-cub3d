@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 08:19:23 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/26 08:20:02 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:13:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,27 @@ void	draw_rectangle(t_game *game, int x, int y, int color)
 	}
 }
 
+void	draw_player(t_game *game, int x, int y, int color)
+{
+	int i;
+	int j;
+
+	x *= TILE_SIZE;
+	y *= TILE_SIZE;
+	i = 0;
+	while (i < TILE_SIZE / 3)
+	{
+		j = 0;
+		while (j < TILE_SIZE / 3)
+		{
+			game->img.data[(y + i) * game->map.col * TILE_SIZE + x + j] = color;
+			j++;
+		}
+		i++;
+	}
+}
+
+
 void	draw_rectangles(t_game *game)
 {
 	int		i;
@@ -89,7 +110,8 @@ void	draw_rectangles(t_game *game)
 			if (game->map.file[i][j] == '0')
 				draw_rectangle(game, j, i, 0xF5FFA);
 			if (game->map.file[i][j] == 'N')
-				draw_rectangle(game, j, i, 0x8FCE00);
+				draw_player(game, j, i, 0x8FCE00);
+				//draw_rectangle(game, j, i, 0x8FCE00);
 			j++;
 		}
 		i++;
