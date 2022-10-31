@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/26 08:26:58 by azamario         ###   ########.fr       */
+/*   Updated: 2022/10/28 10:59:44 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,22 @@ void    handle_situation(t_game *game, int x, int y)
     }
 }
 
+void    player_rotation(t_game *game)
+{
+    double move_step;
+    double seno;
+    double cosseno;
+
+    cosseno = cos(game->player.rotation_angle);
+    seno = sin(game->player.rotation_angle);
+
+    move_step = game->player.walk_direction * game->player.mov_speed;
+    game->player.rotation_angle += game->player.turn_direction * game->player.rotation_speed;
+    game->player.posX = game->player.posX + cosseno * move_step;
+    game->player.posY = game->player.posY + seno * move_step;
+
+}
+
 void	player_update(int keycode, t_game *game)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
@@ -54,11 +70,16 @@ void	player_update(int keycode, t_game *game)
 	if (keycode == KEY_S || keycode == KEY_DOWN)
     	handle_situation(game, game->player.posX + 1, game->player.posY);
 	if (keycode == KEY_A || keycode == KEY_LEFT)
-		handle_situation(game, game->player.posX, game->player.posY - 1);
+        {
+            player_rotation(game);
+		    handle_situation(game, game->player.posX, game->player.posY - 1);
+        }
 	if (keycode == KEY_D || keycode == KEY_RIGHT)
-    	handle_situation(game, game->player.posX, game->player.posY + 1);
+    	{
+            player_rotation(game);
+            handle_situation(game, game->player.posX, game->player.posY + 1);
+        }
 }
-
 
 int	key_press(int keycode, t_game *game)
 {
