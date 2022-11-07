@@ -163,6 +163,8 @@ void 	draw_lines(t_game *game);
 void	draw_rectangle(t_game *game, int x, int y, int color);
 void	draw_rectangles(t_game *game);
 
+//draw_player.c
+void	draw_player(t_game *game);
 
 
 

@@ -29,6 +29,7 @@ int		render_game(t_game *game)
 	draw_walls(game);
 	//draw_floor_and_ceiling;
 	draw_minimap(game);
+	draw_player(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
 	return (0);
 }
