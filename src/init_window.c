@@ -14,8 +14,9 @@
 
 void	init_window(t_game *game)
 {
-	game->window = mlx_new_window(game->mlx, game->map.col * TILE_SIZE,
-									game->map.row * TILE_SIZE, "CUB3D");
+	// game->window = mlx_new_window(game->mlx, game->map.col * TILE_SIZE,
+	// 								game->map.row * TILE_SIZE, "CUB3D");
+	game->window = mlx_new_window(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "CUB3D");
 	if (game->window == NULL)
 	{
 		free(game->window);

@@ -17,21 +17,9 @@
 
 # define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
 
-//----------------------------- do novo repo:
-
-
 # define TILE_SIZE 32
-# define ROWS 11
-# define COLS 15
-# define WIDTH COLS * TILE_SIZE
-# define HEIGHT ROWS * TILE_SIZE
-
-# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
-
-//-----------------------------
-
 # define WINDOW_WIDTH 1024
-# define WINDOW_HEIGHT 512
+# define WINDOW_HEIGHT 768
 
 # define X_EVENT_KEY_EXIT 17
 # define KEY_ESC 53
@@ -48,7 +36,10 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
+//movement
 # define PI 3.14159265
+#define KeyPress	2
+#define KeyRelease	3
 
 typedef struct s_player
 {
@@ -56,6 +47,7 @@ typedef struct s_player
 	double	posY;
 	int		turn_direction;
 	int		walk_direction;
+	int		walk_speed;
 	double	rotation_angle;
 	int		mov_speed;
 	double	rotation_speed;
