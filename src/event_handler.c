@@ -47,6 +47,28 @@ static int click_close(t_game *game)
 //     }
 // }
 
+// static void	render_playerI(t_game *game, float x, float y, int color)
+// {
+// 	float i;
+// 	float j;
+
+// 	x *= TILE_SIZE;
+// 	y *= TILE_SIZE;
+// 	i = 0;
+// 	while (i < TILE_SIZE)
+// 	{
+// 		j = 0;
+// 		while (j < TILE_SIZE)
+// 		{
+// 			game->img.data[(y + i) * game->map.col * TILE_SIZE + x + j] = color;
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// }
+
+
+
 void    move_player(t_game *game)
 {
     printf("move_player\n\n");
@@ -54,8 +76,9 @@ void    move_player(t_game *game)
     float new_player_x;
     float new_player_y; 
     
-    game->player.rotation_angle += game->player.turn_direction * game->player.mov_speed;
+    game->player.rotation_angle += game->player.turn_direction * game->player.turn_speed;
     move_step = game->player.walk_direction * game->player.walk_speed;
+ 
     new_player_x = game->player.posX + cos(game->player.rotation_angle) * move_step;
     new_player_y = game->player.posY + sin(game->player.rotation_angle) * move_step;
 
@@ -65,6 +88,9 @@ void    move_player(t_game *game)
     game->player.posX = new_player_x;
     game->player.posY = new_player_y;
 
+   // game->map.file[game->player.posX][game->player.posY] = 'N';
+
+    //render_playerI(game,game->player.posX, game->player.posY, 0xFF0000);
 }
 
 

@@ -42,15 +42,15 @@
 #define KeyRelease	3
 
 typedef struct s_player
-{
-	double	posX;
-	double	posY;
+{	
+	float	posX;
+	float	posY;
 	int		turn_direction;
 	int		walk_direction;
-	int		walk_speed;
-	double	rotation_angle;
-	int		mov_speed;
-	double	rotation_speed;
+	float	rotation_angle;
+	float	walk_speed;
+	float	turn_speed;
+//	double	rotation_speed;
 
 }				t_player;
 
@@ -157,6 +157,8 @@ void	draw_rectangles(t_game *game);
 
 //draw_player.c
 void	draw_player(t_game *game);
+void	render_player(t_game *game, int x, int y, int color);
+
 
 
 

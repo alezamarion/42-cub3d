@@ -30,13 +30,8 @@ static void	initialize_data(t_game *game)
 	game->player.turn_direction = 0;
 	game->player.walk_direction = 0;
 	game->player.rotation_angle = PI / 2;
-	game->player.mov_speed = 2;
-	game->player.rotation_speed = 2 * (PI / 2);
-
- 	// game->player.dirY = 0;
-	// game->player.planeX = 0;
-	// game->player.planeY = 0.66;
-	// game->time = 0;
+	game->player.turn_speed = 45 * (PI / 180);
+	game->player.walk_speed = 100;
 
 	map_counter(game->map.file, game);
 }

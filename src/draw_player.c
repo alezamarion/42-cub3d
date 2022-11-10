@@ -10,10 +10,10 @@ void	render_player(t_game *game, int x, int y, int color)
 	x *= TILE_SIZE;
 	y *= TILE_SIZE;
 	i = 0;
-	while (i < 10)
+	while (i < TILE_SIZE)
 	{
 		j = 0;
-		while (j < 10)
+		while (j < TILE_SIZE)
 		{
 			game->img.data[(y + i) * game->map.col * TILE_SIZE + x + j] = color;
 			j++;
