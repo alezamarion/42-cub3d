@@ -7,6 +7,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
+# include <stdbool.h>
 # include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
@@ -18,8 +19,8 @@
 # define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
 
 # define TILE_SIZE 32
-# define WINDOW_WIDTH 1024
-# define WINDOW_HEIGHT 768
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 600
 
 # define X_EVENT_KEY_EXIT 17
 # define KEY_ESC 53
@@ -47,6 +48,7 @@ typedef struct s_player
 	float	posY;
 	int		turn_direction;
 	int		walk_direction;
+	int		walk_side;
 	float	rotation_angle;
 	float	walk_speed;
 	float	turn_speed;
