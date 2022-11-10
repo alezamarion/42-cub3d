@@ -93,6 +93,14 @@ int     has_wall(float x, float y, t_game *game)
 }
 
 
+void    normalize_angle(float *angle)
+{
+    *angle = remainder(*angle, M_PI * 2);
+    if (angle < 0)
+        *angle = M_PI * 2 + *angle;
+}
+
+
 void    move_player(t_game *game)
 {
     printf("move_player\n\n");
@@ -102,6 +110,8 @@ void    move_player(t_game *game)
     
     game->player.rotation_angle += game->player.turn_direction * game->player.turn_speed;
     move_step = game->player.walk_direction * game->player.walk_speed;
+    
+    normalize_angle(&game->player.rotation_angle);
  
     new_player_x = game->player.posX + cos(game->player.rotation_angle) * move_step;
     new_player_y = game->player.posY + sin(game->player.rotation_angle) * move_step;
