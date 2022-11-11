@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/11 13:23:26 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:06:14 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,26 @@ typedef struct s_img
 	
 }				t_img;
 
+typedef struct	s_ray
+{
+	float	ray_angle;
+	float	wall_hit_x;
+	float	wall_hit_y;
+	float	distance;
+	int		was_hit_vertical;
+	int		is_ray_facing_up;	
+	int		is_ray_facing_down;	
+	int		is_ray_facing_left;	
+	int		is_ray_facing_right;
+	int		wall_hit_content;	
+}					t_ray;
+
 typedef struct	s_game
 {
 	t_img		img;
 	t_map		map;
 	t_player 	player;
+	t_ray		rays[NUM_RAYS];
 
 	void	*mlx;
 	void	*window;

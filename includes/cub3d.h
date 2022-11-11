@@ -84,4 +84,6 @@ void	render_player(t_game *game, int x, int y, int color);
  // validate_map.c
  int	is_valid_map(char **map, char *file, t_game *game);
 
+ void cast_all_rays(t_game *game);
+
 #endif

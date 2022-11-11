@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/11 13:08:47 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:20:17 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@
 # define BLUE   0xF5FFA
 # define YELLOW 0x8FCE00
 
-#define KeyPress	2
-#define KeyRelease	3
+# define KeyPress	2
+# define KeyRelease	3
 
+
+# define NUM_RAYS WIN_WIDTH
+# define FOV_ANGLE (60 *(M_PI / 180))
 
 # define FILE_WALL	"textures/1.xpm"
 # define FILE_SPACE	"textures/0.xpm"
