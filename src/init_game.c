@@ -29,7 +29,7 @@ static void	initialize_data(t_game *game)
 
 	game->player.turn_direction = 0;
 	game->player.walk_direction = 0;
-	game->player.walk_side = 0;
+	game->player.side_direction = 0;
 	game->player.rotation_angle = M_PI + M_PI_2; //inicializando a 90 graus
 	game->player.turn_speed = 45 * (PI / 180);
 	game->player.walk_speed = 4;
