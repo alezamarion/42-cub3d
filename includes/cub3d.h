@@ -7,6 +7,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
+# include <stdbool.h>
 # include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
@@ -17,21 +18,9 @@
 
 # define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
 
-//----------------------------- do novo repo:
-
-
 # define TILE_SIZE 32
-# define ROWS 11
-# define COLS 15
-# define WIDTH COLS * TILE_SIZE
-# define HEIGHT ROWS * TILE_SIZE
-
-# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
-
-//-----------------------------
-
-# define WINDOW_WIDTH 1024
-# define WINDOW_HEIGHT 512
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 600
 
 # define X_EVENT_KEY_EXIT 17
 # define KEY_ESC 53
@@ -48,17 +37,22 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
+//movement
 # define PI 3.14159265
+#define KeyPress	2
+#define KeyRelease	3
 
 typedef struct s_player
-{
-	double	posX;
-	double	posY;
+{	
+	float	posX;
+	float	posY;
 	int		turn_direction;
 	int		walk_direction;
-	double	rotation_angle;
-	int		mov_speed;
-	double	rotation_speed;
+	int		side_direction;
+	float	rotation_angle;
+	float	walk_speed;
+	float	turn_speed;
+//	double	rotation_speed;
 
 }				t_player;
 
@@ -162,6 +156,10 @@ void	draw_line(t_game *game, double x1, double y1, double x2, double y2);
 void 	draw_lines(t_game *game);
 void	draw_rectangle(t_game *game, int x, int y, int color);
 void	draw_rectangles(t_game *game);
+
+//draw_player.c
+void	draw_player(t_game *game);
+void	render_player(t_game *game, int x, int y, int color);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/27 22:28:41 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:50:46 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,10 @@ static void	initialize_data(t_game *game)
 
 	game->player.turn_direction = 0;
 	game->player.walk_direction = 0;
-	game->player.rotation_angle = PI / 2;
-	game->player.mov_speed = 2;
-	game->player.rotation_speed = 2 * (PI / 180);
-
-	// game->player.dirX = -1;
-	// game->player.dirY = 0;
-	// game->player.planeX = 0;
-	// game->player.planeY = 0.66;
-	// game->time = 0;
+	game->player.side_direction = 0;
+	game->player.rotation_angle = M_PI + M_PI_2; //inicializando a 90 graus
+	game->player.turn_speed = 45 * (PI / 180);
+	game->player.walk_speed = 4;
 
 	map_counter(game->map.file, game);
 }

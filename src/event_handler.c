@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/28 10:59:44 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:49:57 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,81 +19,140 @@ static int click_close(t_game *game)
     return (0);
 }
 
-void    swap_positions(char *curr_p, char *next_p, char curr_value, char next_value)
+int     has_wall(float x, float y, t_game *game)
 {
-    *curr_p = next_value;
-    *next_p = curr_value;
+    int map_grid_index_X;
+    int map_grid_index_Y;
+
+    map_grid_index_X = (int)floor(x / TILE_SIZE);
+    map_grid_index_Y = (int)floor(y / TILE_SIZE);
+
+    printf("\n\ngrid_x: %d, grid_y: %d\n\n", map_grid_index_X, map_grid_index_Y);
+
+    if (x < 0 || x > WINDOW_WIDTH || y < 0 || y > WINDOW_HEIGHT)
+        return (true);
+    return (game->map.file[map_grid_index_Y][map_grid_index_X] == '1');
+    
 }
 
-void    handle_0(t_game *game, int x, int y)
+void    normalize_angle(float *angle)
 {
-    int i;
-    int j;
-
-    i = game->player.posX;
-    j = game->player.posY;
-    swap_positions(&game->map.file[i][j], &game->map.file[x][y], 'N', '0');
-    game->player.posX = x;
-    game->player.posY = y;
+    *angle = remainder(*angle, M_PI * 2);
+    if (*angle < 0)
+        *angle = M_PI * 2 + *angle;
 }
 
-void    handle_situation(t_game *game, int x, int y)
+// void    move_player(t_game *game)
+// {
+//     printf("move_player\n\n");
+//     float move_step;
+//     float side_step;
+//     float new_player_x;
+//     float new_player_y; 
+    
+//     game->player.rotation_angle += game->player.turn_direction * game->player.turn_speed;
+//     move_step = game->player.walk_direction * game->player.walk_speed;
+//     side_step = game->player.side_direction * game->player.walk_speed;
+   
+// //  if side.direction e walk.direction: divide move_step e side_step por 2
+
+//     new_player_x = game->player.posX + cos(game->player.rotation_angle) * move_step;
+
+//     new_player_y = game->player.posY + sin(game->player.rotation_angle) * move_step;
+
+//     printf("player.posX %f, player.posY %f\n\n", game->player.posX, game->player.posY);
+//     printf("new_player_x: %f, new_player_y: %f\n\n", new_player_x, new_player_y);
+
+//     if(!has_wall(new_player_x, new_player_y, game))
+//     {
+//         game->player.posX = new_player_x;
+//         game->player.posY = new_player_y;
+//     }
+
+// }
+
+void    calculate_next_step(t_game *game, int move_step, int side_step)
 {
-    printf("handle situation x: %d, y: %d\n", x, y);
-    if (game->map.file[x][y] != '1')
+
+    float new_player_x;
+    float new_player_y;
+
+    new_player_x = (game->player.posX + cos(game->player.rotation_angle) * move_step)
+                    + (cos(game->player.rotation_angle + M_PI_2) * side_step);
+
+    new_player_y = (game->player.posY + sin(game->player.rotation_angle) * move_step)
+                    + (sin(game->player.rotation_angle + M_PI_2) * move_step);
+
+    if(!has_wall(new_player_x, new_player_y, game))
     {
-        if (game->map.file[x][y] == '0')
-            handle_0(game, x, y);
+        game->player.posX = new_player_x;
+        game->player.posY = new_player_y;
     }
 }
 
-void    player_rotation(t_game *game)
+void    move_player(t_game *game)
 {
-    double move_step;
-    double seno;
-    double cosseno;
+    int move_step;
+    int side_step;
 
-    cosseno = cos(game->player.rotation_angle);
-    seno = sin(game->player.rotation_angle);
-
-    move_step = game->player.walk_direction * game->player.mov_speed;
-    game->player.rotation_angle += game->player.turn_direction * game->player.rotation_speed;
-    game->player.posX = game->player.posX + cosseno * move_step;
-    game->player.posY = game->player.posY + seno * move_step;
-
-}
-
-void	player_update(int keycode, t_game *game)
-{
-	if (keycode == KEY_W || keycode == KEY_UP)
-        handle_situation(game, game->player.posX - 1, game->player.posY);
-	if (keycode == KEY_S || keycode == KEY_DOWN)
-    	handle_situation(game, game->player.posX + 1, game->player.posY);
-	if (keycode == KEY_A || keycode == KEY_LEFT)
+    if (game->player.turn_direction)
+    {
+        game->player.rotation_angle += game->player.turn_direction * game->player.turn_speed;
+        normalize_angle(&game->player.rotation_angle);
+    }  
+    if (game->player.side_direction || game->player.walk_direction)
+    {
+        move_step = game->player.walk_direction * game->player.walk_speed;
+        side_step = game->player.side_direction * game->player.walk_speed;
+        if (game->player.side_direction && game->player.walk_direction)
         {
-            player_rotation(game);
-		    handle_situation(game, game->player.posX, game->player.posY - 1);
+            move_step /= 2;
+            side_step /= 2;
         }
-	if (keycode == KEY_D || keycode == KEY_RIGHT)
-    	{
-            player_rotation(game);
-            handle_situation(game, game->player.posX, game->player.posY + 1);
-        }
+        calculate_next_step(game, move_step, side_step);
+    }  
 }
 
-int	key_press(int keycode, t_game *game)
+int	key_down(int keycode, t_game *game)
 {
-    if (keycode == KEY_UP || keycode == KEY_DOWN || keycode == KEY_LEFT || keycode == KEY_RIGHT)
-	    player_update(keycode, game);
-	if (keycode == XK_Escape)
-        exit_game(game);
-	if (game->end_game)
-		return (0);
-	return (0);
+   	if (keycode == XK_Escape)
+            exit_game(game);
+	if (keycode == 'w')
+        game->player.walk_direction = +1;
+	if (keycode == 's')
+        game->player.walk_direction = -1;
+	if (keycode == 'a')
+        game->player.side_direction = -1;
+	if (keycode == 'd')
+        game->player.side_direction = +1;
+	if (keycode == KEY_RIGHT)
+        game->player.turn_direction = +1;
+	if (keycode == KEY_LEFT)
+        game->player.turn_direction = -1;
+    move_player(game);
+    return (0);
+}
+
+int	key_up(int keycode, t_game *game)
+{
+	if (keycode == 'w')
+        game->player.walk_direction = 0;
+	if (keycode == 's')
+        game->player.walk_direction = 0;
+	if (keycode == 'a')
+        game->player.side_direction = 0;
+	if (keycode == 'd')
+        game->player.side_direction = 0;
+	if (keycode == KEY_RIGHT)
+        game->player.turn_direction = 0;
+	if (keycode == KEY_LEFT)
+        game->player.turn_direction = 0;
+    return (0);
 }
 
 void    event_handler(t_game *game)
 {
-    mlx_hook(game->window, X_EVENT_KEY_PRESS, 1l << 0, &key_press, game);
+    mlx_hook(game->window, 2, 1l << 0, &key_down, game);
+    mlx_hook(game->window, 3, 1l << 1, &key_up, game);
     mlx_hook(game->window, X_EVENT_KEY_EXIT, 0, &click_close, game);
 }

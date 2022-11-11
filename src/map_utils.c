@@ -36,8 +36,9 @@ void	map_counter(char **map, t_game *game)
 		{
 			if (game->map.file[i][j] == 'N')
 			{
-				game->player.posX = i;
-				game->player.posY = j;
+				game->player.posX = j * TILE_SIZE + TILE_SIZE / 2;
+				game->player.posY = i * TILE_SIZE + TILE_SIZE / 2;
+				game->map.file[i][j] = '0';
 			}
 			j++;
 		}

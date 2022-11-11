@@ -15,7 +15,7 @@
 void	draw_minimap(t_game *game)
 {
 	draw_rectangles(game);
-	draw_lines(game);
+	//draw_lines(game);
 }
 
 void	draw_walls(t_game *game)
