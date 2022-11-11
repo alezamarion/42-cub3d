@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:09:54 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/20 11:46:30 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/11 13:09:10 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_window(t_game *game)
 {
 	// game->window = mlx_new_window(game->mlx, game->map.col * TILE_SIZE,
 	// 								game->map.row * TILE_SIZE, "CUB3D");
-	game->window = mlx_new_window(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "CUB3D");
+	game->window = mlx_new_window(game->mlx, WIN_WIDTH, WIN_HEIGHT, "CUB3D");
 	if (game->window == NULL)
 	{
 		free(game->window);
