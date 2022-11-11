@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/10/26 08:42:00 by azamario         ###   ########.fr        #
+#    Updated: 2022/11/10 22:03:19 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ_DIR		=	./obj
 FILES		=	cub3d.c
 FILES		+=	exit_game.c get_next_line.c init_game.c init_image.c init_window.c    
 FILES		+=	read_map.c validate_map.c is_valid_map.c event_handler.c render_game.c
-FILES		+=	map_utils.c draw_minimap.c draw_walls.c
+FILES		+=	map_utils.c draw_minimap.c draw_walls.c draw_player.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
