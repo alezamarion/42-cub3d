@@ -109,9 +109,6 @@ int		has_valid_chars(char **map);
 int		has_minimum_chars(char **map, t_game *game);
 int		has_valid_extension(char *file);
 
-//gnl
-char	*get_next_line(int fd);
-
 //exit_game.c
 void	free_map(char **map);
 
@@ -160,11 +157,5 @@ void	draw_rectangles(t_game *game);
 //draw_player.c
 void	draw_player(t_game *game);
 void	render_player(t_game *game, int x, int y, int color);
-
-
-
-
-
-
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:54:20 by azamario          #+#    #+#             */
-/*   Updated: 2022/08/15 21:08:44 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:26:38 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**read_map(char *path_to_file)
 	buffer = ft_strdup("");
 	while (1)
 	{
-		line = get_next_line(fd); //substituir
+		line = ft_get_next_line(fd);
 		if (!line)
 			break ;
 		tmp = buffer;

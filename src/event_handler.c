@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/10 21:49:57 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/10 22:12:51 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,35 +41,6 @@ void    normalize_angle(float *angle)
     if (*angle < 0)
         *angle = M_PI * 2 + *angle;
 }
-
-// void    move_player(t_game *game)
-// {
-//     printf("move_player\n\n");
-//     float move_step;
-//     float side_step;
-//     float new_player_x;
-//     float new_player_y; 
-    
-//     game->player.rotation_angle += game->player.turn_direction * game->player.turn_speed;
-//     move_step = game->player.walk_direction * game->player.walk_speed;
-//     side_step = game->player.side_direction * game->player.walk_speed;
-   
-// //  if side.direction e walk.direction: divide move_step e side_step por 2
-
-//     new_player_x = game->player.posX + cos(game->player.rotation_angle) * move_step;
-
-//     new_player_y = game->player.posY + sin(game->player.rotation_angle) * move_step;
-
-//     printf("player.posX %f, player.posY %f\n\n", game->player.posX, game->player.posY);
-//     printf("new_player_x: %f, new_player_y: %f\n\n", new_player_x, new_player_y);
-
-//     if(!has_wall(new_player_x, new_player_y, game))
-//     {
-//         game->player.posX = new_player_x;
-//         game->player.posY = new_player_y;
-//     }
-
-// }
 
 void    calculate_next_step(t_game *game, int move_step, int side_step)
 {

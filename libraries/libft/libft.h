@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 20:02:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/05/27 20:02:33 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:28:26 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			ft_toupper(int c);
 int			ft_tolower(int c);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
-int			ft_get_next_line(int fd, char **line);
+char		*ft_get_next_line(int fd);
 void		ft_super_free(void **ptr);
 char		*ft_strcat(char *s1, char *s2);
 char		*ft_substr(char const *s, unsigned int start, size_t len);

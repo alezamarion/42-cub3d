@@ -6,88 +6,85 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 19:49:18 by joeduard          #+#    #+#             */
-/*   Updated: 2022/05/27 19:49:21 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:25:57 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	find_line_break(char *s_line)
-{
-	int	i;
-
-	i = 0;
-	if (s_line == 0)
-		return (-1);
-	while (s_line[i] != '\0')
-	{
-		if (s_line[i] == '\n')
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-static int	check_ret(char **save, char **line, ssize_t ret)
-{
-	if (ret < 0)
-	{
-		*line = NULL;
-		return (-1);
-	}
-	else if (*save == NULL)
-		*line = ft_strdup("");
-	else
-		*line = ft_strdup(*save);
-	free(*save);
-	*save = NULL;
-	return (ret);
-}
-
-static int	return_line(char **save, char **line, ssize_t ret, int fd)
+static char	*extract_line(char **buffer_backup)
 {
 	int		i;
-	char	*tmp;
+	char	*line;
+	char	*temp_free;
 
-	if (fd < 0 || fd > OPEN_MAX || !line || BUFFER_SIZE <= 0)
-		return (-1);
-	i = find_line_break(*save);
-	if (i >= 0)
-	{
-		*line = ft_substr(*save, 0, i);
-		tmp = ft_substr(*save, i + 1, ft_strlen(*save));
-		free(*save);
-		*save = tmp;
-		return (1);
-	}
-	else
-		return (check_ret(save, line, ret));
+	i = 0;
+	while ((*buffer_backup)[i] != '\0' && (*buffer_backup)[i] != '\n')
+		i++;
+	temp_free = *buffer_backup;
+	line = ft_substr(temp_free, 0, i + 1);
+	*buffer_backup = ft_strdup(&(*buffer_backup)[i + 1]);
+	ft_super_free((void *)&temp_free);
+	return (line);
 }
 
-int	ft_get_next_line(int fd, char **line)
+static int	read_file(int fd, char **buffer, char **buffer_backup)
 {
-	char		*buffer;
-	static char	*save[OPEN_MAX];
-	char		*tmp;
-	ssize_t		ret;
+	int		bytes_read;
+	char	*temp_free;
 
-	buffer = malloc(BUFFER_SIZE + 1);
-	ret = read(fd, buffer, BUFFER_SIZE);
-	while (ret > 0)
+	bytes_read = 1;
+	while (!ft_strchr(*buffer_backup, '\n') && bytes_read)
 	{
-		buffer[ret] = '\0';
-		if (save[fd] == NULL)
-			save[fd] = ft_strdup(buffer);
-		else
-		{
-			tmp = ft_strjoin(save[fd], buffer);
-			free(save[fd]);
-			save[fd] = tmp;
-		}
-		if (ft_strchr(save[fd], '\n'))
-			break ;
-		ret = read(fd, buffer, BUFFER_SIZE);
+		bytes_read = read(fd, *buffer, BUFFER_SIZE);
+		if (bytes_read == -1)
+			return (bytes_read);
+		(*buffer)[bytes_read] = '\0';
+		temp_free = *buffer_backup;
+		*buffer_backup = ft_strjoin(temp_free, *buffer);
+		ft_super_free((void *)&temp_free);
 	}
-	free(buffer);
-	return (return_line(&save[fd], line, ret, fd));
+	return (bytes_read);
+}
+
+static char	*get_line(int fd, char **buffer, char **buffer_backup)
+{
+	int		bytes_read;
+	char	*temp_free;
+
+	if (ft_strchr(*buffer_backup, '\n'))
+		return (extract_line(buffer_backup));
+	bytes_read = read_file(fd, buffer, buffer_backup);
+	if ((bytes_read == 0 || bytes_read == -1) && !**buffer_backup)
+	{
+		ft_super_free((void *)buffer_backup);
+		return (NULL);
+	}
+	if (ft_strchr(*buffer_backup, '\n'))
+		return (extract_line(buffer_backup));
+	if (!ft_strchr(*buffer_backup, '\n') && **buffer_backup)
+	{
+		temp_free = ft_strdup(*buffer_backup);
+		ft_super_free((void *)buffer_backup);
+		return (temp_free);
+	}
+	return (NULL);
+}
+
+char	*ft_get_next_line(int fd)
+{
+	static char		*buffer_backup[OPEN_MAX + 1];
+	char			*buffer;
+	char			*result;
+
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
+		return (NULL);
+	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (!buffer)
+		return (NULL);
+	if (!buffer_backup[fd])
+		buffer_backup[fd] = ft_strdup("");
+	result = get_line(fd, &buffer, &buffer_backup[fd]);
+	ft_super_free((void *)&buffer);
+	return (result);
 }
