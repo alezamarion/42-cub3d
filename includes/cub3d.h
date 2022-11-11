@@ -22,9 +22,6 @@
 //read_map.c
 char	**read_map(char *path_to_file);
 
-//valid_map.c
-int		is_valid_map(char **map, char *file, t_game *game);
-
 //map_check.c
 int		has_valid_walls(char **map, t_game *game);
 int		has_valid_chars(char **map);
@@ -80,7 +77,11 @@ void	draw_rectangles(t_game *game);
 void	draw_player(t_game *game);
 void	render_player(t_game *game, int x, int y, int color);
 
+ // validation.c
  t_bool	validation(t_game *game, int argc, char **argv);
  t_bool	print_error(char *error);
+
+ // validate_map.c
+ int	is_valid_map(char **map, char *file, t_game *game);
 
 #endif

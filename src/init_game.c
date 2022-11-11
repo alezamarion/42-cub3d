@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/10 21:50:46 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/11 13:29:29 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static void	initialize_mlx(t_game *game)
 	if (game->mlx == NULL)
 	{
 		free(game->mlx);
-		printf("MLX_ERROR: Could not initialize or create window");
+		print_error(E_MLX);
+		exit_game(game);
 	}
 }
 
