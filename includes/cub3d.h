@@ -8,6 +8,8 @@
 # include <string.h>
 # include <math.h>
 # include <stdbool.h>
+# include <limits.h>
+# include <float.h>
 # include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
@@ -148,6 +150,7 @@ void	print_map(char **map);
 
 //event_handler
 void    event_handler(t_game *game);
+int     has_wall(float x, float y, t_game *game);
 
 
 //exit_game.c

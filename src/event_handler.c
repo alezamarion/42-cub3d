@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/11 22:08:02 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:30:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void    move_player(t_game *game)
     if (game->player.turn_direction)
     {
         game->player.rotation_angle += game->player.turn_direction * game->player.turn_speed;
-        normalize_angle(&game->player.rotation_angle);
+        normalize_angle_move_player(&game->player.rotation_angle);
     }  
     if (game->player.side_direction || game->player.walk_direction)
     {
