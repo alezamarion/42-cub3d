@@ -39,8 +39,13 @@
 
 //movement
 # define PI 3.14159265
-#define KeyPress	2
-#define KeyRelease	3
+
+# define KeyPress	2
+# define KeyRelease	3
+
+//rays
+# define NUM_RAYS WINDOW_WIDTH
+# define FOV_ANGLE (60 * (PI / 180)) 
 
 typedef struct s_player
 {	
@@ -52,8 +57,6 @@ typedef struct s_player
 	float	rotation_angle;
 	float	walk_speed;
 	float	turn_speed;
-//	double	rotation_speed;
-
 }				t_player;
 
 
@@ -78,11 +81,26 @@ typedef struct s_img
 	
 }				t_img;
 
+typedef struct ray
+{
+	float 	ray_angle;
+	float 	wall_hit_x;
+	float 	wall_hit_y;
+	float 	distance;
+	int		was_hit_vertical;
+	int		is_ray_facing_up;	
+	int		is_ray_facing_down;	
+	int		is_ray_facing_left;	
+	int		is_ray_facing_right;
+	int		wall_hit_content;	
+}				t_ray;
+
 typedef struct	s_game
 {
 	t_img		img;
 	t_map		map;
 	t_player 	player;
+	t_ray		rays[NUM_RAYS];
 
 	void	*mlx;
 	void	*window;
@@ -131,6 +149,7 @@ void	print_map(char **map);
 //event_handler
 void    event_handler(t_game *game);
 
+
 //exit_game.c
 int 	exit_game(t_game *game);
 void    free_map(char **map);
@@ -161,7 +180,8 @@ void	draw_rectangles(t_game *game);
 void	draw_player(t_game *game);
 void	render_player(t_game *game, int x, int y, int color);
 
-
+//cast_all_rays.c
+void	cast_all_rays(t_game *game);
 
 
 
