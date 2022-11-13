@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:40:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/11 16:44:12 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/13 19:18:34 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 			init_game(&game);
 			mlx_loop_hook(game.mlx, &render_game, &game);
 			event_handler(&game);
-			cast_all_rays(&game);
+//			cast_all_rays(&game);
 			mlx_loop(game.mlx);
 		}
 		else

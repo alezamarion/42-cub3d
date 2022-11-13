@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:44:17 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/12 18:05:36 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/13 19:25:17 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
 
     //here all crazy logic for horizontal, vertical and distance to wall
     ray_angle = normalize_angle_cast_ray(ray_angle);
-
+ //   printf("ray_angle %f", ray_angle);
+    //printf("RAY_ANGLE %f\n", ray_angle);
     is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
     is_ray_facing_up = !is_ray_facing_down;
     
@@ -225,7 +226,8 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
         game->rays[strip_id].wall_hit_y = vertical_wall_hit_y;
         game->rays[strip_id].wall_hit_content = vertical_wall_content;
         game->rays[strip_id].was_hit_vertical = true;
-    } else {
+    } else
+    {
         game->rays[strip_id].distance = horizontal_hit_distance;
         game->rays[strip_id].wall_hit_x = horizontal_wall_hit_x;
         game->rays[strip_id].wall_hit_y = horizontal_wall_hit_y;
@@ -252,7 +254,7 @@ void    cast_all_rays(t_game *game)
     int strip_id;
 
     ray_angle = game->player.rotation_angle - (FOV_ANGLE / 2); //rotation_angle inicializado a 90 graus
-
+    
     strip_id = 0;
     while (strip_id < NUM_RAYS)
     {
@@ -260,4 +262,6 @@ void    cast_all_rays(t_game *game)
         ray_angle += FOV_ANGLE / NUM_RAYS;
         strip_id++;
     }
+//    printf("\nfinal RAY_ANGLE %f\n",ray_angle);
+  //  printf("strip_id %d\n", strip_id);
 }

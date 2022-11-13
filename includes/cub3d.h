@@ -88,6 +88,7 @@ typedef struct s_img
 typedef struct ray
 {
 	float 	ray_angle;
+	float	rotation_angle;
 	float 	wall_hit_x;
 	float 	wall_hit_y;
 	float 	distance;
@@ -159,6 +160,7 @@ void	print_map(char **map);
 //event_handler
 void    event_handler(t_game *game);
 int     has_wall(float x, float y, t_game *game);
+void    normalize_angle_move_player(float *angle);
 
 
 //exit_game.c
