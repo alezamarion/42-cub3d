@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 21:53:39 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/12 22:46:51 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/13 13:42:27 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@
     Second pair -   EE: how much red
     Third pair -    7E: how much green
     Fourth pair -   31: how much blue
-    Each pixel will have a color: a display with 1440 x 900 resolution will have
-        1.296.000 pixels - that's the elements number of this array 
+    Each pixel will have a color: a display with 800 x 600 resolution will have
+        540.000 pixels - that's the elements number of this array 
     So, we render this array in the display
 
-    Important: a color buffer is not a matrixL it's an 1 dimension array
+    Important: a color buffer is not a matrix it's an 1 dimension array
 
     Uint32* colorBuffer = NULL;
     // allocate the total amount of bytes in memory to hold our colorbuffer
@@ -73,4 +73,26 @@
         SDL_RenderCopy(renderer, colorBufferTexture, NULL, NULL); //display
     }
 */
+
+
+//inicializei e fiz o malloc do color_buffer no init game
+//criei uma struct buffer
+
+//buffer[(WINDOW_WIDTH * ROWS) + x (quanto para a direita tenho que andar)] 
+
+// void clearColorBuffer(t_game *game, Uint32 color)
+// {
+//     for (int x = 0; x < WINDOW_WIDTH; x++)
+//         for (int y = 0; y < WINDOW_HEIGHT; y++)
+//             game->buffer.color_buffer[(WINDOW_WIDTH * y) + x] = color;
+// }
+
+
+/*
+    1 - cria ponteiro para buffer
+    2 - cria ponteiro para a textura ()
+*/
+//put_pixel_in_color_buffer
+
+//render_color_buffer
 

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/11 17:20:34 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/13 09:00:15 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ static void	initialize_data(t_game *game)
 	game->player.turn_speed = 45 * (PI / 180);
 	game->player.walk_speed = 4;
 
+	game->buffer.color_buffer = NULL;
+	// allocate the total amount of bytes in memory to hold our colorbuffer	
+	game->buffer.color_buffer = (Uint32 *)malloc(sizeof(Uint32) * (Uint32)WINDOW_WIDTH * (Uint32)WINDOW_HEIGHT);
+	
 	map_counter(game->map.file, game);
 }
 
