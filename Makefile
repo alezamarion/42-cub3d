@@ -6,7 +6,7 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/11/13 08:26:20 by azamario         ###   ########.fr        #
+#    Updated: 2022/11/13 19:29:56 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIB			=	./libraries/libft/libft.a
 MLX			=	./libraries/mlx-linux/libmlx_Linux.a
 
 FLAGS		=	-Wall -Werror -Wextra -g -fsanitize=address
-LINKS		=	-lbsd -lX11 -lXext -lSDL2 #(retirar -lSDL2)
+LINKS		=	-lbsd -lX11 -lXext
 INC			=	-I ./includes -I ./libft -I ./mlx-linux
 
 SRC_DIR		=	./src

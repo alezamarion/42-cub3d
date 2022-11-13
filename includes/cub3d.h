@@ -1,8 +1,6 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include <SDL2/SDL.h> // RETIRAR //
-
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -100,11 +98,6 @@ typedef struct ray
 	int		wall_hit_content;	
 }				t_ray;
 
-typedef struct	s_buffer
-{
-	Uint32		*color_buffer;
-}				t_buffer;
-
 
 typedef struct	s_game
 {
@@ -112,7 +105,6 @@ typedef struct	s_game
 	t_map		map;
 	t_player 	player;
 	t_ray		rays[NUM_RAYS];
-	t_buffer 	buffer;
 	void	*mlx;
 	void	*window;
 	void	*wall;
@@ -195,9 +187,6 @@ void	render_player(t_game *game, int x, int y, int color);
 
 //cast_all_rays.c
 void	cast_all_rays(t_game *game);
-
-//color_buffer.c
-void	clear_color_buffer(t_game *game, Uint32 color);
 
 
 #endif
