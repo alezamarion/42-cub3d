@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 21:53:39 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/12 22:33:42 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/12 22:46:51 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,30 @@
     Inside brackets: index of each pixel
     WINDOW_WIDTH * y => how many rows times window width 
     + x (to shift in horizontal)
+
+    Using SDL, you display the content of color buffer to the screen
+    You copy the color buffer to an SDL_Texture:
+
+    SDL_texture *colorBufferTexture
+
+    colorBufferTexture = SDL_CreateTexture(
+        renderer,
+        SDL_PIXELFORMAT_ARGB8888,
+        SDL_TEXTUREACCESS_STREAMING,
+        WINDOW_WIDTH,
+        WINDOW_HEIGHT
+    );
+
+    After creating texture, for each one of the frames, I update color buffer
+
+    void renderColorBuffer() {
+        SDL_UpdateTexture(
+            colorBufferTexture,
+            NULL,
+            colorBuffer,
+            (int)(WINDOW_WIDTH * sizeof(Uint32))
+        );
+        SDL_RenderCopy(renderer, colorBufferTexture, NULL, NULL); //display
+    }
 */
 
