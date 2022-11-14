@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:44:17 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/13 19:25:17 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/13 23:56:29 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
 
     //here all crazy logic for horizontal, vertical and distance to wall
     ray_angle = normalize_angle_cast_ray(ray_angle);
- //   printf("ray_angle %f", ray_angle);
-    //printf("RAY_ANGLE %f\n", ray_angle);
+ 
     is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
     is_ray_facing_up = !is_ray_facing_down;
     
@@ -68,6 +67,8 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
         // y_intercept += is_ray_facing_down ? TILE_SIZE : 0;
     if (is_ray_facing_down)
         y_intercept += TILE_SIZE;
+    else
+        y_intercept += 0;
 
     //find the x-coordinate of the closest horizontal grid intersection
     x_intercept = game->player.posX + (y_intercept - game->player.posY) / tan(ray_angle);
@@ -107,20 +108,34 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
 
         x_to_check = next_horizontal_touch_x;
             //float yToCheck = nextHorzTouchY + (isRayFacingUp ? -1 : 0);
+            //float yToCheck = nextHorzTouchY + -1
+            //float yToCheck = nextHorzTouchY + 0
+
+        //float y_to_check = next_horizontal_touch_y + (is_ray_facing_up ? -1 : 0);
+       printf("next_horizontal_touch_y %f\n", next_horizontal_touch_y);
         if (is_ray_facing_up)
             y_to_check = next_horizontal_touch_y -1;
         else
             y_to_check = next_horizontal_touch_y + 0;
+   
+        printf("y_to_check_fora: %f\n", y_to_check);
         
         if (has_wall(x_to_check, y_to_check, game))
         {
             // found a wall hit
             horizontal_wall_hit_x = next_horizontal_touch_x;
             horizontal_wall_hit_y = next_horizontal_touch_y;
-            horizontal_wall_content = game->map.file[(int)floor(y_to_check/ TILE_SIZE)][(int)floor(x_to_check / TILE_SIZE)];
+
+            printf("valor1: %d\n ", (int)floor(y_to_check / TILE_SIZE ));
+            printf("valor1: %d\n ", (int)floor(x_to_check / TILE_SIZE ));
+
+            horizontal_wall_content = game->map.file[(int)floor(y_to_check / TILE_SIZE)][(int)floor(x_to_check / TILE_SIZE)];
+ 
+            printf("horizontal_wall_content: %d\n", horizontal_wall_content);
             found_horizontal_wall_hit = true;
             break;
-        } else
+        } 
+        else
         {
             next_horizontal_touch_x += x_step;
             next_horizontal_touch_y += y_step;
@@ -147,6 +162,8 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
         //x_intercept += isRayFacingRight ? TILE_SIZE : 0;
     if (is_ray_facing_right)
         x_intercept += TILE_SIZE;
+    else
+        x_intercept += 0;
 
     // Find the y-coordinate of the closest horizontal grid intersection
     y_intercept = game->player.posY + (x_intercept - game->player.posX) * tan(ray_angle);
@@ -156,15 +173,21 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
         //xstep *= isRayFacingLeft ? -1 : 1;
     if (is_ray_facing_left)
         x_step *= -1;
+    else   
+        x_step *= 1;
 
     y_step = TILE_SIZE * tan(ray_angle);
         //ystep *= (isRayFacingUp && ystep > 0) ? -1 : 1;
     if (is_ray_facing_up && y_step > 0)
         y_step *= -1;
+    else
+        y_step *= 1;
 
         //ystep *= (isRayFacingDown && ystep < 0) ? -1 : 1;
     if (is_ray_facing_down && y_step < 0)
         y_step *= -1;
+    else
+        y_step *= 1;
 
     float next_vertical_touch_x;
     float next_vertical_touch_y;
@@ -195,7 +218,8 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
             vertical_wall_content = game->map.file[(int)floor(y_to_check / TILE_SIZE)][(int)floor(x_to_check / TILE_SIZE)];
             found_vertical_wall_hit = true;
             break;
-        } else 
+        } 
+        else 
         {
             next_vertical_touch_x += x_step;
             next_vertical_touch_y += y_step;
@@ -226,7 +250,8 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
         game->rays[strip_id].wall_hit_y = vertical_wall_hit_y;
         game->rays[strip_id].wall_hit_content = vertical_wall_content;
         game->rays[strip_id].was_hit_vertical = true;
-    } else
+    } 
+    else
     {
         game->rays[strip_id].distance = horizontal_hit_distance;
         game->rays[strip_id].wall_hit_x = horizontal_wall_hit_x;
@@ -240,10 +265,6 @@ void    cast_ray(float ray_angle, int strip_id, t_game *game)
     game->rays[strip_id].is_ray_facing_left = is_ray_facing_left;
     game->rays[strip_id].is_ray_facing_right = is_ray_facing_right;
 }
-
-
-
-
 
 
 

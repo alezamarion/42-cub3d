@@ -6,7 +6,7 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/11/13 19:29:56 by azamario         ###   ########.fr        #
+#    Updated: 2022/11/13 23:17:10 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ $(MLX):
 	@echo "Mlx is ready! [ OK ]"
 
 run:
-	./cub3d "assets/maps/mandatory.cub"
+	./cub3d "assets/maps/mandatory1.cub"
 
 clean:
 	@make -C ./libraries/libft clean

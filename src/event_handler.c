@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/13 19:33:08 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/13 23:52:31 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@ static int click_close(t_game *game)
 
 int     has_wall(float x, float y, t_game *game)
 {
+    printf("float y %f\n", y);
     int map_grid_index_X;
     int map_grid_index_Y;
 
-    map_grid_index_X = (int)floor(x / TILE_SIZE);
-    map_grid_index_Y = (int)floor(y / TILE_SIZE);
+    map_grid_index_X = (int)floor((x / TILE_SIZE));
+    map_grid_index_Y = (int)floor((y / TILE_SIZE));
 
+    printf("index_y: %d\n", map_grid_index_Y);
     if (x < 0 || x > WINDOW_WIDTH || y < 0 || y > WINDOW_HEIGHT)
         return (true);
     return (game->map.file[map_grid_index_Y][map_grid_index_X] == '1');
-    
 }
 
 void    normalize_angle_move_player(float *angle)
