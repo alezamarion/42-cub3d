@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/20 11:46:30 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/14 03:14:36 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	is_valid_map(char **map, char *file, t_game *game)
 		&& has_minimum_chars(map, game) && has_valid_extension(file))
 	{
 		printf("Map is valid\n");
-		return (1);		
+		return (1);
 	}
 	return (0);
 }
