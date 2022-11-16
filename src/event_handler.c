@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/11 13:24:54 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:11:01 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,24 @@ static int click_close(t_game *game)
 
 int     has_wall(float x, float y, t_game *game)
 {
+    printf("float y %f\n", y);
     int map_grid_index_X;
     int map_grid_index_Y;
 
-    map_grid_index_X = (int)floor(x / TILE_SIZE);
-    map_grid_index_Y = (int)floor(y / TILE_SIZE);
+    map_grid_index_X = (int)floor((x / TILE_SIZE));
+    map_grid_index_Y = (int)floor((y / TILE_SIZE));
 
-    printf("\n\ngrid_x: %d, grid_y: %d\n\n", map_grid_index_X, map_grid_index_Y);
-
-    if (x < 0 || x > WIN_WIDTH || y < 0 || y > WIN_HEIGHT)
+    printf("index_y: %d\n", map_grid_index_Y);
+    if (x < 0 || x > WINDOW_WIDTH || y < 0 || y > WINDOW_HEIGHT)
         return (true);
     return (game->map.file[map_grid_index_Y][map_grid_index_X] == '1');
-    
 }
 
-void    normalize_angle(float *angle)
+void    normalize_angle_move_player(float *angle)
 {
-    *angle = remainder(*angle, M_PI * 2);
+    *angle = remainder(*angle, PI * 2);
     if (*angle < 0)
-        *angle = M_PI * 2 + *angle;
+        *angle = PI * 2 + *angle;
 }
 
 void    calculate_next_step(t_game *game, int move_step, int side_step)
@@ -49,10 +48,10 @@ void    calculate_next_step(t_game *game, int move_step, int side_step)
     float new_player_y;
 
     new_player_x = (game->player.posX + cos(game->player.rotation_angle) * move_step)
-                    + (cos(game->player.rotation_angle + M_PI_2) * side_step);
+                    + (cos(game->player.rotation_angle + (PI / 2)) * side_step);
 
     new_player_y = (game->player.posY + sin(game->player.rotation_angle) * move_step)
-                    + (sin(game->player.rotation_angle + M_PI_2) * move_step);
+                    + (sin(game->player.rotation_angle + (PI / 2)) * move_step);
 
     if(!has_wall(new_player_x, new_player_y, game))
     {
@@ -69,7 +68,7 @@ void    move_player(t_game *game)
     if (game->player.turn_direction)
     {
         game->player.rotation_angle += game->player.turn_direction * game->player.turn_speed;
-        normalize_angle(&game->player.rotation_angle);
+        normalize_angle_move_player(&game->player.rotation_angle);
     }  
     if (game->player.side_direction || game->player.walk_direction)
     {

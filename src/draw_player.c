@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 22:08:14 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/10 22:08:18 by joeduard         ###   ########.fr       */
+/*   Created: 2022/11/10 22:11:09 by azamario          #+#    #+#             */
+/*   Updated: 2022/11/16 13:07:30 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	draw_player(t_game *game)
 {
 	int i;
 	int j;
-
 	int x;
 	int y;
 
