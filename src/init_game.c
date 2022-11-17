@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/13 23:22:54 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/16 23:09:37 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,23 @@ static void	initialize_mlx(t_game *game)
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
 	{
-		free(game->mlx );
+		free(game->mlx);
 		printf("MLX_ERROR: Could not initialize or create window");
 	}
 }
 
 static void	initialize_data(t_game *game)
 {
-	game->player.posX  = 0;
+	game->player.posX = 0;
 	game->player.posY = 0;
-
 	game->player.turn_direction = 0;
 	game->player.walk_direction = 0;
 	game->player.side_direction = 0;
-	game->player.rotation_angle = PI; //+ (PI / 2); //inicializando a 90 graus
+	game->player.rotation_angle = PI + (PI / 2); //inicializando a 90 graus
 	game->player.turn_speed = 45 * (PI / 180);
 	game->player.walk_speed = 4;
-	
 	map_counter(game->map.file, game);
 }
-
 
 static void	initialize_rendering(t_game *game)
 {

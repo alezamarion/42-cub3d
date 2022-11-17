@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/10/25 20:18:39 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/14 01:31:20 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	has_valid_walls(char **map, t_game *game)
 	while (map[game->map.row])
 		game->map.row++;
 	game->map.row--;
-	game->map.col = ft_strlen(*map) -1;
+	game->map.col = ft_strlen(*map) - 1;
 	i = 0;
 	while (map[i])
 	{
@@ -35,14 +35,14 @@ int	has_valid_walls(char **map, t_game *game)
 		}
 		i++;
 	}
-	return (1);	
+	return (1);
 }
 
 int	has_valid_chars(char **map)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (map[i])
 	{
@@ -62,7 +62,7 @@ int	has_minimum_chars(char **map, t_game *game)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (map[i])
 	{
@@ -70,11 +70,7 @@ int	has_minimum_chars(char **map, t_game *game)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'N')
-			{
-
-			
 				game->map.player++;
-			}
 			if (map[i][j] == '0')
 				game->map.space++;
 			if (game->map.player > 0 && game->map.space > 0)
@@ -95,7 +91,7 @@ int	has_valid_extension(char *file)
 	extension = ft_strrchr(file, '.');
 	if (extension == NULL)
 		return (0);
-	if (ft_strncmp(extension,  ".cub", 5))
+	if (ft_strncmp(extension, ".cub", 5))
 		return (0);
-	return (1);	
+	return (1);
 }
