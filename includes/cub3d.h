@@ -83,7 +83,7 @@ typedef struct s_img
 	
 }				t_img;
 
-typedef struct ray
+typedef struct ray		//verificar se todos estao sendo usados
 {
 	float 	ray_angle;
 	float	rotation_angle;
@@ -91,11 +91,22 @@ typedef struct ray
 	float 	wall_hit_y;
 	float 	distance;
 	int		was_hit_vertical;
+	int		wall_hit_content;
+
 	int		is_ray_facing_up;	
 	int		is_ray_facing_down;	
 	int		is_ray_facing_left;	
 	int		is_ray_facing_right;
-	int		wall_hit_content;	
+
+	int		found_horiz_wall_hit;
+	float	horiz_wall_hit_x;
+	float	horiz_wall_hit_y;
+	int		horiz_wall_content;
+
+	int		found_vert_wall_hit;
+	float	vert_wall_hit_x;
+	float	vert_wall_hit_y;
+	int		vert_wall_content;
 }				t_ray;
 
 
@@ -105,6 +116,7 @@ typedef struct	s_game
 	t_map		map;
 	t_player 	player;
 	t_ray		rays[NUM_RAYS];
+
 	void	*mlx;
 	void	*window;
 	void	*wall;
@@ -187,6 +199,14 @@ void	render_player(t_game *game, int x, int y, int color);
 
 //cast_all_rays.c
 void	cast_all_rays(t_game *game);
+void    cast_ray(float ray_angle, int strip_id, t_game *game);
+float 	distance_between_points(float x1, float y1, float x2, float y2);
+float   normalize_angle_cast_ray(float angle);
 
+//cast_ray.c
+void    where_is_ray_facing(float ray_angle, t_game *game);
+void    find_horizontal_intersection(float ray_angle, t_game *game);
+void    find_vertical_intersection(float ray_angle, t_game *game);
+void    choose_smalest_distance(float ray_angle, int strip_id, t_game *game);
 
 #endif

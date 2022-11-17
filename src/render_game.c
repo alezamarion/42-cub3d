@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/13 19:23:10 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/16 21:53:56 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,31 +120,14 @@ void generate_3d_projection(t_game *game)
     }
 }
 
-
-
-void	draw_flor_and_ceiling(t_game *game)
-{
-	(void)game;
-}
-
-void	draw_walls(t_game *game)
-{
-	(void)game;
-
-}
-
 int		render_game(t_game *game)
 {
-
 	cast_all_rays(game);
 	generate_3d_projection(game);
 	
 	//draw_minimap(game);
 	//draw_player(game);
-	//render_rays(game);
 
 	mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
-	
-
 	return (0);
 }
