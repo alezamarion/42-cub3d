@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/16 23:44:44 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/17 10:50:20 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <math.h>
 # include <limits.h>
 # include <float.h>
-# include <stdbool.h>
 # include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
@@ -110,5 +109,9 @@ void    where_is_ray_facing(float ray_angle, t_game *game);
 void    find_horizontal_intersection(float ray_angle, t_game *game);
 void    find_vertical_intersection(float ray_angle, t_game *game);
 void    choose_smalest_distance(float ray_angle, int strip_id, t_game *game);
+
+// validation.c
+t_bool	print_error(char *error);
+t_bool	validation(t_game *game, int argc, char **argv);
 
 #endif

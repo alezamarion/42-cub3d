@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/16 23:09:37 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/17 11:05:43 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	initialize_mlx(t_game *game)
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
 	{
-		free(game->mlx);
-		printf("MLX_ERROR: Could not initialize or create window");
+		print_error(MLX_ERROR);
+		exit_game(game);
 	}
 }
 

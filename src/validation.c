@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:00:11 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/14 03:14:31 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/17 10:52:42 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_bool	print_error(char *error)
 
 t_bool	validation(t_game *game, int argc, char **argv)
 {
-	if (WINDOW_WIDTH < 1024 || WINDOW_HEIGHT < 768)
+	if (WINDOW_WIDTH < 800 || WINDOW_HEIGHT < 600)
 		return (print_error(E_RESINVAL));
 	if (argc < 2)
 		return (print_error(E_NOMAP));

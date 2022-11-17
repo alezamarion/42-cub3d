@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 08:19:23 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/14 00:37:43 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/17 10:59:12 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ void	draw_rectangles(t_game *game)
 		while (j < game->map.col)
 		{
 			if (game->map.file[i][j] == '1')
-				draw_rectangle(game, j, i, 0x4B0082);
+				draw_rectangle(game, j, i, PURPLE);
 			if (game->map.file[i][j] == '0')
-				draw_rectangle(game, j, i, 0xF5FFA);
+				draw_rectangle(game, j, i, BLUE);
 			j++;
 		}
 		i++;
