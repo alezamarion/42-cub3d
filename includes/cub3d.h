@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/16 23:36:52 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/16 23:44:44 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,123 +27,13 @@
 # include "../libraries/libft/libft.h"
 
 # include "defines.h"
+# include "error.h"
+# include "structs.h"
 
 //# define XK_MISCELLANY //porque esse define vem antes das libs abaixo?
 # include <X11/keysymdef.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
-
-# define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
-
-// # define TILE_SIZE 32
-// # define WINDOW_WIDTH 800
-// # define WINDOW_HEIGHT 600
-
-// # define X_EVENT_KEY_EXIT 17
-// # define KEY_ESC 53
-
-// # define X_EVENT_KEY_PRESS 2
-// //# define X_EVENT_DESTROY_NOTIFY 17
-// # define KEY_W 119
-// # define KEY_A 97
-// # define KEY_S 115 
-// # define KEY_D 100
-
-// # define KEY_UP 65362
-// # define KEY_LEFT 65361
-// # define KEY_DOWN 65364
-// # define KEY_RIGHT 65363
-
-//movement
-// # define PI 3.14159265
-
-// # define KeyPress	2
-// # define KeyRelease	3
-
-//rays
-// # define NUM_RAYS WINDOW_WIDTH
-// # define FOV_ANGLE (60 * (PI / 180)) 
-
-typedef struct s_player
-{	
-	float	posX;
-	float	posY;
-	int		turn_direction;
-	int		walk_direction;
-	int		side_direction;
-	float	rotation_angle;
-	float	walk_speed;
-	float	turn_speed;
-}				t_player;
-
-
-typedef struct	s_map
-{
-	char	**file;
-	int		row;
-	int		col;
-	int		player;
-	int		space;
-}				t_map;
-
-typedef struct s_img
-{
-	void 	*img;
-	int		*data;
-	//You don't need to understand the 3 values below.
-	//After declaration, it will be automatically initialized when passed to mlx_new_data_add function
-	int		size_l;
-	int		bpp;
-	int		endian;
-	
-}				t_img;
-
-typedef struct ray		//verificar se todos estao sendo usados
-{
-	float 	ray_angle;
-	float	rotation_angle;
-	float 	wall_hit_x;
-	float 	wall_hit_y;
-	float 	distance;
-	int		was_hit_vertical;
-	int		wall_hit_content;
-
-	int		is_ray_facing_up;	
-	int		is_ray_facing_down;	
-	int		is_ray_facing_left;	
-	int		is_ray_facing_right;
-
-	int		found_horiz_wall_hit;
-	float	horiz_wall_hit_x;
-	float	horiz_wall_hit_y;
-	int		horiz_wall_content;
-
-	int		found_vert_wall_hit;
-	float	vert_wall_hit_x;
-	float	vert_wall_hit_y;
-	int		vert_wall_content;
-}				t_ray;
-
-
-typedef struct	s_game
-{
-	t_img		img;
-	t_map		map;
-	t_player 	player;
-	t_ray		rays[NUM_RAYS];
-
-	void	*mlx;
-	void	*window;
-	void	*wall;
-	void	*empty_space;
-	int		image_width;
-	int		image_height;
-	int		window_width;
-	int		window_height;
-	int		end_game;
-
-}				t_game;
-
 
 //read_map.c
 char	**read_map(char *path_to_file);
