@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/18 09:30:07 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:56:04 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
 
 # define TILE_SIZE 32
-# define WINDOW_WIDTH 800   //1024
-# define WINDOW_HEIGHT 600  //768
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 600
 
 # define NUM_RAYS WINDOW_WIDTH
 

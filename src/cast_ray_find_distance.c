@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray_find_distance.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:07:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 11:37:00 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/17 19:17:37 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static void	vert_smallest_horiz(float vert_hit_dist, int strip_id, t_game *game)
 	game->rays[strip_id].was_hit_vertical = true;
 }
 
-static void	horiz_smallest_vert(float htz_hit_dist, int strip_id, t_game *game)
+static void	horiz_smallest_vert(float horiz_hit_dist, int strip_id, t_game *game)
 {
-	game->rays[strip_id].distance = htz_hit_dist;
+	game->rays[strip_id].distance = horiz_hit_dist;
 	game->rays[strip_id].wall_hit_x = game->rays->horiz_wall_hit_x;
 	game->rays[strip_id].wall_hit_y = game->rays->horiz_wall_hit_y;
 	game->rays[strip_id].wall_hit_content = game->rays->horiz_wall_content;
