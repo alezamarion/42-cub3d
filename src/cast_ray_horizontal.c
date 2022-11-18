@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:05:08 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 16:36:42 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/17 22:08:28 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,9 @@ void	find_horizontal_intersection(float ray_angle, t_game *game)
 			// found a wall hit
     		game->rays->horiz_wall_hit_x = next_horiz_touch_x;
     		game->rays->horiz_wall_hit_y = next_horiz_touch_y;
-    		game->rays->horiz_wall_content = game->map.file[(int)floor(next_horiz_touch_y / TILE_SIZE)][(int)floor(next_horiz_touch_x/ TILE_SIZE)];
-    		game->rays->found_horiz_wall_hit = true;
+    		// game->rays->horiz_wall_content = game->map.file[(int)floor(next_horiz_touch_y / TILE_SIZE)][(int)floor(next_horiz_touch_x/ TILE_SIZE)];
+    		// printf("horiz_wall_content %d\n", game->rays->horiz_wall_content);
+			game->rays->found_horiz_wall_hit = true;
     		break;
 		}
 		else

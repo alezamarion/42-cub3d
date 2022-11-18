@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:46:10 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 16:35:53 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/17 22:16:50 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void    find_vertical_intersection(float ray_angle, t_game *game)
             // found a wall hit
             game->rays->vert_wall_hit_x = next_vertical_touch_x;
             game->rays->vert_wall_hit_y = next_vert_touch_y;
-            game->rays->vert_wall_content = game->map.file[(int)floor(next_vert_touch_y/ TILE_SIZE)][(int)floor(next_vertical_touch_x / TILE_SIZE)];
+        //    game->rays->vert_wall_content = game->map.file[(int)floor(next_vert_touch_y/ TILE_SIZE)][(int)floor(next_vertical_touch_x / TILE_SIZE)];
             game->rays->found_vert_wall_hit = true;
             break;
         } 
