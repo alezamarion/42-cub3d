@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:05:08 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/18 14:54:25 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:10:08 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,3 @@ void	find_horizontal_intersection(float ray_angle, t_game *game)
 		}
 	}
 }
-
-// 9 6387-4790 Roberto!
