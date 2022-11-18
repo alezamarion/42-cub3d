@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:05:08 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 12:36:13 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/18 09:43:38 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	find_horizontal_intersection(float ray_angle, t_game *game)
 	if (game->rays->is_ray_facing_up)
 		y_step *= -1;
 	else
-		y_step *= -1;
+		y_step *= 1;
 
 	x_step = TILE_SIZE / tan(ray_angle);
 	// x_step *= (game->rays->is_ray_facing_left && x_step > 0) ? -1 : 1;
@@ -89,3 +89,5 @@ void	find_horizontal_intersection(float ray_angle, t_game *game)
 		}
 	}
 }
+
+// 9 6387-4790 Roberto!

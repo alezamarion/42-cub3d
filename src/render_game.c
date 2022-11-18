@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/16 23:19:42 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:42:53 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,10 @@ void	generate_3d_projection(t_game *game)
 
 int		render_game(t_game *game)
 {
-	cast_all_rays(game);
-	generate_3d_projection(game);
-	//draw_minimap(game);
-	//draw_player(game);
+		cast_all_rays(game);
+		generate_3d_projection(game);
+	//	draw_minimap(game);
+	//	draw_player(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
 	return (0);
 }

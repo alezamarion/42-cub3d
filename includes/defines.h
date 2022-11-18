@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/17 10:52:39 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/18 09:30:07 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 
 //movement
 # define PI 3.14159265
+# define TWO_PI 6.28318530
 
 //rays
 # define NUM_RAYS WINDOW_WIDTH
