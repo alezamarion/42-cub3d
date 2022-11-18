@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 19:21:21 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:54:59 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	has_wall(float x, float y, t_game *game)
 
 void	normalize_angle_move_player(float *angle)
 {
-	*angle = remainder(*angle, PI * 2);
+	*angle = remainder(*angle, TWO_PI);
 	if (*angle < 0)
-		*angle = PI * 2 + *angle;
+		*angle = TWO_PI + *angle;
 }
 
 void	calculate_next_step(t_game *game, int move_step, int side_step)

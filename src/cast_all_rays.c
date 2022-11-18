@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:44:17 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 11:17:05 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:50:53 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 float	normalize_angle_cast_ray(float angle)
 {
-	angle = remainder(angle, PI * 2);
+	angle = remainder(angle, TWO_PI);
 	if (angle < 0)
-		angle = PI * 2 + angle;
+		angle = TWO_PI + angle;
 	return (angle);
 }
 
