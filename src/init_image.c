@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:12:13 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 11:10:45 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:41:01 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ with CHAR we navigate the array one byte at time, but an pixel has 4 bytes (int)
 
 void	initialize_image(t_game *game)
 {
+//	game->img.img = mlx_new_image(game->mlx, game->map.col * TILE_SIZE, game->map.row * TILE_SIZE);
+
 	game->img.img = mlx_new_image(game->mlx, WINDOW_WIDTH,
 			WINDOW_HEIGHT);
 	if (game->img.img == NULL)

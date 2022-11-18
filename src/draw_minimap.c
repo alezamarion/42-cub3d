@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 08:19:23 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 10:59:12 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:28:58 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+/*sssss
 //Draw the line by DDA algorithm
 void	draw_line(t_game *game, double x1, double y1, double x2, double y2)
 {
@@ -60,6 +61,7 @@ void	draw_lines(t_game *game)
 	draw_line(game, 0, game->map.row * TILE_SIZE - 1, game->map.col
 		* TILE_SIZE, game->map.row * TILE_SIZE - 1);
 }
+*/
 
 void	draw_rectangle(t_game *game, int x, int y, int color)
 {

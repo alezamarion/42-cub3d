@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/16 23:32:16 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/17 19:21:21 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	has_wall(float x, float y, t_game *game)
 	int	map_grid_index_x;
 	int	map_grid_index_y;
 
-	printf("float y %f\n", y);
+	//printf("float y %f\n", y);
 	map_grid_index_x = (int)floor((x / TILE_SIZE));
 	map_grid_index_y = (int)floor((y / TILE_SIZE));
-	printf("index_y: %d\n", map_grid_index_y);
+	//printf("index_y: %d\n", map_grid_index_y);
 	if (x < 0 || x > WINDOW_WIDTH || y < 0 || y > WINDOW_HEIGHT)
 		return (true);
 	return (game->map.file[map_grid_index_y][map_grid_index_x] == '1');
