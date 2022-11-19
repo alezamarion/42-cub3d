@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/17 16:47:15 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:52:27 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	map_counter(char **map, t_game *game);
 void	print_map(char **map);
 
 //event_handler
+void	move_player(t_game *game);
 void	event_handler(t_game *game);
 int		has_wall(float x, float y, t_game *game);
 void	normalize_angle_move_player(float *angle);

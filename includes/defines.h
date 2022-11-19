@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/18 14:56:04 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:32:44 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@
 # define PURPLE 0x4B0082
 # define BLUE   0xF5FFA
 # define YELLOW 0x8FCE00
+# define WHITE  0xFFFFFFFF
+# define GREY   0xFFCCCCCC
+# define DARK_GREY 0xFF333333
 
 # define FILE_WALL	"textures/1.xpm"
 # define FILE_SPACE	"textures/0.xpm"
