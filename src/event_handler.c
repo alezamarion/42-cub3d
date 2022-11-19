@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/18 14:54:59 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:50:57 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	has_wall(float x, float y, t_game *game)
 	map_grid_index_x = (int)floor((x / TILE_SIZE));
 	map_grid_index_y = (int)floor((y / TILE_SIZE));
 	//printf("index_y: %d\n", map_grid_index_y);
-	if (x < 0 || x > WINDOW_WIDTH || y < 0 || y > WINDOW_HEIGHT)
+	if (x < 0 || x > (game->map.col * TILE_SIZE) || y < 0 || y > (game->map.row * TILE_SIZE))
 		return (true);
 	return (game->map.file[map_grid_index_y][map_grid_index_x] == '1');
 }
@@ -91,7 +91,6 @@ int	key_down(int keycode, t_game *game)
 		game->player.turn_direction = +1;
 	if (keycode == KEY_LEFT)
 		game->player.turn_direction = -1;
-	move_player(game);
 	return (0);
 }
 

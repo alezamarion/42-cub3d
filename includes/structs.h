@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/17 18:34:59 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/18 21:45:01 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,13 @@ typedef struct ray		//verificar se todos estao sendo usados
 	float	vert_wall_hit_x;
 	float	vert_wall_hit_y;
 	int		vert_wall_content;
+
+	float		horiz_x;
+	float		horiz_y;
+
+	float 		vert_x;
+	float		vert_y;
+	
 }				t_ray;
 
 
