@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:01:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/18 18:09:00 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:54:31 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	free_map(char **map)
 static void	free_game(t_game *game)
 {
 	//Testar se foi alocado para dar o destroy
-	mlx_destroy_window(game->mlx, game->window);
+	if(&mlx_new_window)
+		mlx_destroy_window(game->mlx, game->window);
 	mlx_destroy_display(game->mlx);
 	ft_super_free(&game->mlx);
 }
