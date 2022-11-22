@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:07:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/21 18:50:05 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/21 21:35:21 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	choose_smalest_distance(float ray_angle, int strip_id, t_game *game)
 	game->rays[strip_id].ray_angle = ray_angle;
 	x = (int)game->rays[strip_id].wall_hit_x / TILE_SIZE;
 	y = (int)game->rays[strip_id].wall_hit_y / TILE_SIZE;
+	game->rays[strip_id].wall_hit_content = game->map.file[y][x];
 	game->rays[strip_id].is_ray_facing_down = game->rays->is_ray_facing_down;
 	game->rays[strip_id].is_ray_facing_up = game->rays->is_ray_facing_up;
 	game->rays[strip_id].is_ray_facing_left = game->rays->is_ray_facing_left;

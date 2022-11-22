@@ -6,19 +6,19 @@
 #    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/11/17 10:49:24 by joeduard         ###   ########.fr        #
+#    Updated: 2022/11/21 21:40:51 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	cub3d
 
-CC			=	clang
+CC			=	gcc
 
 LIB			=	./libraries/libft/libft.a
 MLX			=	./libraries/mlx-linux/libmlx_Linux.a
 
-FLAGS		=	-Wall -Werror -Wextra -g -fsanitize=address
-LINKS		=	-lbsd -lX11 -lXext
+FLAGS		=	-Wall -Werror -Wextra -g -fsanitize=address 
+LINKS		=	-lbsd -lX11 -lXext -lm -ldl
 INC			=	-I ./includes -I ./libft -I ./mlx-linux
 
 SRC_DIR		=	./src
