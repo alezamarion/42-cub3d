@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/18 21:45:01 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 10:17:12 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct s_player
 {	
-	float	posX;
-	float	posY;
+	float	pos_x;
+	float	pos_y;
 	int		turn_direction;
 	int		walk_direction;
 	int		side_direction;
@@ -26,9 +26,7 @@ typedef struct s_player
 	float	walk_speed;
 	float	turn_speed;
 }				t_player;
-
-
-typedef struct	s_map
+typedef struct s_map
 {
 	char	**file;
 	int		row;
@@ -40,67 +38,53 @@ typedef struct	s_map
 
 typedef struct s_img
 {
-	void 	*img;
+	void	*img;
 	int		*data;
-	//You don't need to understand the 3 values below.
-	//After declaration, it will be automatically initialized when passed to mlx_new_data_add function
 	int		size_l;
 	int		bpp;
 	int		endian;
-	
 }				t_img;
-
-typedef struct ray		//verificar se todos estao sendo usados
+typedef struct ray
 {
-	float 	ray_angle;
+	float	ray_angle;
 	float	rotation_angle;
-	float 	wall_hit_x;
-	float 	wall_hit_y;
-	float 	distance;
+	float	wall_hit_x;
+	float	wall_hit_y;
+	float	distance;
 	int		was_hit_vertical;
 	int		wall_hit_content;
-
 	int		is_ray_facing_up;	
 	int		is_ray_facing_down;	
 	int		is_ray_facing_left;	
 	int		is_ray_facing_right;
-
-	int		found_horiz_wall_hit;
 	float	horiz_wall_hit_x;
 	float	horiz_wall_hit_y;
-	int		horiz_wall_content;
-
-	int		found_vert_wall_hit;
 	float	vert_wall_hit_x;
 	float	vert_wall_hit_y;
+	float	horiz_x;
+	float	horiz_y;
+	float	vert_x;
+	float	vert_y;
+	int		found_horiz_wall_hit;
+	int		found_vert_wall_hit;
+	int		horiz_wall_content;
 	int		vert_wall_content;
-
-	float		horiz_x;
-	float		horiz_y;
-
-	float 		vert_x;
-	float		vert_y;
-	
 }				t_ray;
-
-
-typedef struct	s_game
+typedef struct s_game
 {
 	t_img		img;
 	t_map		map;
-	t_player 	player;
+	t_player	player;
 	t_ray		rays[NUM_RAYS];
-
-	void	*mlx;
-	void	*window;
-	void	*wall;
-	void	*empty_space;
-	int		image_width;
-	int		image_height;
-	int		window_width;
-	int		window_height;
-	int		end_game;
-
+	void		*mlx;
+	void		*window;
+	void		*wall;
+	void		*empty_space;
+	int			image_width;
+	int			image_height;
+	int			window_width;
+	int			window_height;
+	int			end_game;
 }				t_game;
 
 typedef enum e_bool

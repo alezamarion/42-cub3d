@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:07:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/21 21:35:21 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 10:35:42 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,18 @@ void	choose_smalest_distance(float ray_angle, int strip_id, t_game *game)
 {
 	float	horiz_hit_distance;
 	float	vert_hit_distance;
-	int x;
-	int y;
+	int		x;
+	int		y;
 
-	// horiz_hit_distance = game->rays->found_horiz_wall_hit ? distance_between_points(game->player.posX, game->player.posY, game->rays->horiz_wall_hit_x, game->rays->horiz_wall_hit_y) : FLT_MAX;
 	if (game->rays->found_horiz_wall_hit)
-		horiz_hit_distance = distance_between_points(game->player.posX, \
-			game->player.posY, game->rays->horiz_wall_hit_x, \
+		horiz_hit_distance = distance_between_points(game->player.pos_x, \
+			game->player.pos_y, game->rays->horiz_wall_hit_x, \
 				game->rays->horiz_wall_hit_y);
 	else
 		horiz_hit_distance = FLT_MAX;
-	// vert_hit_distance = game->rays->found_vert_wall_hit ? distance_between_points(game->player.posX, game->player.posY, game->rays->vert_wall_hit_x, game->rays->vert_wall_hit_y) : FLT_MAX;
 	if (game->rays->found_vert_wall_hit)
-		vert_hit_distance = distance_between_points(game->player.posX,
-				game->player.posY, game->rays->vert_wall_hit_x,
+		vert_hit_distance = distance_between_points(game->player.pos_x,
+				game->player.pos_y, game->rays->vert_wall_hit_x,
 				game->rays->vert_wall_hit_y);
 	else
 		vert_hit_distance = FLT_MAX;

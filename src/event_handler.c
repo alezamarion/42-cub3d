@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/21 18:16:46 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 10:04:30 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ void	calculate_next_step(t_game *game, int move_step, int side_step)
 	float	new_player_x;
 	float	new_player_y;
 
-	new_player_x = (game->player.posX
+	new_player_x = (game->player.pos_x
 			+ cos(game->player.rotation_angle) * move_step)
 		+ (cos(game->player.rotation_angle + (PI / 2)) * side_step);
-	new_player_y = (game->player.posY
+	new_player_y = (game->player.pos_y
 			+ sin(game->player.rotation_angle) * move_step)
 		+ (sin(game->player.rotation_angle + (PI / 2)) * side_step);
 	if (!has_wall(new_player_x, new_player_y, game))
 	{	
-		game->player.posX = new_player_x;
-		game->player.posY = new_player_y;
+		game->player.pos_x = new_player_x;
+		game->player.pos_y = new_player_y;
 	}
 }
 

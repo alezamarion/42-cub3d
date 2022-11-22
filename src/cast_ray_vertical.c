@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:46:10 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/21 18:50:33 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 10:04:30 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void    find_vertical_intersection(float ray_angle, t_game *game)
     vertical_ray_setup(game);  
  
     // Find the x-coordinate of the closest horizontal grid intersection
-    x_intercept = floor(game->player.posX / TILE_SIZE) * TILE_SIZE;
+    x_intercept = floor(game->player.pos_x / TILE_SIZE) * TILE_SIZE;
     x_intercept += game->rays->is_ray_facing_right ? TILE_SIZE : 0;
 
     // Find the y-coordinate of the closest horizontal grid intersection
-    y_intercept = game->player.posY + (x_intercept - game->player.posX) * tan(ray_angle);
+    y_intercept = game->player.pos_y + (x_intercept - game->player.pos_x) * tan(ray_angle);
 
     // Calculate the increment x_step and y_step
     x_step = TILE_SIZE;

@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/21 15:03:29 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 10:04:30 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	initialize_mlx(t_game *game)
 
 static void	initialize_data(t_game *game)
 {
-	game->player.posX = 0;
-	game->player.posY = 0;
+	game->player.pos_x = 0;
+	game->player.pos_y = 0;
 	game->player.turn_direction = 0;
 	game->player.walk_direction = 0;
 	game->player.side_direction = 0;

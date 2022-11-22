@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:44:17 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/18 14:50:53 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 10:31:40 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,19 @@ float	normalize_angle_cast_ray(float angle)
 
 float	distance_between_points(float x1, float y1, float x2, float y2)
 {
-	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+	float	result;
+
+	result = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+	return (result);
 }
 
 void	where_is_ray_facing(float ray_angle, t_game *game)
 {
 	game->rays->is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
 	game->rays->is_ray_facing_up = !game->rays->is_ray_facing_down;
-	game->rays->is_ray_facing_right = ray_angle < 0.5 * PI || ray_angle > 1.5 * PI;
-	game->rays->is_ray_facing_left = !game->rays->is_ray_facing_right;   
+	game->rays->is_ray_facing_right = ray_angle < 0.5 * PI
+		|| ray_angle > 1.5 * PI;
+	game->rays->is_ray_facing_left = !game->rays->is_ray_facing_right;
 }
 
 void	cast_ray(float ray_angle, int strip_id, t_game *game)
@@ -45,10 +49,10 @@ void	cast_ray(float ray_angle, int strip_id, t_game *game)
 //start first ray subtracting half of our FOV
 void	cast_all_rays(t_game *game)
 {
-	float ray_angle;
-	int strip_id;
+	float	ray_angle;
+	int		strip_id;
 
-	ray_angle = game->player.rotation_angle - (FOV_ANGLE / 2); //rotation_angle inicializado a 90 graus
+	ray_angle = game->player.rotation_angle - (FOV_ANGLE / 2);
 	strip_id = 0;
 	while (strip_id < NUM_RAYS)
 	{
