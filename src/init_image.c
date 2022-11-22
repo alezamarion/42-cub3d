@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:12:13 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/17 18:41:01 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:30:04 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,17 @@ array of pixels
 with CHAR we navigate the array one byte at time, but an pixel has 4 bytes (int)
 */
 
+// static void	*convert_image(char *img, t_game *game)
+// {
+// 	game->img.img = mlx_xpm_file_to_image
+// 		(game->mlx, img, game->image_width * TILE_SIZE, game->img.img_height * TILE_SIZE);
+// 	return (game->img.img);
+//}
+
 void	initialize_image(t_game *game)
 {
-//	game->img.img = mlx_new_image(game->mlx, game->map.col * TILE_SIZE, game->map.row * TILE_SIZE);
-
+	//game->wall = convert_image(FILE_WALL, game);
+	
 	game->img.img = mlx_new_image(game->mlx, WINDOW_WIDTH,
 			WINDOW_HEIGHT);
 	if (game->img.img == NULL)

@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:05:08 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/22 10:45:31 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:10:43 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,44 +28,47 @@ void	find_horizontal_intersection(float ray_angle, t_game *game)
 	float	y_step;
 	float	next_horiz_touch_x;
 	float	next_horiz_touch_y;
+	float	x_to_check;
+	float	y_to_check;
 
 	horizontal_ray_setup(game);
 	y_intercept = floor(game->player.pos_y / TILE_SIZE) * TILE_SIZE;
-	if(game->rays->is_ray_facing_down)
+	if (game->rays->is_ray_facing_down)
 		y_intercept += TILE_SIZE;
 	else
 		y_intercept += 0;
-	x_intercept = game->player.pos_x + (y_intercept - game->player.pos_y) / tan(ray_angle);
+	x_intercept = game->player.pos_x \
+	+ (y_intercept - game->player.pos_y) / tan(ray_angle);
 	y_step = TILE_SIZE;
 	if (game->rays->is_ray_facing_up)
 		y_step *= -1;
 	else
 		y_step *= 1;
 	x_step = TILE_SIZE / tan(ray_angle);
-	if(game->rays->is_ray_facing_left && x_step > 0)
+	if (game->rays->is_ray_facing_left && x_step > 0)
 		x_step *= -1;
 	else
 		x_step *= 1;
-	if(game->rays->is_ray_facing_right && x_step < 0)
+	if (game->rays->is_ray_facing_right && x_step < 0)
 		x_step *= -1;
 	else
 		x_step *= 1;
 	next_horiz_touch_x = x_intercept;
 	next_horiz_touch_y = y_intercept;
-	// Increment x_step and y_step until we find a wall
-	while (next_horiz_touch_x >= 0 && next_horiz_touch_x <= (game->map.col * TILE_SIZE) && next_horiz_touch_y >= 0 && next_horiz_touch_y <= (game->map.row * TILE_SIZE))
+	while (next_horiz_touch_x >= 0 && next_horiz_touch_x <= (game->map.col \
+	* TILE_SIZE) && next_horiz_touch_y >= 0 && next_horiz_touch_y <= (game->map.row * TILE_SIZE))
 	{
-		float x_to_check = next_horiz_touch_x;
-		float y_to_check = next_horiz_touch_y + (game->rays->is_ray_facing_up ? -1 : 0);
-
+		x_to_check = next_horiz_touch_x;
+		y_to_check = next_horiz_touch_y + (game->rays->is_ray_facing_up ? -1 : 0);
 		if (has_wall(x_to_check, y_to_check, game))
 		{
-			// found a wall hit
 			game->rays->horiz_wall_hit_x = next_horiz_touch_x;
 			game->rays->horiz_wall_hit_y = next_horiz_touch_y;
-			game->rays->horiz_wall_content = game->map.file[(int)floor(y_to_check / TILE_SIZE)][(int)floor(x_to_check / TILE_SIZE)];
+			game->rays->horiz_wall_content = game->map.file \
+			[(int)floor(y_to_check / TILE_SIZE)] \
+			[(int)floor(x_to_check / TILE_SIZE)];
 			game->rays->found_horiz_wall_hit = true;
-			break;
+			break ;
 		}
 		else
 		{
