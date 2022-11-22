@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/18 17:32:44 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:14:48 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,6 @@
 # define GREY   0xFFCCCCCC
 # define DARK_GREY 0xFF333333
 
-# define FILE_WALL	"textures/1.xpm"
-# define FILE_SPACE	"textures/0.xpm"
-# define FILE_PLAYER_U	"textures/P_U.xpm"
-# define FILE_PLAYER_D	"textures/P_D.xpm"
-# define FILE_PLAYER_L	"textures/P_L.xpm"
-# define FILE_PLAYER_R	"textures/P_R.xpm"
+# define FILE_WALL	"textures/bluestone.xpm"
 
 #endif

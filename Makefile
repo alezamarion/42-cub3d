@@ -6,13 +6,17 @@
 #    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/11/21 21:40:51 by joeduard         ###   ########.fr        #
+#    Updated: 2022/11/22 17:07:17 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	cub3d
 
 CC			=	gcc
+
+XPM_DIR		=	textures
+
+IMG_DIR		=	assets/img
 
 LIB			=	./libraries/libft/libft.a
 MLX			=	./libraries/mlx-linux/libmlx_Linux.a
@@ -53,6 +57,12 @@ $(MLX):
 
 run:
 	./cub3d "assets/maps/mandatory1.cub"
+
+resize:
+	mogrify -resize 32X32 $(IMG_DIR)/*.png && make img
+
+img:
+	convert $(IMG_DIR)/*.png -set filename:base "%[basename]" "%[filename:base].xpm" && mv *.xpm $(XPM_DIR)
 
 clean:
 	@make -C ./libraries/libft clean

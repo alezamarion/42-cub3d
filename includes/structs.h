@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/22 15:40:37 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:10:07 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_map
 typedef struct s_img
 {
 	void	*img;
+	void	*wall;
 	int		*data;
 	int		size_l;
 	int		bpp;
