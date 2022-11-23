@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 08:19:23 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 14:47:09 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:31:41 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	draw_rectangle(t_game *game, int x, int y, int color)
 		j = 0;
 		while (j < TILE_SIZE)
 		{
-			game->imgs_buffers.img_buffer[(y + i) * game->map.col * TILE_SIZE + x + j] = color;
+			game->imgs_buffers.img_buffer[(y + i) * game->map.col
+				* TILE_SIZE + x + j] = color;
 			j++;
 		}
 		i++;
