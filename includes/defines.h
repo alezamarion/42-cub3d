@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/22 21:01:51 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:36:56 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
 
 # define TILE_SIZE 32
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 600
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 600
 
-# define NUM_RAYS WINDOW_WIDTH
+# define NUM_RAYS WIN_WIDTH
 
 # define X_EVENT_KEY_EXIT 17
 # define KEY_ESC 53
@@ -42,21 +42,18 @@
 # define TWO_PI 6.28318530
 
 //rays
-# define NUM_RAYS WINDOW_WIDTH
+# define NUM_RAYS WIN_WIDTH
 # define FOV_ANGLE 1.0472
 
 # define PURPLE 0x4B0082
 # define BLUE   0xF5FFA
 # define YELLOW 0x8FCE00
 # define WHITE  0xFFFFFFFF
-# define GREY   0xFFCCCCCC
-# define DARK_GREY 0xFF333333
-
-# define TEXTURE_HEIGHT 32
-# define TEXTURE_WIDTH 32
+# define GREY   0xFF333333
+# define RED    0x770C0C
+# define TEXT_HEIGHT 32
+# define TEXT_WIDTH 32
 # define NUMBER_OF_TEXTURES 2
 # define FILE_WALL	"textures/bluestone.xpm"
-
-
 
 #endif

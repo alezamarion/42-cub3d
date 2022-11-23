@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_buffer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 21:53:39 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/13 13:42:27 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:09:26 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@
 
     Uint32* colorBuffer = NULL;
     // allocate the total amount of bytes in memory to hold our colorbuffer
-    colorBuffer = (Uint32*)malloc(sizeof(Uint32) * WINDOW_WIDTH * WINDOW_HEIGHT);
+    colorBuffer = (Uint32*)malloc(sizeof(Uint32) * WIN_WIDTH * WIN_HEIGHT);
 
     void clearColorBuffer(Uint32 color)
     {
-        for (int x = 0; x < WINDOW_WIDTH; x++)
-            for (int y = 0; y < WINDOW_HEIGHT; y++)
-                colorBuffer[(WINDOW_WIDTH * y) + x] = color;
+        for (int x = 0; x < WIN_WIDTH; x++)
+            for (int y = 0; y < WIN_HEIGHT; y++)
+                colorBuffer[(WIN_WIDTH * y) + x] = color;
     }
 
     Inside brackets: index of each pixel
-    WINDOW_WIDTH * y => how many rows times window width 
+    WIN_WIDTH * y => how many rows times window width 
     + x (to shift in horizontal)
 
     Using SDL, you display the content of color buffer to the screen
@@ -57,8 +57,8 @@
         renderer,
         SDL_PIXELFORMAT_ARGB8888,
         SDL_TEXTUREACCESS_STREAMING,
-        WINDOW_WIDTH,
-        WINDOW_HEIGHT
+        WIN_WIDTH,
+        WIN_HEIGHT
     );
 
     After creating texture, for each one of the frames, I update color buffer
@@ -68,7 +68,7 @@
             colorBufferTexture,
             NULL,
             colorBuffer,
-            (int)(WINDOW_WIDTH * sizeof(Uint32))
+            (int)(WIN_WIDTH * sizeof(Uint32))
         );
         SDL_RenderCopy(renderer, colorBufferTexture, NULL, NULL); //display
     }
@@ -78,16 +78,14 @@
 //inicializei e fiz o malloc do color_buffer no init game
 //criei uma struct buffer
 
-//buffer[(WINDOW_WIDTH * ROWS) + x (quanto para a direita tenho que andar)] 
+//buffer[(WIN_WIDTH * ROWS) + x (quanto para a direita tenho que andar)] 
 
 // void clearColorBuffer(t_game *game, Uint32 color)
 // {
-//     for (int x = 0; x < WINDOW_WIDTH; x++)
-//         for (int y = 0; y < WINDOW_HEIGHT; y++)
-//             game->buffer.color_buffer[(WINDOW_WIDTH * y) + x] = color;
+//     for (int x = 0; x < WIN_WIDTH; x++)
+//         for (int y = 0; y < WIN_HEIGHT; y++)
+//             game->buffer.color_buffer[(WIN_WIDTH * y) + x] = color;
 // }
-
-
 /*
     1 - cria ponteiro para buffer
     2 - cria ponteiro para a textura ()

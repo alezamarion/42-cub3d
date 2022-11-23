@@ -6,11 +6,21 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/22 10:04:30 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:48:38 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static void	find_player(t_game *game, int i, int j)
+{
+	if (game->map.file[i][j] == 'N')
+	{
+		game->player.pos_x = j * TILE_SIZE + TILE_SIZE / 2;
+		game->player.pos_y = i * TILE_SIZE + TILE_SIZE / 2;
+		game->map.file[i][j] = '0';
+	}
+}
 
 void	map_counter(char **map, t_game *game)
 {
@@ -32,12 +42,7 @@ void	map_counter(char **map, t_game *game)
 		j = 0;
 		while (j < game->map.col)
 		{
-			if (game->map.file[i][j] == 'N')
-			{
-				game->player.pos_x = j * TILE_SIZE + TILE_SIZE / 2;
-				game->player.pos_y = i * TILE_SIZE + TILE_SIZE / 2;
-				game->map.file[i][j] = '0';
-			}
+			find_player(game, i, j);
 			j++;
 		}
 		i++;

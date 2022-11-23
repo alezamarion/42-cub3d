@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/23 14:43:01 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:51:01 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../libraries/mlx-linux/mlx_int.h"
 
-//# define NUM_RAYS WINDOW_WIDTH
+//# define NUM_RAYS WIN_WIDTH
 
 typedef struct s_player
 {	
@@ -37,7 +37,6 @@ typedef struct s_map
 	int		space;
 	void	*img;
 }				t_map;
-
 
 typedef struct ray
 {
@@ -71,24 +70,22 @@ typedef struct s_images_buffers
 	uint32_t	*wall_buffer;
 	uint32_t	*img_buffer;
 
-} t_images_buffers;
+}	t_images_buffers;
 typedef struct s_game
 {
-	t_images_buffers 	imgs_buffers;
+	t_images_buffers	imgs_buffers;
 	t_img				*img;
 	t_img				*wall;
-	t_map			map;
-	t_player		player;
-	t_ray			rays[NUM_RAYS];
-	void			*mlx;
-	void			*window;
-	void			*empty_space;
-	int				image_width;
-	int				image_height;
-	int				window_width;
-	int				window_height;
-	int				end_game;
-}					t_game;
+	t_map				map;
+	t_player			player;
+	t_ray				rays[NUM_RAYS];
+	void				*mlx;
+	void				*window;
+	void				*empty_space;
+	int					image_width;
+	int					image_height;
+	int					end_game;
+}						t_game;
 
 typedef enum e_bool
 {

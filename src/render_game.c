@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 14:43:09 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:36:56 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,62 +22,47 @@ void	generate_3d_projection(t_game *game)
 {
 	for (int i = 0; i < NUM_RAYS; i++)
 	{
-		float	perpendicular_distance;
-		float	distance_proj_plane;
-		float	projected_wall_height;
+		float	perpend_dist;
+		float	dist_proj_plane;
+		float	proj_wall_height;
 		int		wall_strip_height;
 		int		wall_top_pixel;
 		int		wall_botton_pixel;
 		int		y;
-		int		texture_offset_x; //para calcular a textura da parede
-//		int		tex_num;
+		int		text_offset_x;
+		int		text_offset_y;
 		int 	distance_from_top;
-		int		texture_offset_y;
-		uint32_t texture_pixel_color;
-//		uint32_t *textures[NUMBER_OF_TEXTURES];
-		
-		perpendicular_distance = game->rays[i].distance
+		uint32_t text_pixel_color;
+
+		perpend_dist = game->rays[i].distance
 			* cos(game->rays[i].ray_angle - game->player.rotation_angle);
-		distance_proj_plane = (WINDOW_WIDTH / 2) / tan(FOV_ANGLE / 2);
-		projected_wall_height = (TILE_SIZE / perpendicular_distance)
-			* distance_proj_plane;
-		wall_strip_height = (int)projected_wall_height;
-		wall_top_pixel = (WINDOW_HEIGHT / 2) - (wall_strip_height / 2);
+		dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
+		proj_wall_height = (TILE_SIZE / perpend_dist)
+			* dist_proj_plane;
+		wall_strip_height = (int)proj_wall_height;
+		wall_top_pixel = (WIN_HEIGHT / 2) - (wall_strip_height / 2);
 		if (wall_top_pixel < 0)
 			wall_top_pixel = 0;
-		wall_botton_pixel = (WINDOW_HEIGHT / 2) + (wall_strip_height / 2);
-		if (wall_botton_pixel > WINDOW_HEIGHT)
-			wall_botton_pixel = WINDOW_HEIGHT;
-		if (wall_top_pixel < WINDOW_HEIGHT)
+		wall_botton_pixel = (WIN_HEIGHT / 2) + (wall_strip_height / 2);
+		if (wall_botton_pixel > WIN_HEIGHT)
+			wall_botton_pixel = WIN_HEIGHT;
+		if (wall_top_pixel < WIN_HEIGHT)
 		{
 			for (int y = 0; y < wall_top_pixel; y++)
-            	game->imgs_buffers.img_buffer[((WINDOW_WIDTH) * y) + i] = 0x333333; //cinza para preto (teto)
-
-			for (int y = wall_botton_pixel; y < WINDOW_HEIGHT; y++)
-				game->imgs_buffers.img_buffer[((WINDOW_WIDTH) * y) + i] = 0xFF777777; //cinza escuro (chao)
+            	game->imgs_buffers.img_buffer[((WIN_WIDTH) * y) + i] = GREY;
+			for (int y = wall_botton_pixel; y < WIN_HEIGHT; y++)
+				game->imgs_buffers.img_buffer[((WIN_WIDTH) * y) + i] = RED;
 		}
-		/////////////////////////////
-		//calculo do texture_offset_x
 		if (game->rays[i].was_hit_vertical)
-			texture_offset_x = (int)game->rays[i].wall_hit_y % TILE_SIZE;
+			text_offset_x = (int)game->rays[i].wall_hit_y % TILE_SIZE;
 		else
-			texture_offset_x = (int)game->rays[i].wall_hit_x % TILE_SIZE;
-
-		//pega o numero de id da textura do conteudo do mapa
-//		tex_num = game->rays[i].wall_hit_content - 1;
-
-		//render the wall
+			text_offset_x = (int)game->rays[i].wall_hit_x % TILE_SIZE;
 		for (y = wall_top_pixel; y < wall_botton_pixel; y++)
 		{
-			distance_from_top = y + (wall_strip_height / 2) - (WINDOW_HEIGHT / 2);
-			texture_offset_y = distance_from_top * ((float)TEXTURE_HEIGHT / wall_strip_height);
-
-			//set the color of the wall based on the color from the texture
-			texture_pixel_color = game->imgs_buffers.wall_buffer[(TEXTURE_WIDTH * texture_offset_y) + texture_offset_x];
-			game->imgs_buffers.img_buffer[(WINDOW_WIDTH * y) + i] = texture_pixel_color;
-			
-			//game->rays[i].was_hit_vertical
-			//	? 0xFFFFFFFF : 0xFFCCCCCC; //branco e cinza claro
+			distance_from_top = y + (wall_strip_height / 2) - (WIN_HEIGHT / 2);
+			text_offset_y = distance_from_top * ((float)TEXT_HEIGHT / wall_strip_height);
+			text_pixel_color = game->imgs_buffers.wall_buffer[(TEXT_WIDTH * text_offset_y) + text_offset_x];
+			game->imgs_buffers.img_buffer[(WIN_WIDTH * y) + i] = text_pixel_color;
 		}
 	}
 }
