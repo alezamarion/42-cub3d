@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:12:13 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/22 17:15:08 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:10:52 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ array of pixels
 with CHAR we navigate the array one byte at time, but an pixel has 4 bytes (int)
 */
 
-// static void	*convert_image(char *img, t_game *game)
-// {
-// 	game->img.img = mlx_xpm_file_to_image
-// 		(game->mlx, img, game->image_width * TILE_SIZE, game->img.img_height * TILE_SIZE);
-// 	return (game->img.img);
-// }
+static void	*convert_image(char *img, t_game *game)
+{
+	game->texture.texture = mlx_xpm_file_to_image
+		(game->mlx, img, &game->texture.width, &game->texture.height);
+	return (game->texture.texture);
+}
 
 void	initialize_image(t_game *game)
 {
-//	game->wall = convert_image(FILE_WALL, game);
+	game->wall = convert_image(FILE_WALL, game);
+	if (game->texture.texture == NULL)
+		printf(" erro!");		
 	
 	game->img.img = mlx_new_image(game->mlx, WINDOW_WIDTH,
 			WINDOW_HEIGHT);

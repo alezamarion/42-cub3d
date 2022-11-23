@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/22 22:23:08 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:03:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ typedef struct s_map
 	void	*img;
 }				t_map;
 
-// typedef struct s_texture
-// {
-// 	char	*texture;
-//}				t_texture;
+typedef struct s_texture
+{
+	void	*texture;
+	int		width;
+	int		height;
+}				t_texture;
 
 typedef struct s_img
 {
@@ -84,10 +86,10 @@ typedef struct s_game
 	t_map		map;
 	t_player	player;
 	t_ray		rays[NUM_RAYS];
-//	t_texture	texture[NUMBER_OF_TEXTURES];
+	t_texture	texture;
 	void		*mlx;
 	void		*window;
-	void		*wall;
+	uint32_t	*wall;
 	void		*empty_space;
 	int			image_width;
 	int			image_height;

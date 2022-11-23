@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/22 22:55:18 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:07:54 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ void	generate_3d_projection(t_game *game)
 		int		wall_botton_pixel;
 		int		y;
 		int		texture_offset_x; //para calcular a textura da parede
-		int		tex_num;
+//		int		tex_num;
 		int 	distance_from_top;
 		int		texture_offset_y;
 		uint32_t texture_pixel_color;
-		uint32_t *textures[NUMBER_OF_TEXTURES];
-
-		textures[0] = (uint32_t*) FILE_WALL;
+//		uint32_t *textures[NUMBER_OF_TEXTURES];
 		
 		perpendicular_distance = game->rays[i].distance
 			* cos(game->rays[i].ray_angle - game->player.rotation_angle);
@@ -66,7 +64,7 @@ void	generate_3d_projection(t_game *game)
 			texture_offset_x = (int)game->rays[i].wall_hit_x % TILE_SIZE;
 
 		//pega o numero de id da textura do conteudo do mapa
-		tex_num = game->rays[i].wall_hit_content - 1;
+//		tex_num = game->rays[i].wall_hit_content - 1;
 
 		//render the wall
 		for (y = wall_top_pixel; y < wall_botton_pixel; y++)
@@ -75,7 +73,7 @@ void	generate_3d_projection(t_game *game)
 			texture_offset_y = distance_from_top * ((float)TEXTURE_HEIGHT / wall_strip_height);
 
 			//set the color of the wall based on the color from the texture
-			texture_pixel_color = textures[tex_num][(TEXTURE_WIDTH * texture_offset_y) + texture_offset_x];
+			texture_pixel_color = game->wall[(TEXTURE_WIDTH * texture_offset_y) + texture_offset_x];
 			game->img.data[(WINDOW_WIDTH * y) + i] = texture_pixel_color;
 			
 			//game->rays[i].was_hit_vertical
