@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/22 17:10:07 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 22:23:08 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ typedef struct s_map
 	int		space;
 	void	*img;
 }				t_map;
+
+// typedef struct s_texture
+// {
+// 	char	*texture;
+//}				t_texture;
 
 typedef struct s_img
 {
@@ -79,6 +84,7 @@ typedef struct s_game
 	t_map		map;
 	t_player	player;
 	t_ray		rays[NUM_RAYS];
+//	t_texture	texture[NUMBER_OF_TEXTURES];
 	void		*mlx;
 	void		*window;
 	void		*wall;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/22 17:14:48 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/22 21:01:51 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@
 # define GREY   0xFFCCCCCC
 # define DARK_GREY 0xFF333333
 
+# define TEXTURE_HEIGHT 32
+# define TEXTURE_WIDTH 32
+# define NUMBER_OF_TEXTURES 2
 # define FILE_WALL	"textures/bluestone.xpm"
+
+
 
 #endif
