@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 22:11:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/22 14:44:44 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:47:35 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	draw_player(t_game *game)
 		j = 0;
 		while (j < 16)
 		{
-			game->img.data[(y + i) * game->map.col * \
+			game->imgs_buffers.img_buffer[(y + i) * game->map.col * \
 			TILE_SIZE + x + j] = YELLOW;
 			j++;
 		}

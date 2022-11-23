@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/23 13:03:47 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:43:01 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+# include "../libraries/mlx-linux/mlx_int.h"
 
 //# define NUM_RAYS WINDOW_WIDTH
 
@@ -36,24 +38,7 @@ typedef struct s_map
 	void	*img;
 }				t_map;
 
-typedef struct s_texture
-{
-	void	*texture;
-	int		width;
-	int		height;
-}				t_texture;
 
-typedef struct s_img
-{
-	void	*img;
-	void	*wall;
-	int		*data;
-	int		size_l;
-	int		bpp;
-	int		endian;
-	int		img_width;
-	int		img_height;
-}				t_img;
 typedef struct ray
 {
 	float	ray_angle;
@@ -80,23 +65,30 @@ typedef struct ray
 	int		horiz_wall_content;
 	int		vert_wall_content;
 }				t_ray;
+
+typedef struct s_images_buffers
+{
+	uint32_t	*wall_buffer;
+	uint32_t	*img_buffer;
+
+} t_images_buffers;
 typedef struct s_game
 {
-	t_img		img;
-	t_map		map;
-	t_player	player;
-	t_ray		rays[NUM_RAYS];
-	t_texture	texture;
-	void		*mlx;
-	void		*window;
-	uint32_t	*wall;
-	void		*empty_space;
-	int			image_width;
-	int			image_height;
-	int			window_width;
-	int			window_height;
-	int			end_game;
-}				t_game;
+	t_images_buffers 	imgs_buffers;
+	t_img				*img;
+	t_img				*wall;
+	t_map			map;
+	t_player		player;
+	t_ray			rays[NUM_RAYS];
+	void			*mlx;
+	void			*window;
+	void			*empty_space;
+	int				image_width;
+	int				image_height;
+	int				window_width;
+	int				window_height;
+	int				end_game;
+}					t_game;
 
 typedef enum e_bool
 {

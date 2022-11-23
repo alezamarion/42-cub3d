@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 13:07:54 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:43:09 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	generate_3d_projection(t_game *game)
 		if (wall_top_pixel < WINDOW_HEIGHT)
 		{
 			for (int y = 0; y < wall_top_pixel; y++)
-            	game->img.data[((WINDOW_WIDTH) * y) + i] = 0x333333; //cinza para preto (teto)
+            	game->imgs_buffers.img_buffer[((WINDOW_WIDTH) * y) + i] = 0x333333; //cinza para preto (teto)
 
 			for (int y = wall_botton_pixel; y < WINDOW_HEIGHT; y++)
-				game->img.data[((WINDOW_WIDTH) * y) + i] = 0xFF777777; //cinza escuro (chao)
+				game->imgs_buffers.img_buffer[((WINDOW_WIDTH) * y) + i] = 0xFF777777; //cinza escuro (chao)
 		}
 		/////////////////////////////
 		//calculo do texture_offset_x
@@ -73,8 +73,8 @@ void	generate_3d_projection(t_game *game)
 			texture_offset_y = distance_from_top * ((float)TEXTURE_HEIGHT / wall_strip_height);
 
 			//set the color of the wall based on the color from the texture
-			texture_pixel_color = game->wall[(TEXTURE_WIDTH * texture_offset_y) + texture_offset_x];
-			game->img.data[(WINDOW_WIDTH * y) + i] = texture_pixel_color;
+			texture_pixel_color = game->imgs_buffers.wall_buffer[(TEXTURE_WIDTH * texture_offset_y) + texture_offset_x];
+			game->imgs_buffers.img_buffer[(WINDOW_WIDTH * y) + i] = texture_pixel_color;
 			
 			//game->rays[i].was_hit_vertical
 			//	? 0xFFFFFFFF : 0xFFCCCCCC; //branco e cinza claro
@@ -89,6 +89,6 @@ int	render_game(t_game *game)
 	generate_3d_projection(game);
 	//	draw_minimap(game);
 	//	draw_player(game);
-	mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
 	return (0);
 }

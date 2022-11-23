@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:52:59 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/16 23:43:52 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:32:39 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define E_MLX_NEW_IMG "Error\nMLX_NEW_IMG_FAILURE\n"
 # define E_MLX_IMG "Error\nMLX_IMG_FAILURE\n"
 # define E_MLX_ADDR "Error\nMLX_ADDR_FAILURE\n"
+# define E_MLX_XPM "Error\nMLX_XPM_FAILURE\n"
 # define MLX_ERROR "MLX_ERROR: Could not initialize or create window"
 
 #endif

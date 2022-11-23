@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "chrono": "c",
+        "mlx_int.h": "c"
+    }
+}
