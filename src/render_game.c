@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/24 11:24:51 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:07:21 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,22 @@ void	draw_minimap(t_game *game)
 
 void	generate_3d_projection(t_game *game)
 {
-	int	i;
+	int			i;
+	float		perpend_dist;
+	float		dist_proj_plane;
+	float		proj_wall_height;
+	int			wall_strip_height;
+	int			wall_top_pixel;
+	int			wall_botton_pixel;
+	int			y;
+	int			text_offset_x;
+	int			text_offset_y;
+	int			distance_from_top;
+	uint32_t	text_pix_color;
 
 	i = 0;
 	while (i < NUM_RAYS)
 	{
-		float		perpend_dist;
-		float		dist_proj_plane;
-		float		proj_wall_height;
-		int			wall_strip_height;
-		int			wall_top_pixel;
-		int			wall_botton_pixel;
-		int			y;
-		int			text_offset_x;
-		int			text_offset_y;
-		int			distance_from_top;
-		uint32_t	text_pix_color;
-
 		perpend_dist = game->rays[i].distance
 			* cos(game->rays[i].ray_angle - game->player.rotation_angle);
 		dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
