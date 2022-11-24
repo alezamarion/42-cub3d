@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/22 10:17:36 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 11:26:31 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ void	hook_player(t_game *game, int i, int j);
 int		render_game(t_game *game);
 
 //draw_minimap
-void	draw_line(t_game *game, double x1, double y1, double x2, double y2);
-void	draw_lines(t_game *game);
 void	draw_rectangle(t_game *game, int x, int y, int color);
 void	draw_rectangles(t_game *game);
 

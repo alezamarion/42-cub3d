@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:44:17 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 17:01:11 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 11:31:58 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	where_is_ray_facing(float ray_angle, t_game *game)
 {
 	game->rays->is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
 	game->rays->is_ray_facing_up = !game->rays->is_ray_facing_down;
-	game->rays->is_ray_facing_right = ray_angle < 0.5 * PI \
-			|| ray_angle > 1.5 * PI;
+	game->rays->is_ray_facing_right = ray_angle < 0.5 * PI || ray_angle > 1.5
+		* PI;
 	game->rays->is_ray_facing_left = !game->rays->is_ray_facing_right;
 }
 

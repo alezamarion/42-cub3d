@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:07:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/22 10:35:42 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 11:42:49 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,26 @@ static void	horiz_smallest_vert(float htz_hit_dist, int strip_id, t_game *game)
 	game->rays[strip_id].was_hit_vertical = false;
 }
 
+static void	other_rays_setup(float ray_angle, int strip_id, t_game *game)
+{
+	int		x;
+	int		y;
+
+	game->rays[strip_id].ray_angle = ray_angle;
+	x = (int)game->rays[strip_id].wall_hit_x / TILE_SIZE;
+	y = (int)game->rays[strip_id].wall_hit_y / TILE_SIZE;
+	game->rays[strip_id].wall_hit_content = game->map.file[y][x];
+	game->rays[strip_id].is_ray_facing_down = game->rays->is_ray_facing_down;
+	game->rays[strip_id].is_ray_facing_up = game->rays->is_ray_facing_up;
+	game->rays[strip_id].is_ray_facing_left = game->rays->is_ray_facing_left;
+	game->rays[strip_id].is_ray_facing_right = game->rays->is_ray_facing_right;
+}
+
 // Calculate both horizontal and vertical hit dist. and choose the smallest one
 void	choose_smalest_distance(float ray_angle, int strip_id, t_game *game)
 {
 	float	horiz_hit_distance;
 	float	vert_hit_distance;
-	int		x;
-	int		y;
 
 	if (game->rays->found_horiz_wall_hit)
 		horiz_hit_distance = distance_between_points(game->player.pos_x, \
@@ -52,12 +65,5 @@ void	choose_smalest_distance(float ray_angle, int strip_id, t_game *game)
 		vert_smallest_horiz(vert_hit_distance, strip_id, game);
 	else
 		horiz_smallest_vert(horiz_hit_distance, strip_id, game);
-	game->rays[strip_id].ray_angle = ray_angle;
-	x = (int)game->rays[strip_id].wall_hit_x / TILE_SIZE;
-	y = (int)game->rays[strip_id].wall_hit_y / TILE_SIZE;
-	game->rays[strip_id].wall_hit_content = game->map.file[y][x];
-	game->rays[strip_id].is_ray_facing_down = game->rays->is_ray_facing_down;
-	game->rays[strip_id].is_ray_facing_up = game->rays->is_ray_facing_up;
-	game->rays[strip_id].is_ray_facing_left = game->rays->is_ray_facing_left;
-	game->rays[strip_id].is_ray_facing_right = game->rays->is_ray_facing_right;
+	other_rays_setup(ray_angle, strip_id, game);
 }

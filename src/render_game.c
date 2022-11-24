@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 16:51:46 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 11:24:51 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	draw_minimap(t_game *game)
 {
 	draw_rectangles(game);
-	//draw_lines(game);
 }
 
 void	generate_3d_projection(t_game *game)
