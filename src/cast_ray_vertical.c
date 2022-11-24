@@ -6,19 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:46:10 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/24 12:04:40 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:33:27 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-static void	vertical_ray_setup(t_game *game)
-{
-	game->rays->found_vert_wall_hit = false;
-	game->rays->vert_wall_hit_x = 0;
-	game->rays->vert_wall_hit_y = 0;
-	game->rays->vert_wall_content = 0;
-}
 
 static void	wall_content(t_game *game, float x_intercept, float y_intercept)
 {
@@ -28,6 +20,14 @@ static void	wall_content(t_game *game, float x_intercept, float y_intercept)
 	[(int)floor(y_intercept / TILE_SIZE)]
 	[(int)floor(x_intercept / TILE_SIZE)];
 	game->rays->found_vert_wall_hit = true;
+}
+
+static void	vertical_ray_setup(t_game *game)
+{
+	game->rays->found_vert_wall_hit = false;
+	game->rays->vert_wall_hit_x = 0;
+	game->rays->vert_wall_hit_y = 0;
+	game->rays->vert_wall_content = 0;
 }
 
 void	find_vertical_intersection(float ray_angle, t_game *game)
