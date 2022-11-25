@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/23 15:51:01 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:13:41 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ typedef struct s_player
 	float	walk_speed;
 	float	turn_speed;
 }				t_player;
+
 typedef struct s_map
 {
+	char	**map;
 	char	**file;
 	int		row;
 	int		col;
@@ -71,6 +73,17 @@ typedef struct s_images_buffers
 	uint32_t	*img_buffer;
 
 }	t_images_buffers;
+
+typedef struct s_param
+{
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		celling;
+	int		ground;
+}				t_param;
+
 typedef struct s_game
 {
 	t_images_buffers	imgs_buffers;
@@ -79,12 +92,14 @@ typedef struct s_game
 	t_map				map;
 	t_player			player;
 	t_ray				rays[NUM_RAYS];
+	t_param				param;
 	void				*mlx;
 	void				*window;
 	void				*empty_space;
 	int					image_width;
 	int					image_height;
 	int					end_game;
+	char				*file_content;
 }						t_game;
 
 typedef enum e_bool

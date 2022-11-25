@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 15:48:38 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	find_player(t_game *game, int i, int j)
 {
-	if (game->map.file[i][j] == 'N')
+	if (game->map.map[i][j] == 'N')
 	{
 		game->player.pos_x = j * TILE_SIZE + TILE_SIZE / 2;
 		game->player.pos_y = i * TILE_SIZE + TILE_SIZE / 2;
-		game->map.file[i][j] = '0';
+		game->map.map[i][j] = '0';
 	}
 }
 

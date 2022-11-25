@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 16:06:57 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	has_wall(float x, float y, t_game *game)
 	map_grid_index_y = (int)floor((y / TILE_SIZE));
 	if (x < 0 || x > WIN_WIDTH || y < 0 || y > WIN_HEIGHT)
 		return (true);
-	return (game->map.file[map_grid_index_y][map_grid_index_x] == '1');
+	return (game->map.map[map_grid_index_y][map_grid_index_x] == '1');
 }
 
 int	key_down(int keycode, t_game *game)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:01:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/22 14:46:28 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	free_game(t_game *game)
 
 int	exit_game(t_game *game)
 {
-	free_map(game->map.file);
+	free_map(game->map.map);
 	free_game(game);
 	exit (0);
 	return (0);

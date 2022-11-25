@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 15:41:36 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	initialize_data(t_game *game)
 	game->player.walk_speed = 4;
 	game->image_width = 32;
 	game->image_height = 32;
-	map_counter(game->map.file, game);
+	map_counter(game->map.map, game);
 }
 
 static void	initialize_rendering(t_game *game)

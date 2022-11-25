@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 08:19:23 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/24 11:25:49 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	draw_rectangles(t_game *game)
 		j = 0;
 		while (j < game->map.col)
 		{
-			if (game->map.file[i][j] == '1')
+			if (game->map.map[i][j] == '1')
 				draw_rectangle(game, j, i, PURPLE);
-			if (game->map.file[i][j] == '0')
+			if (game->map.map[i][j] == '0')
 				draw_rectangle(game, j, i, BLUE);
 			j++;
 		}

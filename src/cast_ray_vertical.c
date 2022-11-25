@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray_vertical.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:46:10 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/24 14:33:27 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	wall_content(t_game *game, float x_intercept, float y_intercept)
 {
 	game->rays->vert_wall_hit_x = x_intercept;
 	game->rays->vert_wall_hit_y = y_intercept;
-	game->rays->vert_wall_content = game->map.file
+	game->rays->vert_wall_content = game->map.map
 	[(int)floor(y_intercept / TILE_SIZE)]
 	[(int)floor(x_intercept / TILE_SIZE)];
 	game->rays->found_vert_wall_hit = true;
