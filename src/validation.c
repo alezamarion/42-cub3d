@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:00:11 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/25 14:51:52 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/25 16:36:54 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ static int	is_texture(char *file, int *identifier)
 	return (1);
 }
 
-//NO ./path_to_the_north_texture
 static char *get_texture(char *file)
 {
 	while (*file == ' ')
@@ -73,19 +72,48 @@ static void save_texture(char *file, int identifier, t_game *game)
 		game->param.ea = get_texture(file + 2);			
 }
 
-static int *get_color(char *file)
+////////////////
+////colors//////
+
+static int isOutOfRange(int n)
 {
-	while (*file == ' ')
-		file++;
-	return (file); 200,100,0 //255 128 32 | 0xFF8020
+    return n < 0 || n > 255;
 }
 
-static void save_color(char *file, int identifier, t_game *game)
+static char *getNextOctet(char *s)
+{
+    while (*s != ',')
+        s++;
+    return (s);
+}
+
+static int get_colors(char *file)
+{
+    int color;
+    int r;
+    int g;
+    int b;
+
+    r = ft_atoi(file);
+    file = getNextOctet(file);
+    g = ft_atoi(file);
+    file = getNextOctet(file);
+    b = ft_atoi(file);
+    if (isOutOfRange(r) || isOutOfRange(g) || isOutOfRange(b)) {
+        printf("Invalid color range\n");
+        return (0);
+    }
+    color = (r << 16) + (g << 8) + b;
+    printf("%d\n", color);
+    return (color);
+}
+
+static void save_colors(char *file, int identifier, t_game *game)
 {
 	if (identifier == 4)
-		game->param.ground = get_color(file + 1);
+		game->param.groun_collor = get_colors(file + 1);
 	if (identifier == 5)
-		game->param.celling = get_color(file + 1);	
+		game->param.celling_collor = get_colors(file + 2);		
 }
 
 static int	is_color(char *file, int *identifier)
@@ -109,16 +137,15 @@ static void	save_file_info(char **file, t_game *game)
 	{
 		if (is_texture(file[i], &identifier))
 			save_texture(file[i], identifier, game);
-		else if (is_color(file[i], identifier))
-		// 	get_colors();
+		else if (is_color(file[i], &identifier))
+		 	save_colors(file[i], identifier, game);
 		// else
 		// 	get_map();
 		i++;
 	}
-	printf("no: %s\n", game->param.no);
-	printf("so: %s\n", game->param.so);
-	printf("we: %s\n", game->param.we);
-	printf("ea: %s\n", game->param.ea);
+	printf("celling_color: %d\n", game->param.celling_collor);
+	printf("ground_color: %d\n\n", game->param.groun_collor);
+
  }
 
 

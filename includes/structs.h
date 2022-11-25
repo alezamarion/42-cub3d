@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/25 15:01:27 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/25 16:19:57 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,11 @@ typedef struct s_param
 	char	*so;
 	char	*we;
 	char	*ea;
-	int		celling;
-	int		ground;
+	char	*celling;
+	char	*ground;
+	int		celling_collor;
+	int		groun_collor;
+
 }				t_param;
 
 typedef struct s_game
