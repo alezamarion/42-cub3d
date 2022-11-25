@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/25 13:13:41 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:01:27 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,20 @@ typedef struct s_map
 	int		space;
 	void	*img;
 }				t_map;
+
+typedef struct s_wall
+{
+	float		perpend_dist;
+	float		dist_proj_plane;
+	float		proj_wall_height;
+	int			strip_height;
+	int			top_pixel;
+	int			botton_pixel;
+	int			text_offset_x;
+	int			text_offset_y;
+	int			dist_from_top;
+	uint32_t	pix_color;
+}				t_wall;
 
 typedef struct ray
 {
