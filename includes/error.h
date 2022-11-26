@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:52:59 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/23 13:32:39 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:08:14 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define E_NOMAP "Error\nThe map was not specified!\n"
 # define E_MANYARG "Error\nThere are many arguments\n"
 # define E_MAPINVAL "Error\nThis map is not valid!\n"
+# define E_FILEELEMENT "Error\nThis file element is not valid!\n"
 
 // MLX
 # define E_MLX "Error\nMLX_INIT FAILURE\n"

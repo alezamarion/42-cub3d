@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/24 18:36:23 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/25 19:34:09 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,13 @@ void	choose_smalest_distance(float ray_angle, int strip_id, t_game *game);
 // validation.c
 t_bool	print_error(char *error);
 t_bool	validation(t_game *game, int argc, char **argv);
+
+//color
+void save_colors(char *file, int identifier, t_game *game);
+int	is_color(char *file, int *identifier);
+
+//map.c
+int     is_map(char *file);
+char    *get_map(char *file);
 
 #endif

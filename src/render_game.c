@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/25 11:55:17 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/25 22:08:38 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ static void	wall_pixel(t_wall *wall, t_game *game, int i)
 		y = 0;
 		while (y < wall->top_pixel)
 		{
-			game->imgs_buffers.img_buffer[((WIN_WIDTH) * y) + i] = GREY;
+			game->imgs_buffers.img_buffer[((WIN_WIDTH) * y) + i] = game->param.celling_collor;
 			y++;
 		}
 		y = wall->botton_pixel;
 		while (y < WIN_HEIGHT)
 		{
-			game->imgs_buffers.img_buffer[((WIN_WIDTH) * y) + i] = RED;
+			game->imgs_buffers.img_buffer[((WIN_WIDTH) * y) + i] = game->param.ground_collor;
 			y++;
 		}
 	}
