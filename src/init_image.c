@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:12:13 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 15:42:18 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:07:35 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,42 @@ array of pixels
 with CHAR we navigate the array one byte at time, but an pixel has 4 bytes (int)
 */
 
-static void	*convert_image(char *img, t_game *game)
+static void	convert_image(char *img_path, t_game *game, t_image *img)
 {
 	int	width;
 	int	height;
 
-	game->wall = mlx_xpm_file_to_image
-		(game->mlx, img, &width, &height);
-	if (game->wall == NULL)
+	img->structure = mlx_xpm_file_to_image
+		(game->mlx, img_path, &width, &height);
+	if (img->structure == NULL)
 	{
 		perror(E_MLX_XPM);
 		exit_game(game);
 	}
-	game->wall->width = width;
-	game->wall->height = height;
-	return (game->wall->data);
+	img->color_buffer = (uint32_t *)img->structure->data;
 }
 
 static void	init_texture(t_game *game)
 {
-	game->imgs_buffers.wall_buffer = convert_image(FILE_WALL, game);
+	printf("param no --%s--\n", game->param.no);
+	printf("param no --%s--\n", game->param.so);
+	printf("param no --%s--\n", game->param.we);
+	printf("param no --%s--\n", game->param.ea);
+	convert_image(game->param.no, game, &game->no);
+	convert_image(game->param.so, game, &game->so);
+	convert_image(game->param.we, game, &game->we);
+	convert_image(game->param.ea, game, &game->ea);
 }
 
 void	initialize_image(t_game *game)
 {
 	init_texture(game);
-	game->img = mlx_new_image(game->mlx, WIN_WIDTH,
+	game->img.structure = mlx_new_image(game->mlx, WIN_WIDTH,
 			WIN_HEIGHT);
-	if (game->img == NULL)
+	if (game->img.structure == NULL)
 	{
 		print_error(E_MLX_IMG);
 		exit_game(game);
 	}
-	game->imgs_buffers.img_buffer = (uint32_t *) game->img->data;
+	game->img.color_buffer = (uint32_t *) game->img.structure->data;
 }

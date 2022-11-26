@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray_horizontal.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:05:08 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:29:26 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void	wall_content(t_game *game, float x_intercept, float y_intercept)
+static void	wall_content(t_game *game, double x_intercept, double y_intercept)
 {
 	game->rays->horiz_wall_hit_x = x_intercept;
 	game->rays->horiz_wall_hit_y = y_intercept;
@@ -30,12 +30,12 @@ void	horizontal_ray_setup(t_game *game)
 	game->rays->horiz_wall_content = 0;
 }
 
-void	find_horizontal_intersection(float ray_angle, t_game *game)
+void	find_horizontal_intersection(double ray_angle, t_game *game)
 {
-	float	x_intercept;
-	float	y_intercept;
-	float	x_step;
-	float	y_step;
+	double	x_intercept;
+	double	y_intercept;
+	double	x_step;
+	double	y_step;
 
 	horizontal_ray_setup(game);
 	y_intercept = floor(game->player.pos_y / TILE_SIZE) * TILE_SIZE;

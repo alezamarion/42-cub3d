@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   event_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:29:26 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	has_wall(float x, float y, t_game *game)
+int	has_wall(double x, double y, t_game *game)
 {
 	int	map_grid_index_x;
 	int	map_grid_index_y;

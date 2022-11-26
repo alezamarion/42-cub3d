@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/25 19:34:09 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:31:50 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <stdint.h>
 # include <math.h>
 # include <limits.h>
-# include <float.h>
 # include "../libraries/mlx-linux/mlx.h"
 # include "../libraries/libft/libft.h"
 
@@ -64,8 +63,8 @@ void	map_counter(char **map, t_game *game);
 //event_handler
 void	move_player(t_game *game);
 void	event_handler(t_game *game);
-int		has_wall(float x, float y, t_game *game);
-void	normalize_angle_move_player(float *angle);
+int		has_wall(double x, double y, t_game *game);
+void	normalize_angle_move_player(double *angle);
 
 //exit_game.c
 int		exit_game(t_game *game);
@@ -98,15 +97,15 @@ void	render_player(t_game *game, int x, int y, int color);
 
 //cast_all_rays.c
 void	cast_all_rays(t_game *game);
-void	cast_ray(float ray_angle, int strip_id, t_game *game);
-float	distance_between_points(float x1, float y1, float x2, float y2);
-float	normalize_angle_cast_ray(float angle);
+void	cast_ray(double ray_angle, int strip_id, t_game *game);
+double	distance_between_points(double x1, double y1, double x2, double y2);
+double	normalize_angle_cast_ray(double angle);
 
 //cast_ray.c
-void	where_is_ray_facing(float ray_angle, t_game *game);
-void	find_horizontal_intersection(float ray_angle, t_game *game);
-void	find_vertical_intersection(float ray_angle, t_game *game);
-void	choose_smalest_distance(float ray_angle, int strip_id, t_game *game);
+void	where_is_ray_facing(double ray_angle, t_game *game);
+void	find_horizontal_intersection(double ray_angle, t_game *game);
+void	find_vertical_intersection(double ray_angle, t_game *game);
+void	choose_smalest_distance(double ray_angle, int strip_id, t_game *game);
 
 // validation.c
 t_bool	print_error(char *error);

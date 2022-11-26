@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/25 22:08:38 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:29:26 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ static void	wall_pixel(t_wall *wall, t_game *game, int i)
 		y = 0;
 		while (y < wall->top_pixel)
 		{
-			game->imgs_buffers.img_buffer[((WIN_WIDTH) * y) + i] = game->param.celling_collor;
+			game->img.color_buffer[((WIN_WIDTH) * y) + i] = game->param.celling_collor;
 			y++;
 		}
 		y = wall->botton_pixel;
 		while (y < WIN_HEIGHT)
 		{
-			game->imgs_buffers.img_buffer[((WIN_WIDTH) * y) + i] = game->param.ground_collor;
+			game->img.color_buffer[((WIN_WIDTH) * y) + i] = game->param.ground_collor;
 			y++;
 		}
 	}
@@ -54,11 +54,30 @@ static void	strip_wall_projection(t_wall *wall, t_game *game, int i)
 	wall->strip_height = (int)wall->proj_wall_height;
 }
 
+static uint32_t	*get_right_texture(t_game *game, t_ray *ray)
+{	
+	if (!ray->was_hit_vertical)
+	{
+		if (ray->is_ray_facing_up)
+			return(game->no.color_buffer);
+		return (game->so.color_buffer);
+	}
+	else
+	{
+		if (ray->is_ray_facing_right)
+			return(game->ea.color_buffer);
+		return (game->we.color_buffer);
+	}	
+
+
+}
+
 void	generate_3d_projection(t_game *game)
 {
 	int		i;
 	int		y;
 	t_wall	wall;
+	uint32_t *current_image;
 
 	i = 0;
 	ft_bzero(&wall, sizeof(t_wall));
@@ -71,14 +90,15 @@ void	generate_3d_projection(t_game *game)
 		else
 			wall.text_offset_x = (int)game->rays[i].wall_hit_x % TILE_SIZE;
 		y = wall.top_pixel;
+		current_image = get_right_texture(game, game->rays + i);
 		while (y++ < wall.botton_pixel)
 		{
 			wall.dist_from_top = y + (wall.strip_height / 2) - (WIN_HEIGHT / 2);
 			wall.text_offset_y = wall.dist_from_top
-				* ((float)TEXT_HEIGHT / wall.strip_height);
-			wall.pix_color = game->imgs_buffers.wall_buffer[(TEXT_WIDTH
+				* ((double)TEXT_HEIGHT / wall.strip_height);
+			wall.pix_color = current_image[(TEXT_WIDTH
 					* wall.text_offset_y) + wall.text_offset_x];
-			game->imgs_buffers.img_buffer[(WIN_WIDTH * y) + i] = wall.pix_color;
+			game->img.color_buffer[(WIN_WIDTH * y) + i] = wall.pix_color;
 		}
 	}
 }
@@ -90,6 +110,6 @@ int	render_game(t_game *game)
 	generate_3d_projection(game);
 	//	draw_minimap(game);
 	//	draw_player(game);
-	mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->window, game->img.structure, 0, 0);
 	return (0);
 }

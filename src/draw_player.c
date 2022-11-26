@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 22:11:09 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/23 16:06:39 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:29:26 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	draw_player(t_game *game)
 		j = 0;
 		while (j < 16)
 		{
-			game->imgs_buffers.img_buffer[(y + i) * game->map.col * \
+			game->img.color_buffer[(y + i) * game->map.col * \
 			TILE_SIZE + x + j] = YELLOW;
 			j++;
 		}
@@ -35,7 +35,7 @@ void	draw_player(t_game *game)
 	}
 }
 
-void	normalize_angle_move_player(float *angle)
+void	normalize_angle_move_player(double *angle)
 {
 	*angle = remainder(*angle, TWO_PI);
 	if (*angle < 0)
@@ -44,8 +44,8 @@ void	normalize_angle_move_player(float *angle)
 
 void	calculate_next_step(t_game *game, int move_step, int side_step)
 {
-	float	new_player_x;
-	float	new_player_y;
+	double	new_player_x;
+	double	new_player_y;
 
 	new_player_x = (game->player.pos_x
 			+ cos(game->player.rotation_angle) * move_step)

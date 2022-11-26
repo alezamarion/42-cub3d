@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/25 22:08:36 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:29:26 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,16 @@
 
 # include "../libraries/mlx-linux/mlx_int.h"
 
-//# define NUM_RAYS WIN_WIDTH
-
 typedef struct s_player
 {	
-	float	pos_x;
-	float	pos_y;
+	double	pos_x;
+	double	pos_y;
 	int		turn_direction;
 	int		walk_direction;
 	int		side_direction;
-	float	rotation_angle;
-	float	walk_speed;
-	float	turn_speed;
+	double	rotation_angle;
+	double	walk_speed;
+	double	turn_speed;
 }				t_player;
 
 typedef struct s_map
@@ -42,9 +40,9 @@ typedef struct s_map
 
 typedef struct s_wall
 {
-	float		perpend_dist;
-	float		dist_proj_plane;
-	float		proj_wall_height;
+	double		perpend_dist;
+	double		dist_proj_plane;
+	double		proj_wall_height;
 	int			strip_height;
 	int			top_pixel;
 	int			botton_pixel;
@@ -56,25 +54,25 @@ typedef struct s_wall
 
 typedef struct ray
 {
-	float	ray_angle;
-	float	rotation_angle;
-	float	wall_hit_x;
-	float	wall_hit_y;
-	float	distance;
+	double	ray_angle;
+	double	rotation_angle;
+	double	wall_hit_x;
+	double	wall_hit_y;
+	double	distance;
 	int		was_hit_vertical;
 	int		wall_hit_content;
 	int		is_ray_facing_up;	
 	int		is_ray_facing_down;	
 	int		is_ray_facing_left;	
 	int		is_ray_facing_right;
-	float	horiz_wall_hit_x;
-	float	horiz_wall_hit_y;
-	float	vert_wall_hit_x;
-	float	vert_wall_hit_y;
-	float	horiz_x;
-	float	horiz_y;
-	float	vert_x;
-	float	vert_y;
+	double	horiz_wall_hit_x;
+	double	horiz_wall_hit_y;
+	double	vert_wall_hit_x;
+	double	vert_wall_hit_y;
+	double	horiz_x;
+	double	horiz_y;
+	double	vert_x;
+	double	vert_y;
 	int		found_horiz_wall_hit;
 	int		found_vert_wall_hit;
 	int		horiz_wall_content;
@@ -83,8 +81,8 @@ typedef struct ray
 
 typedef struct s_images_buffers
 {
-	uint32_t	*wall_buffer;
-	uint32_t	*img_buffer;
+//	uint32_t	*wall_buffer;
+	
 
 }	t_images_buffers;
 
@@ -101,11 +99,16 @@ typedef struct s_param
 
 }				t_param;
 
+typedef struct	s_images
+{
+	uint32_t	*color_buffer;
+	t_img		*structure;
+
+}		t_image;
+
 typedef struct s_game
 {
-	t_images_buffers	imgs_buffers;
-	t_img				*img;
-	t_img				*wall;
+//	t_images_buffers	imgs_buffers;
 	t_map				map;
 	t_player			player;
 	t_ray				rays[NUM_RAYS];
@@ -117,6 +120,11 @@ typedef struct s_game
 	int					image_height;
 	int					end_game;
 	char				*file_content;
+	t_image				no;
+	t_image				so;
+	t_image				we;
+	t_image				ea;
+	t_image				img;
 }						t_game;
 
 typedef enum e_bool

@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/23 15:36:56 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:36:41 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 # define KEY_RIGHT 65363
 
 //movement
-# define PI 3.14159265
-# define TWO_PI 6.28318530
+# define PI 3.141592
+# define TWO_PI 6.283185
 
 //rays
 # define NUM_RAYS WIN_WIDTH
@@ -55,5 +55,6 @@
 # define TEXT_WIDTH 32
 # define NUMBER_OF_TEXTURES 2
 # define FILE_WALL	"textures/bluestone.xpm"
+
 
 #endif
