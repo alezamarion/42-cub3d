@@ -6,11 +6,16 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:54:20 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/14 03:37:45 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 01:13:28 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	draw_minimap(t_game *game)
+{
+	draw_rectangles(game);
+}
 
 char	**read_map(char *path_to_file)
 {

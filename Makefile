@@ -6,7 +6,7 @@
 #    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/11/25 21:24:42 by joeduard         ###   ########.fr        #
+#    Updated: 2022/11/26 01:14:08 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJ_DIR		=	./obj
 FILES		=	cub3d.c
 FILES		+=	exit_game.c init_game.c init_image.c init_window.c    
 FILES		+=	read_map.c validate_map.c is_valid_map.c event_handler.c render_game.c
-FILES		+=	 map.c map_utils.c draw_minimap.c draw_player.c cast_all_rays.c
+FILES		+=	map_utils.c draw_minimap.c draw_player.c cast_all_rays.c
 FILES		+=	cast_ray_horizontal.c cast_ray_vertical.c color.c cast_ray_find_distance.c validation.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))

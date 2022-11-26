@@ -6,16 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 00:29:26 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 01:22:14 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	draw_minimap(t_game *game)
-{
-	draw_rectangles(game);
-}
 
 static void	wall_pixel(t_wall *wall, t_game *game, int i)
 {
@@ -32,13 +27,15 @@ static void	wall_pixel(t_wall *wall, t_game *game, int i)
 		y = 0;
 		while (y < wall->top_pixel)
 		{
-			game->img.color_buffer[((WIN_WIDTH) * y) + i] = game->param.celling_collor;
+			game->img.color_buffer[((WIN_WIDTH) * y) + i]
+				= game->param.celling_collor;
 			y++;
 		}
 		y = wall->botton_pixel;
 		while (y < WIN_HEIGHT)
 		{
-			game->img.color_buffer[((WIN_WIDTH) * y) + i] = game->param.ground_collor;
+			game->img.color_buffer[((WIN_WIDTH) * y) + i]
+				= game->param.ground_collor;
 			y++;
 		}
 	}
@@ -59,25 +56,23 @@ static uint32_t	*get_right_texture(t_game *game, t_ray *ray)
 	if (!ray->was_hit_vertical)
 	{
 		if (ray->is_ray_facing_up)
-			return(game->no.color_buffer);
+			return (game->no.color_buffer);
 		return (game->so.color_buffer);
 	}
 	else
 	{
 		if (ray->is_ray_facing_right)
-			return(game->ea.color_buffer);
+			return (game->ea.color_buffer);
 		return (game->we.color_buffer);
 	}	
-
-
 }
 
 void	generate_3d_projection(t_game *game)
 {
-	int		i;
-	int		y;
-	t_wall	wall;
-	uint32_t *current_image;
+	int			i;
+	int			y;
+	t_wall		wall;
+	uint32_t	*current_image;
 
 	i = 0;
 	ft_bzero(&wall, sizeof(t_wall));
@@ -90,6 +85,7 @@ void	generate_3d_projection(t_game *game)
 		else
 			wall.text_offset_x = (int)game->rays[i].wall_hit_x % TILE_SIZE;
 		y = wall.top_pixel;
+		//current_image_color(game, wall, y, i);
 		current_image = get_right_texture(game, game->rays + i);
 		while (y++ < wall.botton_pixel)
 		{
@@ -108,8 +104,6 @@ int	render_game(t_game *game)
 	move_player(game);
 	cast_all_rays(game);
 	generate_3d_projection(game);
-	//	draw_minimap(game);
-	//	draw_player(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->img.structure, 0, 0);
 	return (0);
 }
