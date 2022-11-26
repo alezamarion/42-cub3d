@@ -6,11 +6,21 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 01:22:14 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 02:25:17 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static void	strip_wall_projection(t_wall *wall, t_game *game, int i)
+{
+	wall->perpend_dist = game->rays[i].distance
+		* cos(game->rays[i].ray_angle - game->player.rotation_angle);
+	wall->dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
+	wall->proj_wall_height = (TILE_SIZE / wall->perpend_dist)
+		* wall->dist_proj_plane;
+	wall->strip_height = (int)wall->proj_wall_height;
+}
 
 static void	wall_pixel(t_wall *wall, t_game *game, int i)
 {
@@ -41,17 +51,7 @@ static void	wall_pixel(t_wall *wall, t_game *game, int i)
 	}
 }
 
-static void	strip_wall_projection(t_wall *wall, t_game *game, int i)
-{
-	wall->perpend_dist = game->rays[i].distance
-		* cos(game->rays[i].ray_angle - game->player.rotation_angle);
-	wall->dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
-	wall->proj_wall_height = (TILE_SIZE / wall->perpend_dist)
-		* wall->dist_proj_plane;
-	wall->strip_height = (int)wall->proj_wall_height;
-}
-
-static uint32_t	*get_right_texture(t_game *game, t_ray *ray)
+static int	*get_right_texture(t_game *game, t_ray *ray)
 {	
 	if (!ray->was_hit_vertical)
 	{
@@ -67,12 +67,22 @@ static uint32_t	*get_right_texture(t_game *game, t_ray *ray)
 	}	
 }
 
+static void	dist_text_color(t_wall wall, int *current_img, t_game *game, int i)
+{
+	wall.dist_from_top = wall.top_pixel + (wall.strip_height / 2)
+		- (WIN_HEIGHT / 2);
+	wall.text_offset_y = wall.dist_from_top
+		* ((double)TEXT_HEIGHT / wall.strip_height);
+	wall.pix_color = current_img[(TEXT_WIDTH
+			* wall.text_offset_y) + wall.text_offset_x];
+	game->img.color_buffer[(WIN_WIDTH * wall.top_pixel) + i] = wall.pix_color;
+}
+
 void	generate_3d_projection(t_game *game)
 {
 	int			i;
-	int			y;
 	t_wall		wall;
-	uint32_t	*current_image;
+	int			*current_img;
 
 	i = 0;
 	ft_bzero(&wall, sizeof(t_wall));
@@ -84,23 +94,16 @@ void	generate_3d_projection(t_game *game)
 			wall.text_offset_x = (int)game->rays[i].wall_hit_y % TILE_SIZE;
 		else
 			wall.text_offset_x = (int)game->rays[i].wall_hit_x % TILE_SIZE;
-		y = wall.top_pixel;
-		//current_image_color(game, wall, y, i);
-		current_image = get_right_texture(game, game->rays + i);
-		while (y++ < wall.botton_pixel)
+		current_img = get_right_texture(game, game->rays + i);
+		while (wall.top_pixel++ < wall.botton_pixel)
 		{
-			wall.dist_from_top = y + (wall.strip_height / 2) - (WIN_HEIGHT / 2);
-			wall.text_offset_y = wall.dist_from_top
-				* ((double)TEXT_HEIGHT / wall.strip_height);
-			wall.pix_color = current_image[(TEXT_WIDTH
-					* wall.text_offset_y) + wall.text_offset_x];
-			game->img.color_buffer[(WIN_WIDTH * y) + i] = wall.pix_color;
+			dist_text_color(wall, current_img, game, i);
 		}
 	}
 }
 
 int	render_game(t_game *game)
-{		
+{	
 	move_player(game);
 	cast_all_rays(game);
 	generate_3d_projection(game);

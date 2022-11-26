@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:12:13 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 00:07:35 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 01:57:26 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,11 @@ static void	convert_image(char *img_path, t_game *game, t_image *img)
 		perror(E_MLX_XPM);
 		exit_game(game);
 	}
-	img->color_buffer = (uint32_t *)img->structure->data;
+	img->color_buffer = (int *)img->structure->data;
 }
 
 static void	init_texture(t_game *game)
 {
-	printf("param no --%s--\n", game->param.no);
-	printf("param no --%s--\n", game->param.so);
-	printf("param no --%s--\n", game->param.we);
-	printf("param no --%s--\n", game->param.ea);
 	convert_image(game->param.no, game, &game->no);
 	convert_image(game->param.so, game, &game->so);
 	convert_image(game->param.we, game, &game->we);
@@ -54,5 +50,5 @@ void	initialize_image(t_game *game)
 		print_error(E_MLX_IMG);
 		exit_game(game);
 	}
-	game->img.color_buffer = (uint32_t *) game->img.structure->data;
+	game->img.color_buffer = (int *) game->img.structure->data;
 }

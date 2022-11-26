@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:01:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/25 22:06:01 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 02:28:09 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static void	free_game(t_game *game)
 
 int	exit_game(t_game *game)
 {
-	// if(game->map.map != 0)
-	// 	free_map(game->map.map);
 	free_game(game);
 	exit (0);
 	return (0);

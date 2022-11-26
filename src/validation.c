@@ -6,39 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:00:11 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/25 22:02:48 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 02:41:31 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-static void	print_map(char **map)
-{
-	int i;
-	
-	i = 0;
-	printf("\n-------- Mapa: ---------\n");
-	while (map[i])
-	{
-		printf("%s", map[i]);
-		i++;
-	}
-	printf("\n");
-}
-
-// static void	print_file(char **file)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	printf("\n-------- Arquivo: ---------\n");
-// 	while (file[i])
-// 	{
-// 		printf("%s", file[i]);
-// 		i++;
-// 	}
-// 	printf("\n");
-// }
 
 static int	is_texture(char *file, int *identifier)
 {
@@ -55,14 +27,14 @@ static int	is_texture(char *file, int *identifier)
 	return (1);
 }
 
-static char *get_content(char *file)
+static char	*get_content(char *file)
 {
 	while (*file == ' ')
 		file++;
 	return (file);
 }
 
-static void save_texture(char *file, int identifier, t_game *game)
+static void	save_texture(char *file, int identifier, t_game *game)
 {
 	if (identifier == 0)
 		game->param.no = get_content(file + 2);
@@ -71,12 +43,12 @@ static void save_texture(char *file, int identifier, t_game *game)
 	if (identifier == 2)
 		game->param.we = get_content(file + 2);
 	if (identifier == 3)
-		game->param.ea = get_content(file + 2);			
+		game->param.ea = get_content(file + 2);
 }
 
 static void	save_file_info(char **file, t_game *game)
 {
-	int i;
+	int	i;
 	int	identifier;
 	int	element_count;
 
@@ -87,27 +59,22 @@ static void	save_file_info(char **file, t_game *game)
 		if (is_texture(file[i], &identifier))
 			save_texture(file[i], identifier, game);
 		else if (is_color(file[i], &identifier))
-		 	save_colors(file[i], identifier, game);
+			save_colors(file[i], identifier, game);
 		else if (element_count == 6)
 		{
-		 	game->map.map = file + i;
-			print_map(game->map.map);
-			break;
+			game->map.map = file + i;
+			break ;
 		}
 		else
 		{
-			printf("\n--AQUI--\n"); 
 			print_error(E_FILEELEMENT);
 			exit_game(game);
 		}
-		if(game->map.map == 0)
-		{
+		if (game->map.map == 0)
 			element_count++;
-		}
 		i++;
 	}
-
- }
+}
 
 t_bool	validation(t_game *game, int argc, char **argv)
 {
@@ -119,13 +86,10 @@ t_bool	validation(t_game *game, int argc, char **argv)
 		return (print_error(E_MANYARG));
 	game->map.file = read_map(argv[1]);
 	save_file_info(game->map.file, game);
-	
 	if (!is_valid_map(game->map.map, argv[1], game))
 	{
-		printf("\n--AQUI is valid map--\n");
 		exit_game(game);
 		return (print_error(E_MAPINVAL));
 	}
-	//print_file(game->map.file);
 	return (true);
 }

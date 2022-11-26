@@ -6,12 +6,11 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 00:46:46 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 02:26:54 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
 
 int	is_valid_map(char **map, char *file, t_game *game)
 {

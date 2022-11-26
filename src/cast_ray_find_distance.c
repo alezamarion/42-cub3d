@@ -6,13 +6,13 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:07:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 00:32:37 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 02:30:39 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void	vert_smallest_horiz(double vert_hit_dist, int strip_id, t_game *game)
+static void	vert_less_horiz(double vert_hit_dist, int strip_id, t_game *game)
 {
 	game->rays[strip_id].distance = vert_hit_dist;
 	game->rays[strip_id].wall_hit_x = game->rays->vert_wall_hit_x;
@@ -20,7 +20,7 @@ static void	vert_smallest_horiz(double vert_hit_dist, int strip_id, t_game *game
 	game->rays[strip_id].was_hit_vertical = true;
 }
 
-static void	horiz_smallest_vert(double htz_hit_dist, int strip_id, t_game *game)
+static void	horiz_less_vert(double htz_hit_dist, int strip_id, t_game *game)
 {
 	game->rays[strip_id].distance = htz_hit_dist;
 	game->rays[strip_id].wall_hit_x = game->rays->horiz_wall_hit_x;
@@ -62,8 +62,8 @@ void	choose_smalest_distance(double ray_angle, int strip_id, t_game *game)
 	else
 		vert_hit_distance = __FLT_MAX__;
 	if (vert_hit_distance < horiz_hit_distance)
-		vert_smallest_horiz(vert_hit_distance, strip_id, game);
+		vert_less_horiz(vert_hit_distance, strip_id, game);
 	else
-		horiz_smallest_vert(horiz_hit_distance, strip_id, game);
+		horiz_less_vert(horiz_hit_distance, strip_id, game);
 	other_rays_setup(ray_angle, strip_id, game);
 }
