@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:39:22 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 02:25:17 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:10:16 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	strip_wall_projection(t_wall *wall, t_game *game, int i)
 {
 	wall->perpend_dist = game->rays[i].distance
 		* cos(game->rays[i].ray_angle - game->player.rotation_angle);
-	wall->dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
+	wall->dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2); //esse calculo OK?
 	wall->proj_wall_height = (TILE_SIZE / wall->perpend_dist)
 		* wall->dist_proj_plane;
 	wall->strip_height = (int)wall->proj_wall_height;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_all_rays.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:44:17 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 01:08:31 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/27 13:28:25 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ double	distance_between_points(double x1, double y1, double x2, double y2)
 
 void	where_is_ray_facing(double ray_angle, t_game *game)
 {
-	game->rays->is_ray_facing_up = !game->rays->is_ray_facing_down;
 	game->rays->is_ray_facing_down
 		= ray_angle > 0 && ray_angle < PI;
-	game->rays->is_ray_facing_left = !game->rays->is_ray_facing_right;
+	game->rays->is_ray_facing_up = !game->rays->is_ray_facing_down;
 	game->rays->is_ray_facing_right
-		= ray_angle < 0.5 * PI || ray_angle > 1.5 * PI;
+		= ray_angle < HALF_PI || ray_angle > PI_PLUS_HALF_PI;
+	game->rays->is_ray_facing_left = !game->rays->is_ray_facing_right;
 }
 
 void	cast_ray(double ray_angle, int strip_id, t_game *game)

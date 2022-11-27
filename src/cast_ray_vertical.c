@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:46:10 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 12:21:55 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 13:33:49 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	find_vertical_intersection(double ray_angle, t_game *game)
 	if (game->rays->is_ray_facing_down && y_step < 0)
 		y_step *= -1;
 	while (x_intercept >= 0 && x_intercept
-		<= (game->map.col * TILE_SIZE) && y_intercept >= 0
-		&& y_intercept <= (game->map.row * TILE_SIZE))
+		< (game->map.col * TILE_SIZE) && y_intercept >= 0 //tirei =
+		&& y_intercept < (game->map.row * TILE_SIZE)) //tirei =
 	{
 		if (game->rays->is_ray_facing_left)
 			x_intercept += -1;

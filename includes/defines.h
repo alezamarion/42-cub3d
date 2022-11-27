@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:41:29 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/27 09:58:12 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:15:34 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,13 @@
 //movement
 # define PI 3.141592
 # define TWO_PI 6.283185
+# define HALF_PI 1.570796
+# define PI_PLUS_HALF_PI 4.712388
 
 //rays
 # define NUM_RAYS WIN_WIDTH
-# define FOV_ANGLE 1.0472
+//# define FOV_ANGLE 1.0472
+# define FOV_ANGLE 1.0471975511965977461542144610932
 
 # define PURPLE 0x4B0082
 # define BLUE   0xF5FFA
@@ -54,7 +57,7 @@
 # define TEXT_HEIGHT 32
 # define TEXT_WIDTH 32
 # define NUMBER_OF_TEXTURES 2
-# define FILE_WALL	"textures/bluestone.xpm"
+//# define FILE_WALL	"textures/bluestone.xpm"
 
 
 #endif

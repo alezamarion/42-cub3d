@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray_find_distance.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:07:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 02:30:39 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/27 15:59:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
