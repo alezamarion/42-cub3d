@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/26 20:59:52 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:16:17 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_map
 	char	**file;
 	int		row;
 	int		col;
+	int		colunas;
 	int		player;
 	int		space;
 	int		wall;

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 11:05:41 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:27:59 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,38 @@ void	map_counter(char **map, t_game *game)
 	while (map[i])
 	{
 		game->map.row++;
+		// game->map.col = ft_strlen(map[i]); //esta errado
+		// printf("map.col %d\n", game->map.col);
+		
+		// game->map.colunas += game->map.col;
+		
 		i++;
-	}
-	printf("game->row %d\n", game->map.row);
-	game->map.col = ft_strlen(*map);
-	printf("game->col %d\n", game->map.col);
+	}	
+	printf("map.colunas %d\n", game->map.colunas);
+	game->map.col = ft_strlen(*map); 
+	
 	i = 0;
-	while (i < game->map.row)
+	// while (i < game->map.row)
+	// {
+	// 	j = 0;
+	// 	while (j < game->map.col)
+	// 	{
+	// 		find_player(game, i, j);
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
+
+	while (map[i])
 	{
 		j = 0;
-		while (j < game->map.col)
+		while (map[i][j])
 		{
 			find_player(game, i, j);
 			j++;
 		}
 		i++;
 	}
+
+
 }

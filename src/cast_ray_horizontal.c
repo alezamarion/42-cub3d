@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray_horizontal.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:05:08 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 03:03:41 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:20:23 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
