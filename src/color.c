@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 17:23:37 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/26 02:10:42 by joeduard         ###   ########.fr       */
+/*   Created: 2022/11/26 18:16:38 by azamario          #+#    #+#             */
+/*   Updated: 2022/11/26 23:44:21 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static int	is_out_of_range(int n)
 
 static char	*get_next_octet(char *s)
 {
-	while (*s != ',')
+	while (*s && *s != ',')
 		s++;
 	return (s + 1);
 }
 
-static int	get_colors(char *file)
+static int	get_colors(char *file, t_game *game)
 {
 	int	color;
 	int	r;
@@ -39,6 +39,7 @@ static int	get_colors(char *file)
 	if (is_out_of_range(r) || is_out_of_range(g) || is_out_of_range(b))
 	{
 		printf("Invalid color range\n");
+		exit_game(game);
 		return (0);
 	}
 	color = (r << 16) + (g << 8) + b;
@@ -46,11 +47,17 @@ static int	get_colors(char *file)
 }
 
 void	save_colors(char *file, int identifier, t_game *game)
-{
+{	
 	if (identifier == 4)
-		game->param.ground_collor = get_colors(file + 1);
+	{
+		game->param.ground = file + 1;
+		printf("ground %s\n", game->param.ground);
+		if (game->param.ground == NULL)
+			exit_game(game);
+		game->param.ground_collor = get_colors(file + 1, game);
+	}
 	if (identifier == 5)
-		game->param.celling_collor = get_colors(file + 1);
+		game->param.celling_collor = get_colors(file + 1, game);
 }
 
 int	is_color(char *file, int *identifier)

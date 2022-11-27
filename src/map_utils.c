@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/24 16:07:36 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:15:03 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 static void	find_player(t_game *game, int i, int j)
 {
-	if (game->map.map[i][j] == 'N')
+	if (game->map.map[i][j] == 'N' || game->map.map[i][j] == 'S'
+		|| game->map.map[i][j] == 'W'|| game->map.map[i][j] == 'E')
 	{
+		game->map.number_of_players++;
+		if (game->map.number_of_players > 1)
+		{
+			print_error(E_INVALINP);
+			exit_game(game);
+		}
 		game->player.pos_x = j * TILE_SIZE + TILE_SIZE / 2;
 		game->player.pos_y = i * TILE_SIZE + TILE_SIZE / 2;
 		game->map.map[i][j] = '0';
@@ -30,6 +37,7 @@ void	map_counter(char **map, t_game *game)
 	i = 0;
 	game->map.row = 0;
 	game->map.col = 0;
+	game->map.number_of_players = 0;
 	while (map[i])
 	{
 		game->map.row++;

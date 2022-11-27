@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/26 00:31:50 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:22:26 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # include <X11/X.h>
 
 //read_map.c
-char	**read_map(char *path_to_file);
+char	**read_file(char *path_to_file);
 
 //valid_map.c
 int		is_valid_map(char **map, char *file, t_game *game);
@@ -118,5 +118,11 @@ int	is_color(char *file, int *identifier);
 //map.c
 int     is_map(char *file);
 char    *get_map(char *file);
+
+//validate_input_file
+int    validate_input_file(t_game *game);
+
+//validate_colors
+int    validate_colors(char *color);
 
 #endif

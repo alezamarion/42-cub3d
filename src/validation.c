@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:00:11 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/26 02:41:31 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:20:43 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static void	save_file_info(char **file, t_game *game)
 		else if (element_count == 6)
 		{
 			game->map.map = file + i;
+//			game->map.cub = *game->map.map;
 			break ;
 		}
 		else
@@ -84,12 +85,40 @@ t_bool	validation(t_game *game, int argc, char **argv)
 		return (print_error(E_NOMAP));
 	if (argc > 2)
 		return (print_error(E_MANYARG));
-	game->map.file = read_map(argv[1]);
+
+	game->map.file = read_file(argv[1]);
 	save_file_info(game->map.file, game);
-	if (!is_valid_map(game->map.map, argv[1], game))
+
+	//validando caracteres e player
+	if (!has_valid_chars(game->map.map))
 	{
+		print_error(E_INPUTNVAL);
 		exit_game(game);
-		return (print_error(E_MAPINVAL));
 	}
+	if (!has_minimum_chars(game->map.map, game))
+	{
+		print_error(E_NOMINCHAR);
+		exit_game(game);
+	}
+
+	// validando as cores
+	if (!validate_colors(game->param.ground))
+	{
+		print_error(E_INVNUMCOLOR);
+		exit_game(game);
+	}
+
+
+	//validando caminho va
+
+
+	//if (!is_map_valid(game));
+
+	// if (!is_valid_map(game->map.map, argv[1], game))
+	// {
+	// 	exit_game(game);
+	// 	return (print_error(E_MAPINVAL));
+	// }
+	
 	return (true);
 }

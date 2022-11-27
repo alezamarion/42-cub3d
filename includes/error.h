@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:52:59 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/25 21:08:14 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:04:43 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # define E_MANYARG "Error\nThere are many arguments\n"
 # define E_MAPINVAL "Error\nThis map is not valid!\n"
 # define E_FILEELEMENT "Error\nThis file element is not valid!\n"
+# define E_INPUTNVAL "Input file not valid!\n"
+# define E_INVNUMCOLOR "Invalid number of arguments of color identifier\n"
+# define E_INVCHARMAP "Invalid character on map\n"
+# define E_INVALINP "Invalid number of players\n"
+# define E_NOPLAYER "There is no player\n"
+# define E_NOMINCHAR "No minimun characteres!\n"
 
 // MLX
 # define E_MLX "Error\nMLX_INIT FAILURE\n"

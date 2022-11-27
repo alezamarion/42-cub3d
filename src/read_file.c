@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 21:54:20 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 01:13:28 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:27:37 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	draw_minimap(t_game *game)
 	draw_rectangles(game);
 }
 
-char	**read_map(char *path_to_file)
+char	**read_file(char *path_to_file)
 {
 	int		fd;
 	char	*line;
