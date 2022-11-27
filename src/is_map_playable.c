@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_map.c                                     :+:      :+:    :+:   */
+/*   is_map_playable.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 19:38:36 by azamario         ###   ########.fr       */
+/*   Created: 2022/11/27 10:36:31 by azamario          #+#    #+#             */
+/*   Updated: 2022/11/27 10:39:13 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	is_valid_map(char **map, char *file, t_game *game)
+
+int is_map_playable(char **map)
 {
-	if (!map)
-		return (0);
-	if (has_valid_chars(map) && has_minimum_chars(map, game)
-		&& has_valid_extension(file))
-	{
-		printf("Map is valid\n");
-		return (1);
-	}
-	return (0);
+
+    (void)map;
+    return (true);
 }

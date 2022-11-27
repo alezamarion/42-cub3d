@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 18:16:38 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 23:44:21 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 09:22:16 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,23 @@ void	save_colors(char *file, int identifier, t_game *game)
 	if (identifier == 4)
 	{
 		game->param.ground = file + 1;
-		printf("ground %s\n", game->param.ground);
-		if (game->param.ground == NULL)
+		if (!validate_colors(game->param.ground))
+		{
+			print_error(E_NOCOLORP);
 			exit_game(game);
+		}
 		game->param.ground_collor = get_colors(file + 1, game);
 	}
 	if (identifier == 5)
+	{
+		game->param.celling = file + 1;
+		if (!validate_colors(game->param.celling))
+		{
+			print_error(E_NOCOLORP);
+			exit_game(game);
+		}
 		game->param.celling_collor = get_colors(file + 1, game);
+	}
 }
 
 int	is_color(char *file, int *identifier)

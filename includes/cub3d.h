@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/26 21:22:26 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 10:38:56 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,8 @@
 //read_map.c
 char	**read_file(char *path_to_file);
 
-//valid_map.c
-int		is_valid_map(char **map, char *file, t_game *game);
-
-//map_check.c
-int		has_valid_walls(char **map, t_game *game);
-int		has_valid_chars(char **map);
-int		has_minimum_chars(char **map, t_game *game);
+//validate_map_info.c
+int		is_valid_map_info(t_game *game);
 int		has_valid_extension(char *file);
 
 //exit_game.c
@@ -124,5 +119,9 @@ int    validate_input_file(t_game *game);
 
 //validate_colors
 int    validate_colors(char *color);
+
+//is_map_playable.c
+int is_map_playable(char **map);
+
 
 #endif

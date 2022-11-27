@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_map.c                                     :+:      :+:    :+:   */
+/*   validate_map_info.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 22:46:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 00:05:52 by azamario         ###   ########.fr       */
+/*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
+/*   Updated: 2022/11/27 10:21:45 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	has_valid_chars(char **map)
+
+
+static int	has_valid_chars(char **map)
 {
 	int	i;
 	int	j;
@@ -33,7 +35,7 @@ int	has_valid_chars(char **map)
 	return (1);
 }
 
-int	has_minimum_chars(char **map, t_game *game)
+static int	has_minimum_chars(char **map, t_game *game)
 {
 	int	i;
 	int	j;
@@ -71,4 +73,19 @@ int	has_valid_extension(char *file)
 	if (ft_strncmp(extension, ".cub", 5))
 		return (0);
 	return (1);
+}
+
+int	is_valid_map_info(t_game *game)
+{
+	if (!has_valid_chars(game->map.map))
+	{
+		print_error(E_INPUTNVAL);
+		exit_game(game);
+	}
+	if (!has_minimum_chars(game->map.map, game))
+	{
+		print_error(E_NOMINCHAR);
+		exit_game(game);
+	}
+	return (true);
 }

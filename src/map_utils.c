@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 21:15:03 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 11:05:41 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ void	map_counter(char **map, t_game *game)
 		game->map.row++;
 		i++;
 	}
+	printf("game->row %d\n", game->map.row);
 	game->map.col = ft_strlen(*map);
+	printf("game->col %d\n", game->map.col);
 	i = 0;
 	while (i < game->map.row)
 	{
