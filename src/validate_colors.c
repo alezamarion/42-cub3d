@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:51:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 09:24:22 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 00:15:01 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int    validate_colors(char *color)
             comma++;
         color++;
     }
-    if (comma < 2 )
+    if (comma < 2 || comma > 2)
         return (0);
     return (1);
 

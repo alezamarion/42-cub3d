@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:00:11 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/27 10:36:43 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 00:02:54 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,13 @@ t_bool	validation(t_game *game, int argc, char **argv)
 		return (print_error(E_MANYARG));
 
 	game->map.file = read_file(argv[1]);
+	if (!game->map.file)
+	{
+		printf("no mapaaaaaa");       /////////////////////////arrumar aqui///////////////////////////
+		print_error(E_WRONGEXT);
+		exit_game(game);
+	}
+	
 	if (!has_valid_extension(argv[1]))		//extensao
 	{
 		print_error(E_WRONGEXT);
