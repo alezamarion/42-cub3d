@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/27 10:38:56 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 04:27:27 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	init_window(t_game *game);
 
 //map_utils.c
 void	map_counter(char **map, t_game *game);
+size_t	get_max_line_size(char **map, t_game *game);
 
 //event_handler
 void	move_player(t_game *game);
@@ -115,13 +116,18 @@ int     is_map(char *file);
 char    *get_map(char *file);
 
 //validate_input_file
-int    validate_input_file(t_game *game);
+int     validate_input_file(t_game *game);
 
 //validate_colors
-int    validate_colors(char *color);
+int     validate_colors(char *color);
 
 //is_map_playable.c
-int is_map_playable(char **map);
+void     is_map_playable(t_game *game);
+
+//is_map_playable_utils.c
+void	resize_line(t_game *game);
+void	resize_column(t_game *game);
+size_t	count_vectors(void **matrix);
 
 
 #endif

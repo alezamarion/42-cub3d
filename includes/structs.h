@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/27 22:19:44 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 04:09:21 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_map
 	int		wall;
 	void	*img;
 	int		number_of_players;
+	int		minimap_height;
+	int		minimap_width;
 }				t_map;
 
 typedef struct s_wall
@@ -54,7 +56,7 @@ typedef struct s_wall
 	int			text_offset_x;
 	int			text_offset_y;
 	int			dist_from_top;
-	int	pix_color;
+	int			pix_color;
 }				t_wall;
 
 typedef struct ray
@@ -84,12 +86,12 @@ typedef struct ray
 	int		vert_wall_content;
 }				t_ray;
 
-typedef struct s_images_buffers
-{
-//	int	*wall_buffer;
+// typedef struct s_images_buffers
+// {
+// //	int	*wall_buffer;
 	
 
-}	t_images_buffers;
+// }	t_images_buffers;
 
 typedef struct s_param
 {
@@ -138,5 +140,10 @@ typedef enum e_bool
 	true
 }	t_bool;
 
+typedef enum e_column_limits
+{
+	TOP_LINE,
+	BOT_LINE
+}	t_column_limits;
 
 #endif

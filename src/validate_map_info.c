@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 10:21:45 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 01:25:42 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,11 @@ int	has_valid_extension(char *file)
 
 int	is_valid_map_info(t_game *game)
 {
+	if (!game->map.map)
+	{
+		print_error(E_NO_MAP);
+		exit_game(game);
+	}
 	if (!has_valid_chars(game->map.map))
 	{
 		print_error(E_INPUTNVAL);

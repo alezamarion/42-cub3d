@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 22:46:29 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 04:10:39 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,21 @@ static void	find_player(t_game *game, int i, int j)
 	}
 }
 
-void	get_max_line_size(char **map, t_game *game)
+size_t	get_max_line_size(char **map, t_game *game) ////mexi aqui////
 {
-	size_t	i;
+	size_t	max_line_size;
+	int i;
 
+	max_line_size = 0;
 	i = 0;
 	while (map[i])
 	{
-		if (ft_strlen(map[i]) > game->map.col)
-			game->map.col = ft_strlen(map[i]);
+		if (ft_strlen(map[i]) > max_line_size)
+			max_line_size = ft_strlen(map[i]);
 		i++;
 	}
-	game->map.row = i;	
+	game->map.row = i;
+	return(max_line_size);	
 }
 
 void	map_counter(char **map, t_game *game)
@@ -66,7 +69,7 @@ void	map_counter(char **map, t_game *game)
 	game->map.col = 0;
 	game->map.number_of_players = 0;
 
-	get_max_line_size(game->map.map, game);
+	game->map.col = get_max_line_size(game->map.map, game);
 
 	i = 0;
 	while (map[i])

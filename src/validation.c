@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:00:11 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/28 00:02:54 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 04:54:17 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,35 +84,19 @@ t_bool	validation(t_game *game, int argc, char **argv)
 		return (print_error(E_NOMAP));
 	if (argc > 2)
 		return (print_error(E_MANYARG));
-
 	game->map.file = read_file(argv[1]);
-	if (!game->map.file)
+	if (!game->map.file || !(*game->map.file))
 	{
-		printf("no mapaaaaaa");       /////////////////////////arrumar aqui///////////////////////////
+		print_error(E_EMPTY_F);
+		exit_game(game);
+	}
+	if (!has_valid_extension(argv[1]))
+	{
 		print_error(E_WRONGEXT);
 		exit_game(game);
 	}
-	
-	if (!has_valid_extension(argv[1]))		//extensao
-	{
-		print_error(E_WRONGEXT);
-		exit_game(game);
-	}
-	save_file_info(game->map.file, game);	//player e caracteres
-	is_valid_map_info(game);				// valida as cores em color.c	
-
-
-	//print_map
-	int i = 0;
-	while (game->map.map[i])
-	{
-		printf("%s\n", game->map.map[i]);
-		i++;
-	}
-	printf("\n");
-
-
-	is_map_playable(game->map.map);
-
+	save_file_info(game->map.file, game);
+	is_valid_map_info(game);
+	is_map_playable(game);
 	return (true);
 }

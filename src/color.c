@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 18:16:38 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 09:22:16 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 04:50:25 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,28 @@ static char	*get_next_octet(char *s)
 {
 	while (*s && *s != ',')
 		s++;
-	return (s + 1);
+	if (*s == ',')
+		return (s + 1);
+	return (s);
 }
+
+
+int	color_check(char *file, t_game *game)
+{
+    while (*file == ' ')
+	{
+        file++;
+		if (*file == '\0')
+			break ;
+	}
+	if (!ft_isdigit(*file))
+	{
+		print_error(E_COLORNESP);
+		exit_game(game);
+	}
+	return (true);
+}
+
 
 static int	get_colors(char *file, t_game *game)
 {
@@ -31,16 +51,18 @@ static int	get_colors(char *file, t_game *game)
 	int	g;
 	int	b;
 
-	r = ft_atoi(file);
+	if (color_check(file, game))
+		r = ft_atoi(file);
 	file = get_next_octet(file);
-	g = ft_atoi(file);
+	if (color_check(file, game))
+		g = ft_atoi(file);
 	file = get_next_octet(file);
-	b = ft_atoi(file);
+	if (color_check(file, game))
+		b = ft_atoi(file);
 	if (is_out_of_range(r) || is_out_of_range(g) || is_out_of_range(b))
 	{
-		printf("Invalid color range\n");
+		printf("Error\nInvalid color range\n");
 		exit_game(game);
-		return (0);
 	}
 	color = (r << 16) + (g << 8) + b;
 	return (color);
