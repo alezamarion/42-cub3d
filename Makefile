@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/11/28 05:30:30 by joeduard         ###   ########.fr        #
+#    Updated: 2022/11/28 08:31:45 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ $(MLX):
 	@echo "Mlx is ready! [ OK ]"
 
 run:
-	./cub3d "assets/maps/mandatory.cub"
+	./cub3d "assets/maps/map5.cub"
 
 resize:
 	mogrify -resize 32X32 $(IMG_DIR)/*.png && make img
