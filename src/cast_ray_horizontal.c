@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:05:08 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 13:35:50 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:47:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	wall_content(t_game *game, double x_intercept, double y_intercept)
 	game->rays->horiz_wall_hit_x = x_intercept;
 	game->rays->horiz_wall_hit_y = y_intercept;
 	game->rays->horiz_wall_content = game->map.map
-	[(int)floor(y_intercept / TILE_SIZE)]
+	[(int)floor((y_intercept - game->rays->is_ray_facing_up) / TILE_SIZE)]
 	[(int)floor(x_intercept / TILE_SIZE)];
 	game->rays->found_horiz_wall_hit = true;
 }
@@ -55,9 +55,7 @@ void	find_horizontal_intersection(double ray_angle, t_game *game)
 			* TILE_SIZE) && y_intercept >= 0 && y_intercept
 		< (game->map.row * TILE_SIZE)) //tirei =
 	{
-		if (game->rays->is_ray_facing_up)
-			y_intercept += -1;
-		if (has_wall(x_intercept, y_intercept, game))
+		if (has_wall(x_intercept, y_intercept - game->rays->is_ray_facing_up, game))
 		{
 			wall_content(game, x_intercept, y_intercept);
 			break ;

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:46:10 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 13:33:49 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:54:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ static void	wall_content(t_game *game, double x_intercept, double y_intercept)
 	game->rays->vert_wall_hit_y = y_intercept;
 	game->rays->vert_wall_content = game->map.map
 	[(int)floor(y_intercept / TILE_SIZE)]
-	[(int)floor(x_intercept / TILE_SIZE)];
+	[(int)floor((x_intercept - game->rays->is_ray_facing_left) / TILE_SIZE)];
 	game->rays->found_vert_wall_hit = true;
 }
 
 static void	vertical_ray_setup(t_game *game)
 {
 	game->rays->found_vert_wall_hit = false;
-	game->rays->vert_wall_hit_x = 0;
-	game->rays->vert_wall_hit_y = 0;
-	game->rays->vert_wall_content = 0;
+	// game->rays->vert_wall_hit_x = 0;
+	// game->rays->vert_wall_hit_y = 0;
+	// game->rays->vert_wall_content = 0;
 }
 
 void	find_vertical_intersection(double ray_angle, t_game *game)
@@ -55,9 +55,7 @@ void	find_vertical_intersection(double ray_angle, t_game *game)
 		< (game->map.col * TILE_SIZE) && y_intercept >= 0 //tirei =
 		&& y_intercept < (game->map.row * TILE_SIZE)) //tirei =
 	{
-		if (game->rays->is_ray_facing_left)
-			x_intercept += -1;
-		if (has_wall(x_intercept, y_intercept, game))
+		if (has_wall(x_intercept - game->rays->is_ray_facing_left, y_intercept, game))
 		{
 			wall_content(game, x_intercept, y_intercept);
 			break ;

@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/27 12:16:17 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:20:55 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct s_player
 {	
 	double	pos_x;
 	double	pos_y;
+	double	new_player_x;
+	double	new_player_y;
 	int		turn_direction;
 	int		walk_direction;
 	int		side_direction;
@@ -112,11 +114,15 @@ typedef struct	s_images
 
 typedef struct s_game
 {
-//	t_images_buffers	imgs_buffers;
 	t_map				map;
 	t_player			player;
 	t_ray				rays[NUM_RAYS];
 	t_param				param;
+	t_image				no;
+	t_image				so;
+	t_image				we;
+	t_image				ea;
+	t_image				img;
 	void				*mlx;
 	void				*window;
 	void				*empty_space;
@@ -124,11 +130,6 @@ typedef struct s_game
 	int					image_height;
 	int					end_game;
 	char				*file_content;
-	t_image				no;
-	t_image				so;
-	t_image				we;
-	t_image				ea;
-	t_image				img;
 }						t_game;
 
 typedef enum e_bool
