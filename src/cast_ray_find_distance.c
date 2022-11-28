@@ -6,11 +6,29 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:07:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 15:59:20 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 23:41:51 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static void	get_ray_content(t_game *game, t_ray *ray)
+{
+	int x;
+	int y;
+
+	if (ray->was_hit_vertical)
+	{
+		x = (int)floor((ray->wall_hit_x - ray->is_ray_facing_left) / TILE_SIZE);
+		y = (int)floor(ray->wall_hit_y / TILE_SIZE);
+	}
+	else
+	{
+		x = (int)floor(ray->wall_hit_x / TILE_SIZE);		
+		y = (int)floor((ray->wall_hit_y - ray->is_ray_facing_up) / TILE_SIZE);
+	}
+	ray->wall_hit_content = game->map.map[y][x];
+}
 
 static void	vert_less_horiz(double vert_hit_dist, int strip_id, t_game *game)
 {
@@ -30,17 +48,12 @@ static void	horiz_less_vert(double htz_hit_dist, int strip_id, t_game *game)
 
 static void	other_rays_setup(double ray_angle, int strip_id, t_game *game)
 {
-	int		x;
-	int		y;
-
 	game->rays[strip_id].ray_angle = ray_angle;
-	x = (int)game->rays[strip_id].wall_hit_x / TILE_SIZE;
-	y = (int)game->rays[strip_id].wall_hit_y / TILE_SIZE;
-	game->rays[strip_id].wall_hit_content = game->map.map[y][x];
 	game->rays[strip_id].is_ray_facing_down = game->rays->is_ray_facing_down;
 	game->rays[strip_id].is_ray_facing_up = game->rays->is_ray_facing_up;
 	game->rays[strip_id].is_ray_facing_left = game->rays->is_ray_facing_left;
 	game->rays[strip_id].is_ray_facing_right = game->rays->is_ray_facing_right;
+	get_ray_content(game, game->rays + strip_id);
 }
 
 // Calculate both horizontal and vertical hit dist. and choose the smallest one

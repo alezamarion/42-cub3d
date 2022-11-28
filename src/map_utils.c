@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:36 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 16:37:16 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/27 22:46:29 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,40 +43,32 @@ static void	find_player(t_game *game, int i, int j)
 	}
 }
 
-void	map_counter(char **map, t_game *game)
+void	get_max_line_size(char **map, t_game *game)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
 	i = 0;
+	while (map[i])
+	{
+		if (ft_strlen(map[i]) > game->map.col)
+			game->map.col = ft_strlen(map[i]);
+		i++;
+	}
+	game->map.row = i;	
+}
+
+void	map_counter(char **map, t_game *game)
+{
+	size_t	i;
+	size_t	j;
+
 	game->map.row = 0;
 	game->map.col = 0;
 	game->map.number_of_players = 0;
-	while (map[i])
-	{
-		game->map.row++;
-		// game->map.col = ft_strlen(map[i]); //esta errado
-		// printf("map.col %d\n", game->map.col);
-		
-		// game->map.colunas += game->map.col;
-		
-		i++;
-	}	
-	printf("map.colunas %d\n", game->map.colunas);
-	game->map.col = ft_strlen(*map); 
-	
-	i = 0;
-	// while (i < game->map.row)
-	// {
-	// 	j = 0;
-	// 	while (j < game->map.col)
-	// 	{
-	// 		find_player(game, i, j);
-	// 		j++;
-	// 	}
-	// 	i++;
-	// }
 
+	get_max_line_size(game->map.map, game);
+
+	i = 0;
 	while (map[i])
 	{
 		j = 0;
@@ -87,6 +79,4 @@ void	map_counter(char **map, t_game *game)
 		}
 		i++;
 	}
-
-
 }
