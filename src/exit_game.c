@@ -6,7 +6,7 @@
 /*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:01:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/26 02:28:09 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/11/28 05:47:02 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ int	click_close(t_game *game)
 	return (0);
 }
 
-t_bool	print_error(char *error)
+t_bool	print_error(char *error, t_game *game)
 {
 	ft_putstr_fd(error, 2);
+	exit_game(game);
 	return (false);
 }

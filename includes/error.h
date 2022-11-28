@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:52:59 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/28 01:58:46 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 06:03:53 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@
 # define E_NOCOLORP "Error\nNo color provided\n"
 # define E_WRONGEXT "Error\nWrong file extention\n"
 # define E_NO_MAP "Error\nThere is no map!\n"
+# define E_EMPTY_L "Error\nInvalid empty line on map\n"
 # define E_EMPTY_F "Error\nEmpty file!\n"
 # define E_COLORNESP "Error\nColor not specified!\n"
 # define E_INVALCINP "Error\nInvalid color input\n"
+# define E_NOTSORR "Error\nNot surrounded by walls\n"
+# define E_INVCOLOR "Error\nInvalid color range\n" 
+
 // MLX
 # define E_MLX "Error\nMLX_INIT FAILURE\n"
 # define E_MLX_WIN "Error\nMLX_WIN FAILURE\n"

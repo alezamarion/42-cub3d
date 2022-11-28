@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/28 04:27:27 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 08:09:58 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,11 @@ void	draw_image(t_game *game, void *image, int x, int y);
 //hook_player.c
 void	hook_player(t_game *game, int i, int j);
 
-//main_loop.c
+//render_game.c
+void	strip_wall_projection(t_wall *wall, t_game *game, int i);
+void	dist_text_color(t_wall wall, int *current_img, t_game *game, int i);
+int		*get_right_texture(t_game *game, t_ray *ray);
+void	wall_pixel(t_wall *wall, t_game *game, int i);
 int		render_game(t_game *game);
 
 //draw_minimap
@@ -92,6 +96,7 @@ void	draw_player(t_game *game);
 void	render_player(t_game *game, int x, int y, int color);
 
 //cast_all_rays.c
+void	generate_3d_projection(t_game *game);
 void	cast_all_rays(t_game *game);
 void	cast_ray(double ray_angle, int strip_id, t_game *game);
 double	distance_between_points(double x1, double y1, double x2, double y2);
@@ -99,35 +104,43 @@ double	normalize_angle_cast_ray(double angle);
 
 //cast_ray.c
 void	where_is_ray_facing(double ray_angle, t_game *game);
-void	find_horizontal_intersection(double ray_angle, t_game *game);
-void	find_vertical_intersection(double ray_angle, t_game *game);
 void	choose_smalest_distance(double ray_angle, int strip_id, t_game *game);
 
+//cast_ray_horizontal.c
+void	horiz_less_vert(double htz_hit_dist, int strip_id, t_game *game);
+void	find_horizontal_intersection(double ray_angle, t_game *game);
+
+//cast_ray_vertical.c
+void	vert_less_horiz(double vert_hit_dist, int strip_id, t_game *game);
+void	find_vertical_intersection(double ray_angle, t_game *game);
+
 // validation.c
-t_bool	print_error(char *error);
+t_bool	print_error(char *error, t_game *game);
 t_bool	validation(t_game *game, int argc, char **argv);
 
 //color
-void save_colors(char *file, int identifier, t_game *game);
-int	is_color(char *file, int *identifier);
+void	save_colors(char *file, int identifier, t_game *game);
+int		is_color(char *file, int *identifier);
 
 //map.c
-int     is_map(char *file);
-char    *get_map(char *file);
+int		is_map(char *file);
+char	*get_map(char *file);
 
 //validate_input_file
-int     validate_input_file(t_game *game);
+int		validate_input_file(t_game *game);
 
 //validate_colors
-int     validate_colors(char *color);
+int		validate_colors(char *color);
 
 //is_map_playable.c
-void     is_map_playable(t_game *game);
+void	is_map_playable(t_game *game);
 
 //is_map_playable_utils.c
 void	resize_line(t_game *game);
 void	resize_column(t_game *game);
-size_t	count_vectors(void **matrix);
 
+//is_map_playable_utils2.c
+size_t	count_vectors(void **matrix);
+int		is_out_of_range(int n);
 
 #endif

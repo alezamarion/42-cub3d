@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/28 04:09:21 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 08:15:12 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,6 @@ typedef struct ray
 	int		vert_wall_content;
 }				t_ray;
 
-// typedef struct s_images_buffers
-// {
-// //	int	*wall_buffer;
-	
-
-// }	t_images_buffers;
-
 typedef struct s_param
 {
 	char	*no;
@@ -107,12 +100,12 @@ typedef struct s_param
 
 }				t_param;
 
-typedef struct	s_images
+typedef struct s_images
 {
-	int	*color_buffer;
+	int			*color_buffer;
 	t_img		*structure;
 
-}		t_image;
+}				t_image;
 
 typedef struct s_game
 {
@@ -132,7 +125,11 @@ typedef struct s_game
 	int					image_height;
 	int					end_game;
 	char				*file_content;
-}						t_game;
+	double				horiz_x_step;
+	double				horiz_y_step;
+	double				vert_x_step;
+	double				vert_y_step;
+}							t_game;
 
 typedef enum e_bool
 {
@@ -144,6 +141,6 @@ typedef enum e_column_limits
 {
 	TOP_LINE,
 	BOT_LINE
-}	t_column_limits;
+}			t_column_limits;
 
 #endif

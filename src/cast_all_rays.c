@@ -3,21 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   cast_all_rays.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:44:17 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 23:39:53 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 08:05:42 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-double	normalize_angle_cast_ray(double angle)
+void	generate_3d_projection(t_game *game)
 {
-	angle = remainder(angle, TWO_PI);
-	if (angle < 0)
-		angle = TWO_PI + angle;
-	return (angle);
+	int			i;
+	t_wall		wall;
+	int			*current_img;
+
+	i = 0;
+	ft_bzero(&wall, sizeof(t_wall));
+	while (i++ < NUM_RAYS)
+	{
+		strip_wall_projection(&wall, game, i);
+		wall_pixel(&wall, game, i);
+		if (game->rays[i].was_hit_vertical)
+			wall.text_offset_x = (int)game->rays[i].wall_hit_y % TILE_SIZE;
+		else
+			wall.text_offset_x = (int)game->rays[i].wall_hit_x % TILE_SIZE;
+		current_img = get_right_texture(game, game->rays + i);
+		while (wall.top_pixel++ < wall.botton_pixel)
+		{
+			dist_text_color(wall, current_img, game, i);
+		}
+	}
+}
+
+void	where_is_ray_facing(double ray_angle, t_game *game)
+{
+	game->rays->is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
+	game->rays->is_ray_facing_up = !game->rays->is_ray_facing_down;
+	game->rays->is_ray_facing_right = ray_angle < HALF_PI
+		|| ray_angle > PI_PLUS_HALF_PI;
+	game->rays->is_ray_facing_left = !game->rays->is_ray_facing_right;
 }
 
 double	distance_between_points(double x1, double y1, double x2, double y2)
@@ -26,16 +51,6 @@ double	distance_between_points(double x1, double y1, double x2, double y2)
 
 	result = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 	return (result);
-}
-
-void	where_is_ray_facing(double ray_angle, t_game *game)
-{
-	game->rays->is_ray_facing_down
-		= ray_angle > 0 && ray_angle < PI;
-	game->rays->is_ray_facing_up = !game->rays->is_ray_facing_down;
-	game->rays->is_ray_facing_right
-		= ray_angle < HALF_PI || ray_angle > PI_PLUS_HALF_PI;
-	game->rays->is_ray_facing_left = !game->rays->is_ray_facing_right;
 }
 
 void	cast_ray(double ray_angle, int strip_id, t_game *game)

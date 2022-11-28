@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/11/28 03:02:56 by azamario         ###   ########.fr        #
+#    Updated: 2022/11/28 05:30:30 by joeduard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ FILES		+=	exit_game.c init_game.c init_image.c init_window.c
 FILES		+=	read_file.c validate_map_info.c event_handler.c render_game.c
 FILES		+=	map_utils.c draw_minimap.c draw_player.c cast_all_rays.c
 FILES		+=	cast_ray_horizontal.c cast_ray_vertical.c color.c cast_ray_find_distance.c validation.c
-FILES		+=	validate_colors.c is_map_playable.c is_map_playable_utils.c
+FILES		+=	validate_colors.c is_map_playable.c is_map_playable_utils.c is_map_playable_utils2.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))

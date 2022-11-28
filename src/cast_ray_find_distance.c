@@ -3,19 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray_find_distance.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:07:50 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 23:41:51 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 06:22:01 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+double	normalize_angle_cast_ray(double angle)
+{
+	angle = remainder(angle, TWO_PI);
+	if (angle < 0)
+		angle = TWO_PI + angle;
+	return (angle);
+}
+
 static void	get_ray_content(t_game *game, t_ray *ray)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	if (ray->was_hit_vertical)
 	{
@@ -24,26 +32,10 @@ static void	get_ray_content(t_game *game, t_ray *ray)
 	}
 	else
 	{
-		x = (int)floor(ray->wall_hit_x / TILE_SIZE);		
+		x = (int)floor(ray->wall_hit_x / TILE_SIZE);
 		y = (int)floor((ray->wall_hit_y - ray->is_ray_facing_up) / TILE_SIZE);
 	}
 	ray->wall_hit_content = game->map.map[y][x];
-}
-
-static void	vert_less_horiz(double vert_hit_dist, int strip_id, t_game *game)
-{
-	game->rays[strip_id].distance = vert_hit_dist;
-	game->rays[strip_id].wall_hit_x = game->rays->vert_wall_hit_x;
-	game->rays[strip_id].wall_hit_y = game->rays->vert_wall_hit_y;
-	game->rays[strip_id].was_hit_vertical = true;
-}
-
-static void	horiz_less_vert(double htz_hit_dist, int strip_id, t_game *game)
-{
-	game->rays[strip_id].distance = htz_hit_dist;
-	game->rays[strip_id].wall_hit_x = game->rays->horiz_wall_hit_x;
-	game->rays[strip_id].wall_hit_y = game->rays->horiz_wall_hit_y;
-	game->rays[strip_id].was_hit_vertical = false;
 }
 
 static void	other_rays_setup(double ray_angle, int strip_id, t_game *game)

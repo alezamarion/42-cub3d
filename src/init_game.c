@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:59:47 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 09:52:45 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 07:11:46 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ static void	initialize_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
-	{
-		print_error(E_MLX);
-		exit_game(game);
-	}
+		print_error(E_MLX, game);
 }
 
 static void	initialize_data(t_game *game)

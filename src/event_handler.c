@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:14:37 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 22:59:45 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 05:41:35 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ int	has_wall(double x, double y, t_game *game)
 {
 	int	col;
 	int	line;
-	
+
 	col = (int)floor((x / TILE_SIZE));
 	line = (int)floor((y / TILE_SIZE));
-	if (x < 0 || x > TILE_SIZE * ft_strlen(game->map.map[line]) || y < 0 || y > TILE_SIZE * game->map.row)
+	if (x < 0 || x > TILE_SIZE * ft_strlen(game->map.map[line])
+		|| y < 0 || y > TILE_SIZE * game->map.row)
 		return (true);
 	return (game->map.map[line][col] == '1');
 }

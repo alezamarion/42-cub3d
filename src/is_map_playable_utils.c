@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_map_playable_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 03:02:25 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/28 04:28:10 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 05:33:00 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

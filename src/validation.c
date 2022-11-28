@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:00:11 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/28 04:54:17 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 05:49:05 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ static void	save_file_info(char **file, t_game *game)
 			break ;
 		}
 		else
-		{
-			print_error(E_FILEELEMENT);
-			exit_game(game);
-		}
+			print_error(E_FILEELEMENT, game);
 		if (game->map.map == 0)
 			element_count++;
 		i++;
@@ -79,22 +76,16 @@ static void	save_file_info(char **file, t_game *game)
 t_bool	validation(t_game *game, int argc, char **argv)
 {
 	if (WIN_WIDTH != 800 || WIN_HEIGHT != 600)
-		return (print_error(E_RESINVAL));
+		return (print_error(E_RESINVAL, game));
 	if (argc < 2)
-		return (print_error(E_NOMAP));
+		return (print_error(E_NOMAP, game));
 	if (argc > 2)
-		return (print_error(E_MANYARG));
+		return (print_error(E_MANYARG, game));
 	game->map.file = read_file(argv[1]);
 	if (!game->map.file || !(*game->map.file))
-	{
-		print_error(E_EMPTY_F);
-		exit_game(game);
-	}
+		print_error(E_EMPTY_F, game);
 	if (!has_valid_extension(argv[1]))
-	{
-		print_error(E_WRONGEXT);
-		exit_game(game);
-	}
+		print_error(E_WRONGEXT, game);
 	save_file_info(game->map.file, game);
 	is_valid_map_info(game);
 	is_map_playable(game);

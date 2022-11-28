@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:12:13 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/27 20:55:27 by azamario         ###   ########.fr       */
+/*   Updated: 2022/11/28 07:19:09 by joeduard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,6 @@ void	initialize_image(t_game *game)
 	game->img.structure = mlx_new_image(game->mlx, WIN_WIDTH,
 			WIN_HEIGHT);
 	if (game->img.structure == NULL)
-	{
-		print_error(E_MLX_IMG);
-		exit_game(game);
-	}
+		print_error(E_MLX_IMG, game);
 	game->img.color_buffer = (int *) game->img.structure->data;
 }
