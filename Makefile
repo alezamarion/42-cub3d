@@ -6,7 +6,7 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/11/28 08:31:45 by azamario         ###   ########.fr        #
+#    Updated: 2022/12/01 15:36:07 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,11 @@ OBJ_DIR		=	./obj
 
 FILES		=	cub3d.c
 FILES		+=	exit_game.c init_game.c init_image.c init_window.c    
-FILES		+=	read_file.c validate_map_info.c event_handler.c render_game.c
-FILES		+=	map_utils.c draw_minimap.c draw_player.c cast_all_rays.c
-FILES		+=	cast_ray_horizontal.c cast_ray_vertical.c color.c cast_ray_find_distance.c validation.c
-FILES		+=	validate_colors.c is_map_playable.c is_map_playable_utils.c is_map_playable_utils2.c
+FILES		+=	read_file.c event_handler.c render_game.c
+FILES		+=	init_game1.c draw_minimap.c render_game1.c render_game2.c
+FILES		+=	render_game3.c render_game4.c validation2.c render_game5.c validation.c
+FILES		+=	validation7.c validation4.c validation5.c validation6.c
+FILES		+=	validation1.c validation3.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(FILES))
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
@@ -57,7 +58,7 @@ $(MLX):
 	@echo "Mlx is ready! [ OK ]"
 
 run:
-	./cub3d "assets/maps/map5.cub"
+	./cub3d "assets/maps/map0.cub"
 
 resize:
 	mogrify -resize 32X32 $(IMG_DIR)/*.png && make img

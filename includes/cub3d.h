@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/11/28 08:09:58 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:19:12 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ char	*get_map(char *file);
 //validate_input_file
 int		validate_input_file(t_game *game);
 
-//validate_colors
+//validation2.c
 int		validate_colors(char *color);
 
 //is_map_playable.c
@@ -142,5 +142,8 @@ void	resize_column(t_game *game);
 //is_map_playable_utils2.c
 size_t	count_vectors(void **matrix);
 int		is_out_of_range(int n);
+
+// validation1.c
+void	save_file_info(char **file, t_game *game);
 
 #endif

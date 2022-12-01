@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map_info.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeduard <joeduard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
-/*   Updated: 2022/11/28 05:55:32 by joeduard         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:58:49 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,6 @@ static int	has_minimum_chars(char **map, t_game *game)
 		i++;
 	}
 	return (0);
-}
-
-int	has_valid_extension(char *file)
-{
-	char	*extension;
-
-	if (!file)
-		return (0);
-	extension = ft_strrchr(file, '.');
-	if (extension == NULL)
-		return (0);
-	if (ft_strncmp(extension, ".cub", 5))
-		return (0);
-	return (1);
 }
 
 int	is_valid_map_info(t_game *game)
