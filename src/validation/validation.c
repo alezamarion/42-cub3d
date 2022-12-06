@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:00:11 by joeduard          #+#    #+#             */
-/*   Updated: 2022/12/01 14:58:13 by azamario         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:57:41 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_bool	validation(t_game *game, int argc, char **argv)
 	if (!has_valid_extension(argv[1]))
 		print_error(E_WRONGEXT, game);
 	save_file_info(game->map.file, game);
-	is_valid_map_info(game);
+	map_info_validate(game);
 	is_map_playable(game);
 	return (true);
 }

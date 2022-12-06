@@ -6,7 +6,7 @@
 #    By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 20:05:50 by azamario          #+#    #+#              #
-#    Updated: 2022/12/05 21:46:51 by azamario         ###   ########.fr        #
+#    Updated: 2022/12/06 10:25:06 by azamario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,11 @@ OBJ_DIR			=	./obj
 
 CORE			=	cub3d.c
 EVENT_HANDLER	=	event_handler.c
-INIT_GAME		=	exit_game.c init_game.c init_game1.c init_image.c init_window.c
-RENDER_GAME		=	draw_minimap.c render_game.c render_game1.c render_game2.c render_game3.c \
-					render_game4.c render_game5.c
-VALIDATION		=	read_file.c validation.c validation1.c validation2.c validation3.c \
-					validation4.c validation5.c validation6.c validation7.c
+INIT_GAME		=	exit_game.c init_game.c init_image.c init_window.c map_counter.c
+RENDER_GAME		=	cast_all_rays.c choose_smallest_distance.c draw_minimap.c find_horizontal_intersection.c \
+					find_vertical_intersection.c move_player.c render_game.c
+VALIDATION		=	read_file.c validation.c save_file_info.c save_file_info1.c map_info_validate.c \
+					is_map_playable.c is_map_playable1.c
 
 FILES			=	$(addprefix core/, $(CORE)) \
 					$(addprefix event_handler/, $(EVENT_HANDLER)) \

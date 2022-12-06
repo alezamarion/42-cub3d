@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_map_info.c                                :+:      :+:    :+:   */
+/*   map_info_validate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:30:16 by azamario          #+#    #+#             */
-/*   Updated: 2022/12/01 14:58:49 by azamario         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:57:29 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	has_minimum_chars(char **map, t_game *game)
 	return (0);
 }
 
-int	is_valid_map_info(t_game *game)
+int	map_info_validate(t_game *game)
 {
 	if (!game->map.map)
 		print_error(E_NO_MAP, game);

@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation4.c                                      :+:      :+:    :+:   */
+/*   is_map_playable.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:36:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/12/05 22:47:25 by azamario         ###   ########.fr       */
+/*   Updated: 2022/12/05 23:04:19 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+size_t	count_vectors(void **matrix)
+{
+	size_t	i;
 
+	i = 0;
+	while (matrix[i])
+		i++;
+	return (i);
+}
 
 static int	is_closed_on_the_sides(char **map)
 {

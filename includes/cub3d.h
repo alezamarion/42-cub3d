@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/12/05 21:50:12 by azamario         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:58:40 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 char	**read_file(char *path_to_file);
 
 //validate_map_info.c
-int		is_valid_map_info(t_game *game);
+int		map_info_validate(t_game *game);
 int		has_valid_extension(char *file);
 
 //exit_game.c

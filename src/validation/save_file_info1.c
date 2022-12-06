@@ -1,16 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation2.c                                      :+:      :+:    :+:   */
+/*   save_file_info1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 18:16:38 by azamario          #+#    #+#             */
-/*   Updated: 2022/12/01 15:20:50 by azamario         ###   ########.fr       */
+/*   Updated: 2022/12/05 23:03:01 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+int	is_out_of_range(int n)
+{
+	return (n < 0 || n > 255);
+}
+
+int	validate_colors(char *color)
+{
+	int	comma;
+
+	comma = 0;
+	if (!*color)
+		return (0);
+	while (*color)
+	{
+		if (*color == ',')
+			comma++;
+		color++;
+	}
+	if (comma < 2 || comma > 2)
+		return (0);
+	return (1);
+}
 
 static char	*get_next_octet(char *s)
 {
