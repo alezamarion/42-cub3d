@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:32:02 by joeduard          #+#    #+#             */
-/*   Updated: 2022/12/01 15:19:12 by azamario         ###   ########.fr       */
+/*   Updated: 2022/12/05 21:50:12 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,8 +136,8 @@ int		validate_colors(char *color);
 void	is_map_playable(t_game *game);
 
 //is_map_playable_utils.c
-void	resize_line(t_game *game);
-void	resize_column(t_game *game);
+void	check_line(t_game *game);
+void	check_column(t_game *game);
 
 //is_map_playable_utils2.c
 size_t	count_vectors(void **matrix);

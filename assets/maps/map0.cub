@@ -1,7 +1,7 @@
-WE textures/smith1.xpm
-SO textures/neo1.xpm
-EA textures/morpheus.xpm
-NO textures/matrix.xpm
+WE textures/eagle.xpm
+SO textures/neo_test.xpm
+EA textures/neo1.xpm
+NO textures/smith_test.xpm
 
 F 0, 255, 0
 C 255, 255, 0
