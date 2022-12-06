@@ -6,20 +6,13 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:36:31 by azamario          #+#    #+#             */
-/*   Updated: 2022/12/05 22:05:14 by azamario         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:47:25 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-typedef struct s_validation
-{
-	int		is_closed_behind;
-	int		column_limit[2];
-	int		column;
-	size_t	line_num;
-	size_t	total_lines;
-}	t_validation;
+
 
 static int	is_closed_on_the_sides(char **map)
 {

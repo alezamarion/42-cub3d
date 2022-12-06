@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:37:50 by joeduard          #+#    #+#             */
-/*   Updated: 2022/12/05 22:03:30 by azamario         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:49:39 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,25 @@
 # define STRUCTS_H
 
 # include "../libraries/mlx-linux/mlx_int.h"
+
+typedef struct s_validation
+{
+	int		is_closed_behind;
+	int		column_limit[2];
+	int		column;
+	size_t	line_num;
+	size_t	total_lines;
+}	t_validation;
+
+typedef struct s_validation1
+{
+	size_t	total_lines;
+	size_t	line;
+	size_t	counter;
+	size_t	column_limit[2];
+}	t_validation1;
+
+
 
 typedef struct s_player
 {	
