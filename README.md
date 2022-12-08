@@ -15,7 +15,7 @@ Skills<br>
 
 ## Gameplay
 
-<h1><img src="Cub3D.gif"><h1/>
+<img src="Cub3D.gif">
 
 ## Badge
 
