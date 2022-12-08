@@ -15,7 +15,7 @@ Skills<br>
 
 ## Gameplay
 
-<img src="cub3D.gif">
+<img src="Cub3D.gif">
 
 ## Badge
 
@@ -24,7 +24,7 @@ Skills<br>
 
 ## My grade
 
-<img src="cub3d_score.png">
+<img src="cub3d_grade.png">
 
 
 
