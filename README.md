@@ -19,12 +19,12 @@ Skills<br>
 
 ## Badge
 
-<img src="so_long.png">
+<img src="cub3d_badge.png">
 
 
 ## My grade
 
-<img src="score__so_long.png">
+<img src="cub3d_score.png">
 
 
 
