@@ -14,8 +14,9 @@ Skills<br>
 - Algorithms & AI<br><br>
 
 ## Gameplay
-
+<div>
 <img src="Cub3D.gif">
+<div/>
 
 ## Badge
 
