@@ -13,6 +13,23 @@ Skills<br>
 - Graphics
 - Algorithms & AI<br><br>
 
+## Gameplay
+
+<img src="cub3D.gif">
+
+## Badge
+
+<img src="so_long.png">
+
+
+## My grade
+
+<img src="score__so_long.png">
+
+
+
+
+
 ### Made with: <br/>
 
 ### Alexandre Zamarion
@@ -27,8 +44,3 @@ Skills<br>
  <a href="https://www.linkedin.com/in/jorge-eduardo-alves-094b4331/" target="_blank"><img align="center"src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
 </div>
 
-### Alfredo Neto
-<div style="display: inline_block">
- <a href="https://github.com/Alfredo-Neto" target="_blank"><img align="center" alt="Github_Jorge" height="30" width="30" src="https://cdn-icons-png.flaticon.com/128/1051/1051275.png" target="_blank"></a>
- <a href="https://www.linkedin.com/in/alfredo-neto-a2515814b/" target="_blank"><img align="center"src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-</div>
